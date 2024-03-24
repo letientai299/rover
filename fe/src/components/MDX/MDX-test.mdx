@@ -1,0 +1,113 @@
+# MDX test
+
+## Simple counter
+
+
+import Counter from './Counter.tsx';
+
+<Counter />
+
+## Code block
+
+```css
+.pages {
+  display: flex;
+
+  .links {
+    padding: 4px;
+  }
+}
+```
+
+With line numbers
+
+```js {1,3-4} showLineNumbers
+function fancyAlert(arg) {
+  if (arg) {
+    $.facebox({ div: '#foo' });
+  }
+}
+```
+
+## Theming
+
+> TODO
+
+## Pass props data to MDX components
+
+Hello, this is testing page for **{props.name}** (injected as props).
+
+## Pre-render
+
+> TODO
+
+## Synchronize with our design tokens
+
+> TODO
+
+## Some common markdown features I like to use
+
+> Here is a block quote
+
+### Autolink literals
+
+www.example.com, https://example.com, and contact@example.com.
+
+### Footnote
+
+A note[^1]
+
+[^1]: Big note.
+
+### Typography and lists
+
+- Lists of list:
+
+- Basic:
+
+- **bold**
+- _italic_
+- `code`
+- ~~strikethrough~~
+
+- Ordered :
+
+1. First
+2. Second
+3. Third
+
+- Strike:
+
+- ~one tilde~
+- ~~two tildes~~
+
+- Others:
+- Keyboard <kbd>Ctrl</kbd>, <kbd>Cmd</kbd>
+- Sup/sub: H<sub>2</sub>O, a<sup>2</sup>
+
+### Table
+
+| a    | b    |    c |  d  |
+| ---- | :--- | ---: | :-: |
+| Some | text | here |  !  |
+
+### Tasks
+
+- [ ] to do
+- [x] done
+
+## Math
+
+When $a \ne 0$, there are two solutions to $(ax^2 + bx + c = 0)$ and they are
+
+$$ x = {-b \pm \sqrt{b^2-4ac} \over 2a} $$
+
+## Mermaid
+
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+```

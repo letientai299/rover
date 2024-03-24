@@ -1,0 +1,78 @@
+import { FaDeleteLeft } from 'react-icons/fa6';
+import Button from './Button.tsx';
+import { FiFilePlus, FiFolder, FiPhoneCall } from 'react-icons/fi';
+
+## Basic
+
+- Icon at `start` position:
+
+<Button icon={FiFilePlus}>New File</Button>
+
+- Icon at `end` position:
+
+<Button icon={FiFilePlus} iconPosition={'end'}>New File</Button>
+
+## Normal
+
+### Ghost
+
+<Button icon={FiFilePlus} kind={'normal'} variation={'ghost'}>Normal</Button>
+<Button icon={FiFilePlus} kind={'normal'} variation={'ghost'} data-hover>Hovered</Button>
+<Button icon={FiFilePlus} kind={'normal'} variation={'ghost'} data-focus>Focused</Button>
+<Button icon={FiFilePlus} kind={'normal'} variation={'ghost'} data-active>Active</Button>
+
+### Outline
+
+<Button icon={FiFilePlus} kind={'normal'} variation={'outline'}>Normal</Button>
+<Button icon={FiFilePlus} kind={'normal'} variation={'outline'} data-hover>Hovered</Button>
+<Button icon={FiFilePlus} kind={'normal'} variation={'outline'} data-focus>Focused</Button>
+<Button icon={FiFilePlus} kind={'normal'} variation={'outline'} data-active>Active</Button>
+
+## Primary
+
+### Ghost
+
+<Button icon={FiPhoneCall} kind={'primary'} variation={'ghost'}>Ghost</Button>
+<Button icon={FiPhoneCall} kind={'primary'} variation={'ghost'} data-hover>Hovered</Button>
+<Button icon={FiPhoneCall} kind={'primary'} variation={'ghost'} data-focus>Focused</Button>
+<Button icon={FiPhoneCall} kind={'primary'} variation={'ghost'} data-active>Active</Button>
+
+### Outline
+
+<Button icon={FiPhoneCall} kind={'primary'} variation={'outline'}>Outline</Button>
+<Button icon={FiPhoneCall} kind={'primary'} variation={'outline'} data-hover>Hovered</Button>
+<Button icon={FiPhoneCall} kind={'primary'} variation={'outline'} data-focus>Focused</Button>
+<Button icon={FiPhoneCall} kind={'primary'} variation={'outline'} data-active>Active</Button>
+
+
+## Danger
+
+### Ghost
+
+<Button icon={FaDeleteLeft} kind={'danger'} variation={'ghost'}>Ghost</Button>
+<Button icon={FaDeleteLeft} kind={'danger'} variation={'ghost'} data-hover>Hovered</Button>
+<Button icon={FaDeleteLeft} kind={'danger'} variation={'ghost'} data-focus>Focused</Button>
+<Button icon={FaDeleteLeft} kind={'danger'} variation={'ghost'} data-active>Active</Button>
+
+### Outline
+
+<Button icon={FaDeleteLeft} kind={'danger'} variation={'outline'}>Outline</Button>
+<Button icon={FaDeleteLeft} kind={'danger'} variation={'outline'} data-hover>Hovered</Button>
+<Button icon={FaDeleteLeft} kind={'danger'} variation={'outline'} data-focus>Focused</Button>
+<Button icon={FaDeleteLeft} kind={'danger'} variation={'outline'} data-active>Active</Button>
+
+
+## Custom styles
+
+
+<Button kind={'primary'}
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          placeContent: 'center center',
+          maxWidth: `var(--sizes-7)`,
+          whiteSpace: 'normal',
+        }}>
+  <FiFolder size={'var(--sizes-6)'} />
+  Some long dir name
+</Button>

@@ -1,0 +1,67 @@
+.button {
+  --border: var(--colors-border-clear);
+  --focus-bg: var(--colors-neutral-focus-bg);
+  --hover-bg: var(--colors-neutral-hover-bg);
+  --active-bg: var(--colors-neutral-active-bg);
+  --outline: var(--colors-outline);
+
+  border-radius: var(--rounded-sm);
+  margin: 0;
+  box-sizing: content-box;
+  display: inline-flex;
+  place-items: center center;
+  gap: var(--gap-sm);
+  white-space: nowrap;
+  background: none;
+  border: var(--sizes-0-1) solid transparent;
+
+  /* kinds: change variable  */
+
+  &[data-kind='primary'] {
+    --fg: var(--colors-primary);
+    --fg-accessible: var(--colors-primary-accessible);
+    --focus-bg: var(--colors-primary-focus-bg);
+    --hover-bg: var(--colors-primary-hover-bg);
+    --active-bg: var(--colors-primary-active-bg);
+  }
+
+  &[data-kind='danger'] {
+    --outline: var(--colors-outline-danger);
+    --fg: var(--colors-danger);
+    --border: var(--fg);
+    --fg-accessible: var(--colors-danger-accessible);
+    --focus-bg: var(--colors-danger-focus-bg);
+    --hover-bg: var(--colors-danger-hover-bg);
+    --active-bg: var(--colors-danger-active-bg);
+  }
+
+  /* interactive states: apply color and styles change depends on the variations */
+
+  &:disabled {
+    &[data-variation='outline'] {
+      border-color: var(--border);
+    }
+  }
+
+  &:not(:disabled) {
+    color: var(--fg);
+
+    &:is(:hover, [data-hover]) {
+      background: var(--hover-bg);
+    }
+
+    &:is(:focus, [data-focus]) {
+      outline: var(--sizes-0-5) solid var(--outline);
+    }
+
+    &:is(:active, [data-active]) {
+      background: var(--active-bg);
+      outline: var(--sizes-0-5) solid var(--outline);
+    }
+
+    &[data-variation='outline'] {
+      color: var(--fg);
+      border-color: var(--border);
+    }
+  }
+}

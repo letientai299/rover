@@ -1,0 +1,46 @@
+{
+  "name": "fe",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:docs": "vite -c ./vite.docs.config.ts",
+    "build": "tsc && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "modern-normalize": "^2.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^5.0.1",
+    "@radix-ui/colors": "^3.0.0"
+  },
+  "devDependencies": {
+    "wouter": "^3.1.0",
+    "@mapbox/rehype-prism": "^0.9.0",
+    "@mdx-js/esbuild": "^3.0.1",
+    "@mdx-js/rollup": "^3.0.1",
+    "@types/mdx": "^2.0.11",
+    "@types/node": "^20.11.30",
+    "@types/react": "^18.2.69",
+    "@types/react-dom": "^18.2.22",
+    "@typescript-eslint/eslint-plugin": "^7.3.1",
+    "@typescript-eslint/parser": "^7.3.1",
+    "@vitejs/plugin-react-swc": "^3.6.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.6",
+    "github-markdown-css": "^5.5.1",
+    "prism-themes": "^1.9.0",
+    "rehype-katex": "^7.0.0",
+    "rehype-mathjax": "^6.0.0",
+    "rehype-mermaid": "^2.1.0",
+    "rehype-prism-plus": "^2.0.0",
+    "remark-gfm": "^4.0.0",
+    "remark-math": "^6.0.0",
+    "typescript": "^5.4.3",
+    "vite": "^5.2.6"
+  }
+}
