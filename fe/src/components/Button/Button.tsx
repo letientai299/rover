@@ -1,6 +1,6 @@
 import styles from './button.module.css';
 
-import { ButtonHTMLAttributes, PropsWithChildren } from 'react';
+import { ButtonHTMLAttributes, KeyboardEvent, PropsWithChildren, useState } from 'react';
 import { IconType } from 'react-icons';
 import { cx } from '@/utils';
 
@@ -12,18 +12,40 @@ export interface ButtonProps
   iconPosition?: 'start' | 'end';
 }
 
+
 const Button = (props: ButtonProps) => {
   const { children, className, icon, iconPosition, variation, kind, ...rest } =
     props;
   const pos = iconPosition ?? 'start';
   const Icon = icon;
+  const [pressed, setPressed] = useState(false);
+
+  const onKeyDown = (e: KeyboardEvent<HTMLButtonElement>) => {
+    if (!pressed && (e.code === 'Enter' || e.code === 'Space')) {
+      setPressed(true);
+    }
+  };
+
+  const onKeyUp = (e: KeyboardEvent<HTMLButtonElement>) => {
+    if (pressed && (e.code === 'Enter' || e.code === 'Space')) {
+      setPressed(false);
+    }
+  };
+
+  const dataAttributes = {
+    'data-variation': variation,
+    'data-kind': kind,
+    ...(pressed && { 'data-active': {} }),
+  };
+
 
   return (
     <button
       {...rest}
       className={cx(className, styles.button, variation === 'filled' ? styles.filled : styles.unfilled)}
-      data-variation={variation}
-      data-kind={kind}
+      {...dataAttributes}
+      onKeyDown={onKeyDown}
+      onKeyUp={onKeyUp}
     >
       {pos === 'start' && Icon && <Icon className={styles.icon} />}
       {children}
