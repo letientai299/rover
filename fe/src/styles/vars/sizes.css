@@ -29,19 +29,18 @@
   --border-sm: var(--sizes-0-1);
   --border-md: var(--sizes-0-5);
 
-  /* used for component internal gap */
-  --gap-sm: var(--sizes-0-5);
-
-  /* used for layout content gap */
-  --gap-md: var(--sizes-1);
+  --gap-sm: var(--sizes-1);
+  --gap-md: var(--sizes-2);
+  --gap-lg: var(--sizes-3);
 
   /* Margins */
-  --margin-sm: var(--sizes-0-5);
-  --margin-md: var(--sizes-1);
+  --margin-sm: var(--sizes-1);
+  --margin-md: var(--sizes-2);
 
   /* Padding */
   --padding-sm: var(--sizes-1);
   --padding-md: var(--sizes-2);
+  --padding-lg: var(--sizes-3);
 
   /* Padding */
   --rounded-sm: var(--sizes-0-5);

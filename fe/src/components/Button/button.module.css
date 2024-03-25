@@ -9,11 +9,17 @@
   margin: 0;
   box-sizing: content-box;
   display: inline-flex;
+  font-size: 1em;
   place-items: center center;
   gap: var(--gap-sm);
+  padding: var(--padding-sm);
   white-space: nowrap;
   background: none;
   border: var(--sizes-0-1) solid transparent;
+
+  svg {
+    font-size: 1.2em;
+  }
 
   /* kinds: change variable  */
 
@@ -51,12 +57,12 @@
     }
 
     &:is(:focus, [data-focus]) {
-      outline: var(--sizes-0-5) solid var(--outline);
+      outline: var(--sizes-1) solid var(--outline);
     }
 
     &:is(:active, [data-active]) {
       background: var(--active-bg);
-      outline: var(--sizes-0-5) solid var(--outline);
+      outline: var(--sizes-1) solid var(--outline);
     }
 
     &[data-variation='outline'] {

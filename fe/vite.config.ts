@@ -7,9 +7,7 @@ export default defineConfig({
   plugins: [react()],
 
   css: {
-    modules: {
-      localsConvention: 'camelCaseOnly',
-    },
+    transformer: 'lightningcss'
   },
 
   resolve: {

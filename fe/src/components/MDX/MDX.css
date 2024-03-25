@@ -1,33 +1,7 @@
-/**
-Important notes:
-- Defining layer orders go first.
-- Then, the layer rules, which can be inline or added via @import
-*/
-@layer gfm, prism, base;
-
-/*@import url('github-markdown-css/github-markdown-dark.css')*/
-/*  layer(gfm) (prefers-color-scheme: dark);*/
-@import url('github-markdown-css/github-markdown-light.css')
-  layer(gfm);
-/*@import url('prism-themes/themes/prism-one-dark.css')*/
-/*  layer(prism) (prefers-color-scheme: dark);*/
-@import url('prism-themes/themes/prism-one-light.css')
-  layer(prism) ;
-
-@layer base {
-  .markdown-body {
-    --hl-line-width: 4px;
-
-    box-sizing: border-box;
-    min-width: 768px;
-    padding: 45px;
-  }
-
-  @media (width <= 767px) {
-    .markdown-body {
-      padding: 15px;
-    }
-  }
+.markdown-body {
+  background: var(--colors-bg-primary) !important;
+  --hl-line-width: 4px;
+  box-sizing: border-box;
 
   pre {
     display: flex;
@@ -59,7 +33,8 @@ Important notes:
 
   .line-number::before {
     display: inline-block;
-    width: 2em;
+    width: 1em;
+    padding-right: 2em;
     text-align: right;
     color: rgb(156 163 175);
     content: attr(line) ' ';
@@ -69,5 +44,13 @@ Important notes:
     padding-left: calc(1em - var(--hl-line-width));
     margin-left: -2em;
     border-left: var(--hl-line-width) solid rgb(59 130 246);
+  }
+}
+
+
+@media (width <= 767px) {
+  .markdown-body {
+    background: var(--colors-bg-primary) !important;
+    padding: 15px;
   }
 }

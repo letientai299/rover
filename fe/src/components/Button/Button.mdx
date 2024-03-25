@@ -1,20 +1,37 @@
 import { FaDeleteLeft } from 'react-icons/fa6';
 import Button from './Button.tsx';
-import { FiFilePlus, FiFolder, FiPhoneCall } from 'react-icons/fi';
+import { FiFilePlus, FiFolder, FiPhoneCall, FiSun } from 'react-icons/fi';
+
+export function toggleTheme(e) {
+  const root = document.getElementById('root');
+  let cls = root.className;
+  console.log(cls)
+  if (cls === '') {
+    cls = 'dark'
+  } else if (cls.includes('light')) {
+    cls = cls.replace('light', 'dark')
+  } else {
+    cls = cls.replace('dark', 'light')
+  }
+
+  root.className = cls;
+}
+
 
 ## Basic
 
-- Icon at `start` position:
+Icon at `start` position:
+<Button icon={FiSun} onClick={toggleTheme} variation={'outline'}>Toggle theme</Button>
 
-<Button icon={FiFilePlus}>New File</Button>
+Icon at `end` position:
+<Button icon={FiSun} iconPosition={'end'} variation={'outline'} onClick={toggleTheme}>Toggle theme</Button>
 
-- Icon at `end` position:
-
-<Button icon={FiFilePlus} iconPosition={'end'}>New File</Button>
+Icon only: <Button icon={FiSun} variation={'outline'} onClick={toggleTheme}/>
 
 ## Normal
 
 ### Ghost
+
 
 <Button icon={FiFilePlus} kind={'normal'} variation={'ghost'}>Normal</Button>
 <Button icon={FiFilePlus} kind={'normal'} variation={'ghost'} data-hover>Hovered</Button>
@@ -73,6 +90,6 @@ import { FiFilePlus, FiFolder, FiPhoneCall } from 'react-icons/fi';
           maxWidth: `var(--sizes-7)`,
           whiteSpace: 'normal',
         }}>
-  <FiFolder size={'var(--sizes-6)'} />
+  <FiFolder size={'var(--sizes-6)'} strokeWidth={1} />
   Some long dir name
 </Button>

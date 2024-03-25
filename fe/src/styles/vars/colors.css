@@ -1,13 +1,18 @@
-@import url('@radix-ui/colors/gray.css');
-@import url('@radix-ui/colors/tomato.css');
-@import url('@radix-ui/colors/indigo.css');
+@import url('@radix-ui/colors/gray.css') ;
+@import url('@radix-ui/colors/gray-dark.css') ;
 
-:root {
+@import url('@radix-ui/colors/tomato.css');
+@import url('@radix-ui/colors/tomato-dark.css') ;
+
+@import url('@radix-ui/colors/indigo.css') ;
+@import url('@radix-ui/colors/indigo-dark.css') ;
+
+:root, .light, .dark {
   /* border colors */
   --colors-border-clear: var(--gray-8);
   --colors-border-subtle: var(--gray-6);
-  --colors-bg-primary: var(--gray-1);
-  --colors-bg-secondary: var(--gray-3);
+  --colors-bg-primary: var(--gray-2);
+  --colors-bg-secondary: var(--gray-1);
 
   /* neutral */
   --colors-neutral-text: var(--gray-11);
@@ -17,14 +22,14 @@
   --colors-neutral-active-bg: var(--gray-5);
 
   /* primary colors */
-  --colors-primary: var(--indigo-10);
+  --colors-primary: var(--indigo-11);
   --colors-primary-accessible: var(--indigo-4);
   --colors-primary-hover-bg: var(--indigo-3);
   --colors-primary-focus-bg: var(--indigo-4);
   --colors-primary-active-bg: var(--indigo-5);
 
   /* danger colors */
-  --colors-danger: var(--tomato-10);
+  --colors-danger: var(--tomato-11);
   --colors-danger-accessible: var(--tomato-4);
   --colors-danger-hover-bg: var(--tomato-3);
   --colors-danger-focus-bg: var(--tomato-4);

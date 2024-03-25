@@ -50,14 +50,7 @@ export default defineConfig(({
         rehypePlugins: [
           rehypeMathJaxSvg,
           rehypePrism,
-          [
-            rehypeMermaid,
-            {
-              strategy: 'img-svg',
-              // render double images for both dark and light mode
-              dark: true,
-            },
-          ],
+          [rehypeMermaid,],
         ],
       }),
       enforce: 'pre',
@@ -66,9 +59,7 @@ export default defineConfig(({
   ],
 
   css: {
-    modules: {
-      localsConvention: 'camelCaseOnly',
-    },
+    transformer: 'lightningcss',
   },
 
   resolve: {
