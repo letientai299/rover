@@ -44,7 +44,8 @@
   --padding-lg: var(--sizes-3);
 
   /* Padding */
-  --rounded-sm: var(--sizes-0-5);
-  --rounded-md: var(--sizes-1);
+  --rounded-sm: var(--sizes-1);
+  --rounded-md: var(--sizes-2);
+  --rounded-lg: var(--sizes-3);
   --rounded-half: 9999px;
 }
