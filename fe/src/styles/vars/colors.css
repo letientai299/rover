@@ -15,25 +15,37 @@
   --colors-bg-secondary: var(--gray-1);
 
   /* neutral */
-  --colors-neutral-text: var(--gray-11);
+  --colors-neutral: var(--gray-12);
   --colors-neutral-accessible: var(--gray-4);
-  --colors-neutral-hover-bg: var(--gray-3);
-  --colors-neutral-focus-bg: var(--gray-4);
-  --colors-neutral-active-bg: var(--gray-5);
+  --colors-neutral-hover-bg: var(--gray-5);
+  --colors-neutral-focus-bg: var(--gray-6);
+  --colors-neutral-active-bg: var(--gray-7);
+  --colors-neutral-filled-hover-bg: var(--gray-9);
+  --colors-neutral-filled-focus-bg: var(--gray-10);
+  --colors-neutral-filled-active-bg: var(--gray-11);
 
   /* primary colors */
-  --colors-primary: var(--indigo-11);
-  --colors-primary-accessible: var(--indigo-4);
-  --colors-primary-hover-bg: var(--indigo-3);
-  --colors-primary-focus-bg: var(--indigo-4);
-  --colors-primary-active-bg: var(--indigo-5);
+  --colors-primary: var(--indigo-10);
+  --colors-primary-accessible: var(--indigo-2);
+  --colors-primary-hover-bg: var(--indigo-4);
+  --colors-primary-focus-bg: var(--indigo-5);
+  --colors-primary-active-bg: var(--indigo-6);
+
+  --colors-primary-filled-hover-bg: var(--indigo-9);
+  --colors-primary-filled-focus-bg: var(--indigo-10);
+  --colors-primary-filled-active-bg: var(--indigo-11);
+
 
   /* danger colors */
-  --colors-danger: var(--tomato-11);
-  --colors-danger-accessible: var(--tomato-4);
-  --colors-danger-hover-bg: var(--tomato-3);
-  --colors-danger-focus-bg: var(--tomato-4);
-  --colors-danger-active-bg: var(--tomato-5);
+  --colors-danger: var(--tomato-10);
+  --colors-danger-accessible: var(--tomato-2);
+  --colors-danger-hover-bg: var(--tomato-4);
+  --colors-danger-focus-bg: var(--tomato-5);
+  --colors-danger-active-bg: var(--tomato-6);
+
+  --colors-danger-filled-hover-bg: var(--tomato-9);
+  --colors-danger-filled-focus-bg: var(--tomato-10);
+  --colors-danger-filled-active-bg: var(--tomato-11);
 
   /* interactive colors */
   --colors-outline: var(--indigo-8);

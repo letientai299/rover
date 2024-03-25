@@ -1,11 +1,5 @@
 .button {
-  --border: var(--colors-border-clear);
-  --focus-bg: var(--colors-neutral-focus-bg);
-  --hover-bg: var(--colors-neutral-hover-bg);
-  --active-bg: var(--colors-neutral-active-bg);
-  --outline: var(--colors-outline);
-
-  border-radius: var(--rounded-sm);
+  border-radius: var(--rounded-md);
   margin: 0;
   box-sizing: content-box;
   display: inline-flex;
@@ -16,15 +10,27 @@
   white-space: nowrap;
   background: none;
   border: var(--sizes-0-1) solid transparent;
+  outline-offset: var(--sizes-0-1);
+  outline-width: var(--sizes-0-5);
 
   svg {
     font-size: 1.2em;
   }
+}
+
+.unfilled {
+  --border: var(--colors-border-clear);
+  --focus-bg: var(--colors-neutral-focus-bg);
+  --hover-bg: var(--colors-neutral-hover-bg);
+  --active-bg: var(--colors-neutral-active-bg);
+  --outline: var(--colors-outline);
+
 
   /* kinds: change variable  */
 
   &[data-kind='primary'] {
     --fg: var(--colors-primary);
+    --border: var(--fg);
     --fg-accessible: var(--colors-primary-accessible);
     --focus-bg: var(--colors-primary-focus-bg);
     --hover-bg: var(--colors-primary-hover-bg);
@@ -57,16 +63,89 @@
     }
 
     &:is(:focus, [data-focus]) {
-      outline: var(--sizes-1) solid var(--outline);
+      outline-style: solid;
+      outline-color: var(--outline);
     }
 
     &:is(:active, [data-active]) {
       background: var(--active-bg);
-      outline: var(--sizes-1) solid var(--outline);
+      outline-color: var(--outline);
     }
 
     &[data-variation='outline'] {
       color: var(--fg);
+      border-color: var(--border);
+    }
+  }
+}
+
+
+.filled {
+  --bg: var(--colors-neutral-accessible);
+  --border: var(--colors-neutral-active-bg);
+  --hover-bg: var(--colors-neutral-filled-hover-bg);
+  --focus-bg: var(--colors-neutral-filled-focus-bg);
+  --active-bg: var(--colors-neutral-filled-active-bg);
+  --outline: var(--colors-outline);
+
+  &[data-kind='primary'] {
+    --fg: #e0e0e0;
+    --bg: var(--colors-primary);
+    --border: var(--colors-primary);
+    --hover-bg: var(--colors-primary-filled-hover-bg);
+    --focus-bg: var(--colors-primary-filled-focus-bg);
+    --active-bg: var(--colors-primary-filled-active-bg);
+
+  }
+
+  &[data-kind='danger'] {
+    --bg: var(--colors-danger);
+    --fg: white;
+    --border: var(--colors-danger-active-bg);
+    --hover-bg: var(--colors-danger-filled-hover-bg);
+    --focus-bg: var(--colors-danger-filled-focus-bg);
+    --active-bg: var(--colors-danger-filled-active-bg);
+    --outline: var(--colors-outline-danger);
+  }
+
+  background-color: var(--bg);
+  border-color: var(--border);
+
+  &:disabled {
+    &[data-variation='outline'] {
+      border-color: var(--border);
+    }
+
+    &[data-variation='filled'] {
+      border-color: var(--border);
+      color: #a0a0a0;
+    }
+  }
+
+  &:not(:disabled) {
+    background: var(--bg);
+    border-color: var(--border);
+    color: var(--fg);
+
+    &:is(:hover, [data-hover]) {
+      background: var(--hover-bg);
+      color: white;
+    }
+
+    &:is(:focus, [data-focus]) {
+      outline-style: solid;
+      outline-color: var(--outline);
+      background: var(--focus-bg);
+      color: white;
+    }
+
+    &:is(:active, [data-active]) {
+      background: var(--active-bg);
+      outline-color: var(--outline);
+      color: var(--colors-primary-active-bg);
+    }
+
+    &[data-variation='outline'] {
       border-color: var(--border);
     }
   }

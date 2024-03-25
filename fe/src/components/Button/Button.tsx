@@ -6,7 +6,7 @@ import { cx } from '@/utils';
 
 export interface ButtonProps
   extends PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>> {
-  variation?: 'ghost' | 'outline';
+  variation?: 'ghost' | 'outline' | 'filled';
   kind?: 'normal' | 'primary' | 'danger';
   icon?: IconType;
   iconPosition?: 'start' | 'end';
@@ -21,7 +21,7 @@ const Button = (props: ButtonProps) => {
   return (
     <button
       {...rest}
-      className={cx(className, styles.button)}
+      className={cx(className, styles.button, variation === 'filled' ? styles.filled : styles.unfilled)}
       data-variation={variation}
       data-kind={kind}
     >

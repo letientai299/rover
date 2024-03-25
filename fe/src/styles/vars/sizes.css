@@ -36,6 +36,7 @@
   /* Margins */
   --margin-sm: var(--sizes-1);
   --margin-md: var(--sizes-2);
+  --margin-lg: var(--sizes-3);
 
   /* Padding */
   --padding-sm: var(--sizes-1);
