@@ -7,7 +7,7 @@
   overflow: hidden;
   height: 100svh;
 
-  aside {
+  & aside {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -20,19 +20,24 @@
     height: 100%;
     overflow: hidden;
 
-    nav {
+    & nav {
       flex-grow: 1;
       overflow-y: auto;
       overflow-x: hidden;
       scrollbar-gutter: stable;
 
-      ul {
+      & ul {
         width: fit-content;
         list-style: none;
         margin: 0;
         padding: 0;
         white-space: nowrap;
         height: 100%;
+
+        & li > button {
+          padding-right: var(--padding-lg);
+          width: 100%;
+        }
       }
     }
   }

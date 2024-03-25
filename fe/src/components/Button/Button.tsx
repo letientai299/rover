@@ -24,6 +24,9 @@ const Button = (props: ButtonProps) => {
     if (!pressed && (e.code === 'Enter' || e.code === 'Space')) {
       setPressed(true);
     }
+    setTimeout(() => {
+      setPressed(false);
+    }, 200);
   };
 
   const onKeyUp = (e: KeyboardEvent<HTMLButtonElement>) => {

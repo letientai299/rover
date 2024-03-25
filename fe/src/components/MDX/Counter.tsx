@@ -1,12 +1,13 @@
 import { useState } from 'react';
+import { Button } from '@/components';
 
 const Counter = () => {
   const [cnt, setCnt] = useState(0);
   return (
     <div>
-      <button onClick={() => setCnt((count) => count + 1)}>
+      <Button onClick={() => setCnt((count) => count + 1)} variation="outline">
         Count is {cnt}
-      </button>
+      </Button>
     </div>
   );
 };

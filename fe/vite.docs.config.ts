@@ -31,10 +31,8 @@ export default defineConfig(({
       configureServer(server) {
         server.middlewares.use(
           (req, _, next) => {
-            // if (req.url === '/' || req.url?.endsWith('.mdx') || req.url?.endsWith('.md')) {
             if (req.url === '/') {
               req.url = '/docs.html';
-              // res.setHeader('content-type', 'text/javascript');
             }
             next();
           },

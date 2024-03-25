@@ -1,6 +1,6 @@
 import { Button, MDX } from '@/components';
 import { lazy } from 'react';
-import { Link, Redirect, Route, Router, Switch } from 'wouter';
+import { Link, Redirect, Route, Router, Switch, useLocation } from 'wouter';
 import { useHashLocation } from 'wouter/use-hash-location';
 
 import { FiMoon, FiSun } from 'react-icons/fi';
@@ -10,7 +10,7 @@ import { useTheme } from '@/hooks';
 const files = import.meta.glob('../../**/*.md*');
 
 const docsMap = new Map(
-  [...Object.entries(files)].map(([k, v]) => [k.replace('../..', 'docs'), v]),
+  [...Object.entries(files)].map(([k, v]) => [k.replace('../../', ''), v]),
 );
 
 function ThemeButton() {
@@ -27,10 +27,14 @@ function ThemeButton() {
 }
 
 function Nav() {
+  const [loc] = useLocation();
   const links = Array.from(docsMap.keys()).map((s) => {
+    const isCurrent = s === loc.replace('/', '');
     return (
       <li key={s}>
-        <Link to={s}>{s}</Link>
+        <Link to={s} asChild>
+          <Button disabled={isCurrent}>{s}</Button>
+        </Link>
       </li>
     );
   });
