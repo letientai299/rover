@@ -3,28 +3,25 @@ import { FiFolder } from 'react-icons/fi';
 import Tabs from './Tabs.tsx';
 import { LuFileJson2 } from 'react-icons/lu';
 import { FaGoogle } from 'react-icons/fa6';
-
-export function Box(props) {
-  return <div style={{
-    display: 'flex',
-    borderRadius: `var(--rounded-md)`,
-    padding: `var(--padding-md)`,
-    border: '1px solid var(--colors-border-subtle)',
-    minHeight: `var(--sizes-8)`,
-  }}>{props.children}</div>
-}
+import Box from '../Box/Box';
 
 # Tabs
 
 ## Fixed panes
 
 <Box>
-  <Tabs tabs={[
-    { title: "bin", icon: FiFolder, content: <>Some local folder</> },
-    { title: "GDrive", icon: FaGoogle, content: <>Google Drive folder</> },
-    { title: "config.json", icon: LuFileJson2, content: <>Some file</> },
-    { title: "SSH remote", icon: AiOutlineLock, content: <>Some remote connection</> },
-  ]} />
+  <Tabs
+    tabs={[
+      { title: 'bin', icon: FiFolder, content: <>Some local folder</> },
+      { title: 'GDrive', icon: FaGoogle, content: <>Google Drive folder</> },
+      { title: 'config.json', icon: LuFileJson2, content: <>Some file</> },
+      {
+        title: 'SSH remote',
+        icon: AiOutlineLock,
+        content: <>Some remote connection</>,
+      },
+    ]}
+  />
 </Box>
 
 ## With menu
@@ -33,9 +30,14 @@ export function Box(props) {
   <Tabs
     moreMenu={['some', 'thing']}
     tabs={[
-      { title: "bin", icon: FiFolder, content: <>Some local folder</> },
-      { title: "GDrive", icon: FaGoogle, content: <>Google Drive folder</> },
-      { title: "config.json", icon: LuFileJson2, content: <>Some file</> },
-      { title: "SSH remote", icon: AiOutlineLock, content: <>Some remote connection</> },
-    ]} />
+      { title: 'bin', icon: FiFolder, content: <>Some local folder</> },
+      { title: 'GDrive', icon: FaGoogle, content: <>Google Drive folder</> },
+      { title: 'config.json', icon: LuFileJson2, content: <>Some file</> },
+      {
+        title: 'SSH remote',
+        icon: AiOutlineLock,
+        content: <>Some remote connection</>,
+      },
+    ]}
+  />
 </Box>

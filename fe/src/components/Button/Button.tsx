@@ -1,6 +1,11 @@
 import styles from './button.module.css';
 
-import { ButtonHTMLAttributes, KeyboardEvent, PropsWithChildren, useState } from 'react';
+import {
+  ButtonHTMLAttributes,
+  KeyboardEvent,
+  PropsWithChildren,
+  useState,
+} from 'react';
 import { IconType } from 'react-icons';
 import { cx } from '@/utils';
 
@@ -11,7 +16,6 @@ export interface ButtonProps
   icon?: IconType;
   iconPosition?: 'start' | 'end';
 }
-
 
 const Button = (props: ButtonProps) => {
   const { children, className, icon, iconPosition, variation, kind, ...rest } =
@@ -41,11 +45,14 @@ const Button = (props: ButtonProps) => {
     ...(pressed && { 'data-active': {} }),
   };
 
-
   return (
     <button
       {...rest}
-      className={cx(className, styles.button, variation === 'filled' ? styles.filled : styles.unfilled)}
+      className={cx(
+        styles.button,
+        variation === 'filled' ? styles.filled : styles.unfilled,
+        className,
+      )}
       {...dataAttributes}
       onKeyDown={onKeyDown}
       onKeyUp={onKeyUp}

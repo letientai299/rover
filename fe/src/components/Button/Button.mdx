@@ -3,135 +3,230 @@ import Button from './Button.tsx';
 import { FiFilePlus, FiFolder, FiPhoneCall, FiSun } from 'react-icons/fi';
 
 export function Bar(props) {
-  return <div style={{
-    display: 'flex', gap: `var(--gap-lg)`, margin: `var(--margin-lg)`
-  }}>{props.children}</div>
+  return (
+    <div
+      style={{
+        display: 'flex',
+        gap: `var(--gap-lg)`,
+        margin: `var(--margin-lg)`,
+      }}
+    >
+      {props.children}
+    </div>
+  );
 }
-
 
 ## Basic
 
 Icon at `start` position:
-<Button icon={FiSun} variation={'outline'}>Toggle theme</Button>
+
+<Button icon={FiSun} variation={'outline'}>
+  Toggle theme
+</Button>
 
 Icon at `end` position:
-<Button icon={FiSun} iconPosition={'end'} variation={'outline'}> Toggle theme</Button>
+
+<Button icon={FiSun} iconPosition={'end'} variation={'outline'}>
+  {' '}
+  Toggle theme
+</Button>
 
 Icon only:
+
 <Button icon={FiSun} variation={'outline'} />
 
 ## Disabled
 
 <Bar>
-  <Button icon={FiFilePlus} disabled kind={'normal'} variation={'ghost'}>Normal</Button>
-  <Button icon={FiFilePlus} disabled kind={'danger'} variation={'ghost'}>Danger</Button>
-  <Button icon={FiFilePlus} disabled kind={'primary'} variation={'ghost'}>Primary</Button>
+  <Button icon={FiFilePlus} disabled kind={'normal'} variation={'ghost'}>
+    Normal
+  </Button>
+  <Button icon={FiFilePlus} disabled kind={'danger'} variation={'ghost'}>
+    Danger
+  </Button>
+  <Button icon={FiFilePlus} disabled kind={'primary'} variation={'ghost'}>
+    Primary
+  </Button>
 </Bar>
-
 
 <Bar>
-  <Button icon={FiFilePlus} disabled kind={'normal'} variation={'outline'}>Normal</Button>
-  <Button icon={FiFilePlus} disabled kind={'danger'} variation={'outline'}>Danger</Button>
-  <Button icon={FiFilePlus} disabled kind={'primary'} variation={'outline'}>Primary</Button>
+  <Button icon={FiFilePlus} disabled kind={'normal'} variation={'outline'}>
+    Normal
+  </Button>
+  <Button icon={FiFilePlus} disabled kind={'danger'} variation={'outline'}>
+    Danger
+  </Button>
+  <Button icon={FiFilePlus} disabled kind={'primary'} variation={'outline'}>
+    Primary
+  </Button>
 </Bar>
-
 
 <Bar>
-  <Button icon={FiFilePlus} disabled kind={'normal'} variation={'filled'}>Normal</Button>
-  <Button icon={FiFilePlus} disabled kind={'danger'} variation={'filled'}>Danger</Button>
-  <Button icon={FiFilePlus} disabled kind={'primary'} variation={'filled'}>Primary</Button>
+  <Button icon={FiFilePlus} disabled kind={'normal'} variation={'filled'}>
+    Normal
+  </Button>
+  <Button icon={FiFilePlus} disabled kind={'danger'} variation={'filled'}>
+    Danger
+  </Button>
+  <Button icon={FiFilePlus} disabled kind={'primary'} variation={'filled'}>
+    Primary
+  </Button>
 </Bar>
-
-
 
 ## Normal
 
-
 <Bar>
-  <Button icon={FiFilePlus} kind={'normal'} variation={'ghost'}>Normal</Button>
-  <Button icon={FiFilePlus} kind={'normal'} variation={'ghost'} data-hover>Hovered</Button>
-  <Button icon={FiFilePlus} kind={'normal'} variation={'ghost'} data-focus>Focused</Button>
-  <Button icon={FiFilePlus} kind={'normal'} variation={'ghost'} data-active>Active</Button>
+  <Button icon={FiFilePlus} kind={'normal'} variation={'ghost'}>
+    Normal
+  </Button>
+  <Button icon={FiFilePlus} kind={'normal'} variation={'ghost'} data-hover>
+    Hovered
+  </Button>
+  <Button icon={FiFilePlus} kind={'normal'} variation={'ghost'} data-focus>
+    Focused
+  </Button>
+  <Button icon={FiFilePlus} kind={'normal'} variation={'ghost'} data-active>
+    Active
+  </Button>
 </Bar>
 
 <Bar>
-  <Button icon={FiFilePlus} kind={'normal'} variation={'outline'}>Normal</Button>
-  <Button icon={FiFilePlus} kind={'normal'} variation={'outline'} data-hover>Hovered</Button>
-  <Button icon={FiFilePlus} kind={'normal'} variation={'outline'} data-focus>Focused</Button>
-  <Button icon={FiFilePlus} kind={'normal'} variation={'outline'} data-active>Active</Button>
+  <Button icon={FiFilePlus} kind={'normal'} variation={'outline'}>
+    Normal
+  </Button>
+  <Button icon={FiFilePlus} kind={'normal'} variation={'outline'} data-hover>
+    Hovered
+  </Button>
+  <Button icon={FiFilePlus} kind={'normal'} variation={'outline'} data-focus>
+    Focused
+  </Button>
+  <Button icon={FiFilePlus} kind={'normal'} variation={'outline'} data-active>
+    Active
+  </Button>
 </Bar>
 
 <Bar>
-  <Button icon={FiFilePlus} kind={'normal'} variation={'filled'}>Normal</Button>
-  <Button icon={FiFilePlus} kind={'normal'} variation={'filled'} data-hover>Hovered</Button>
-  <Button icon={FiFilePlus} kind={'normal'} variation={'filled'} data-focus>Focused</Button>
-  <Button icon={FiFilePlus} kind={'normal'} variation={'filled'} data-active>Active</Button>
+  <Button icon={FiFilePlus} kind={'normal'} variation={'filled'}>
+    Normal
+  </Button>
+  <Button icon={FiFilePlus} kind={'normal'} variation={'filled'} data-hover>
+    Hovered
+  </Button>
+  <Button icon={FiFilePlus} kind={'normal'} variation={'filled'} data-focus>
+    Focused
+  </Button>
+  <Button icon={FiFilePlus} kind={'normal'} variation={'filled'} data-active>
+    Active
+  </Button>
 </Bar>
 
 ## Primary
 
-
 <Bar>
-  <Button icon={FiPhoneCall} kind={'primary'} variation={'ghost'}>Ghost</Button>
-  <Button icon={FiPhoneCall} kind={'primary'} variation={'ghost'} data-hover>Hovered</Button>
-  <Button icon={FiPhoneCall} kind={'primary'} variation={'ghost'} data-focus>Focused</Button>
-  <Button icon={FiPhoneCall} kind={'primary'} variation={'ghost'} data-active>Active</Button>
+  <Button icon={FiPhoneCall} kind={'primary'} variation={'ghost'}>
+    Ghost
+  </Button>
+  <Button icon={FiPhoneCall} kind={'primary'} variation={'ghost'} data-hover>
+    Hovered
+  </Button>
+  <Button icon={FiPhoneCall} kind={'primary'} variation={'ghost'} data-focus>
+    Focused
+  </Button>
+  <Button icon={FiPhoneCall} kind={'primary'} variation={'ghost'} data-active>
+    Active
+  </Button>
 </Bar>
 
 <Bar>
-  <Button icon={FiPhoneCall} kind={'primary'} variation={'outline'}>Outline</Button>
-  <Button icon={FiPhoneCall} kind={'primary'} variation={'outline'} data-hover>Hovered</Button>
-  <Button icon={FiPhoneCall} kind={'primary'} variation={'outline'} data-focus>Focused</Button>
-  <Button icon={FiPhoneCall} kind={'primary'} variation={'outline'} data-active>Active</Button>
+  <Button icon={FiPhoneCall} kind={'primary'} variation={'outline'}>
+    Outline
+  </Button>
+  <Button icon={FiPhoneCall} kind={'primary'} variation={'outline'} data-hover>
+    Hovered
+  </Button>
+  <Button icon={FiPhoneCall} kind={'primary'} variation={'outline'} data-focus>
+    Focused
+  </Button>
+  <Button icon={FiPhoneCall} kind={'primary'} variation={'outline'} data-active>
+    Active
+  </Button>
 </Bar>
 
 <Bar>
-  <Button icon={FiPhoneCall} kind={'primary'} variation={'filled'}>Outline</Button>
-  <Button icon={FiPhoneCall} kind={'primary'} variation={'filled'} data-hover>Hovered</Button>
-  <Button icon={FiPhoneCall} kind={'primary'} variation={'filled'} data-focus>Focused</Button>
-  <Button icon={FiPhoneCall} kind={'primary'} variation={'filled'} data-active>Active</Button>
+  <Button icon={FiPhoneCall} kind={'primary'} variation={'filled'}>
+    Outline
+  </Button>
+  <Button icon={FiPhoneCall} kind={'primary'} variation={'filled'} data-hover>
+    Hovered
+  </Button>
+  <Button icon={FiPhoneCall} kind={'primary'} variation={'filled'} data-focus>
+    Focused
+  </Button>
+  <Button icon={FiPhoneCall} kind={'primary'} variation={'filled'} data-active>
+    Active
+  </Button>
 </Bar>
-
-
 
 ## Danger
 
 <Bar>
-  <Button icon={FaDeleteLeft} kind={'danger'} variation={'ghost'}>Ghost</Button>
-  <Button icon={FaDeleteLeft} kind={'danger'} variation={'ghost'} data-hover>Hovered</Button>
-  <Button icon={FaDeleteLeft} kind={'danger'} variation={'ghost'} data-focus>Focused</Button>
-  <Button icon={FaDeleteLeft} kind={'danger'} variation={'ghost'} data-active>Active</Button>
+  <Button icon={FaDeleteLeft} kind={'danger'} variation={'ghost'}>
+    Ghost
+  </Button>
+  <Button icon={FaDeleteLeft} kind={'danger'} variation={'ghost'} data-hover>
+    Hovered
+  </Button>
+  <Button icon={FaDeleteLeft} kind={'danger'} variation={'ghost'} data-focus>
+    Focused
+  </Button>
+  <Button icon={FaDeleteLeft} kind={'danger'} variation={'ghost'} data-active>
+    Active
+  </Button>
 </Bar>
-
 
 <Bar>
-  <Button icon={FaDeleteLeft} kind={'danger'} variation={'outline'}>Outline</Button>
-  <Button icon={FaDeleteLeft} kind={'danger'} variation={'outline'} data-hover>Hovered</Button>
-  <Button icon={FaDeleteLeft} kind={'danger'} variation={'outline'} data-focus>Focused</Button>
-  <Button icon={FaDeleteLeft} kind={'danger'} variation={'outline'} data-active>Active</Button>
+  <Button icon={FaDeleteLeft} kind={'danger'} variation={'outline'}>
+    Outline
+  </Button>
+  <Button icon={FaDeleteLeft} kind={'danger'} variation={'outline'} data-hover>
+    Hovered
+  </Button>
+  <Button icon={FaDeleteLeft} kind={'danger'} variation={'outline'} data-focus>
+    Focused
+  </Button>
+  <Button icon={FaDeleteLeft} kind={'danger'} variation={'outline'} data-active>
+    Active
+  </Button>
 </Bar>
 
 <Bar>
-  <Button icon={FaDeleteLeft} kind={'danger'} variation={'filled'}>Outline</Button>
-  <Button icon={FaDeleteLeft} kind={'danger'} variation={'filled'} data-hover>Hovered</Button>
-  <Button icon={FaDeleteLeft} kind={'danger'} variation={'filled'} data-focus>Focused</Button>
-  <Button icon={FaDeleteLeft} kind={'danger'} variation={'filled'} data-active>Active</Button>
+  <Button icon={FaDeleteLeft} kind={'danger'} variation={'filled'}>
+    Outline
+  </Button>
+  <Button icon={FaDeleteLeft} kind={'danger'} variation={'filled'} data-hover>
+    Hovered
+  </Button>
+  <Button icon={FaDeleteLeft} kind={'danger'} variation={'filled'} data-focus>
+    Focused
+  </Button>
+  <Button icon={FaDeleteLeft} kind={'danger'} variation={'filled'} data-active>
+    Active
+  </Button>
 </Bar>
-
-
 
 ## Custom styles
 
-
 <Bar>
-  <Button kind={'primary'}
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            placeContent: 'center center',
-            maxWidth: `var(--sizes-7)`,
-            whiteSpace: 'normal',
-          }}>
+  <Button
+    kind={'primary'}
+    style={{
+      display: 'flex',
+      flexDirection: 'column',
+      placeContent: 'center center',
+      maxWidth: `var(--sizes-7)`,
+      whiteSpace: 'normal',
+    }}
+  >
     <FiFolder size={'var(--sizes-6)'} strokeWidth={1} />
     Some long dir name
   </Button>

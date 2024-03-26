@@ -34,6 +34,7 @@
   --gap-lg: var(--sizes-3);
 
   /* Margins */
+  --margin-xs: var(--sizes-0-5);
   --margin-sm: var(--sizes-1);
   --margin-md: var(--sizes-2);
   --margin-lg: var(--sizes-3);

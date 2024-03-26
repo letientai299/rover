@@ -1,0 +1,52 @@
+import Float from './Float';
+import { useId } from 'react';
+import Box from '../Box/Box';
+import { FiStar } from 'react-icons/fi';
+
+# Float
+
+`Float` is the container for things that can appear temporary on the page,
+doesn't belong to any other container.
+
+It's not called `Modal` because it's not supposed to steal all user attention
+and darken the page behind it.
+
+export function FloatDemo({ place }) {
+  const id = useId();
+  return <Box style={{
+    alignItems: 'center',
+    justifyContent: 'center',
+    border: `1px solid var(--colors-border-subtle)`,
+    minHeight: `var(--sizes-9)`,
+    margin: `var(--margin-sm)`,
+  }}>
+    <div id={id}><code>{place}</code></div>
+    <Float place={place}
+           anchor={id}
+           style={{
+             display: 'flex',
+             flexDirection: 'column'
+           }}>
+
+      <FiStar size={60} />
+      I'm a long string at the <code>{place}</code>
+    </Float>
+
+  </Box>
+}
+
+<FloatDemo place={'left-start'} />
+<FloatDemo place={'left'} />
+<FloatDemo place={'left-end'} />
+
+<FloatDemo place={'right-start'} />
+<FloatDemo place={'right'} />
+<FloatDemo place={'right-end'} />
+
+<FloatDemo place={'top'} />
+<FloatDemo place={'top-start'} />
+<FloatDemo place={'top-end'} />
+
+<FloatDemo place={'bottom'} />
+<FloatDemo place={'bottom-start'} />
+<FloatDemo place={'bottom-end'} />

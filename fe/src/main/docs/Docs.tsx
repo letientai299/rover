@@ -17,10 +17,7 @@ function ThemeButton() {
   const [isDark, toggle] = useTheme();
 
   return (
-    <Button
-      icon={isDark ? FiMoon : FiSun}
-      onClick={() => toggle()}
-    >
+    <Button icon={isDark ? FiMoon : FiSun} onClick={() => toggle()}>
       {isDark ? 'Light mode' : 'Dark mode'}
     </Button>
   );
@@ -41,9 +38,7 @@ function Nav() {
 
   return (
     <nav>
-      <ul>
-        {links}
-      </ul>
+      <ul>{links}</ul>
     </nav>
   );
 }

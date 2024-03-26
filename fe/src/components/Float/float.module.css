@@ -1,0 +1,14 @@
+.float {
+  z-index: var(--z-float);
+  background: var(--colors-bg-primary);
+  position: absolute;
+  padding: var(--padding-lg);
+  display: flex;
+  border: var(--border-sm) solid var(--colors-border-clear);
+  box-shadow: var(--shadow-sm);
+  border-radius: var(--rounded-sm);
+  justify-content: center;
+  align-items: center;
+  min-width: var(--sizes-8);
+  min-height: var(--sizes-5);
+}

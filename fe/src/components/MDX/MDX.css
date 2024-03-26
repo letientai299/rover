@@ -47,7 +47,6 @@
   }
 }
 
-
 @media (width <= 767px) {
   .markdown-body {
     background: var(--colors-bg-primary) !important;

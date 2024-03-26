@@ -1,0 +1,136 @@
+.tooltip {
+  --bg: var(--colors-bg-secondary);
+  --arrow-size: 0.8em;
+  --margin: calc(var(--arrow-size) + var(--margin-xs));
+
+  /*
+  this variable is used to hide box-shadow in some edge for the arrow,
+  the clipped value is equal to maximum length of the box-shadow
+  */
+  --clip: calc(0px - var(--sizes-1));
+  box-shadow: var(--shadow-sm);
+
+  border: var(--border-sm) solid var(--colors-border-clear);
+  background-color: var(--bg);
+
+  &::before {
+    z-index: var(--z-float);
+    position: absolute;
+    display: block;
+    content: '';
+    box-shadow: inherit;
+    height: var(--arrow-size);
+    width: var(--arrow-size);
+    background: inherit;
+  }
+
+  &[data-place^='right'] {
+    margin-left: var(--margin);
+
+    &::before {
+      transform: rotate(45deg) skew(-15deg, -15deg);
+      clip-path: inset(0px 0px var(--clip) var(--clip));
+      left: calc(0px - (var(--arrow-size) / 2));
+      border-left: inherit;
+      border-bottom: inherit;
+    }
+
+    &[data-place='right'] {
+      &::before {
+        top: calc(50% - calc(var(--arrow-size) / 2));
+      }
+    }
+
+    &[data-place$='-start'] {
+      margin-top: calc(0px - var(--arrow-size) / 2);
+      &::before {
+        top: calc(var(--arrow-size));
+      }
+    }
+
+    &[data-place$='-end'] {
+      margin-bottom: calc(0px - var(--arrow-size) / 2);
+      &::before {
+        bottom: calc(var(--arrow-size));
+      }
+    }
+  }
+
+  &[data-place^='left'] {
+    margin-right: var(--margin);
+
+    &::before {
+      transform: rotate(45deg) skew(-15deg, -15deg);
+      clip-path: inset(var(--clip) var(--clip) 0px 0px);
+      right: calc(0px - (var(--arrow-size) / 2));
+      border-right: inherit;
+      border-top: inherit;
+    }
+
+    &[data-place='left']::before {
+      top: calc(50% - calc(var(--arrow-size) / 2));
+    }
+
+    &[data-place$='-start'] {
+      margin-top: calc(0px - var(--arrow-size) / 2);
+      &::before {
+        top: calc(var(--arrow-size));
+      }
+    }
+
+    &[data-place$='-end'] {
+      margin-bottom: calc(0px - var(--arrow-size) / 2);
+      &::before {
+        bottom: calc(var(--arrow-size));
+      }
+    }
+  }
+
+  &[data-place^='top'] {
+    margin-bottom: var(--margin);
+
+    &::before {
+      clip-path: inset(0px var(--clip) var(--clip) 0px);
+      border-bottom: inherit;
+      border-right: inherit;
+      bottom: calc(0px - (var(--arrow-size) / 2));
+      transform: rotate(45deg) skew(15deg, 15deg);
+    }
+
+    &[data-place='top']::before {
+      left: calc(50% - calc(var(--arrow-size) / 2));
+    }
+
+    &[data-place$='-start']::before {
+      left: calc(var(--arrow-size));
+    }
+
+    &[data-place$='-end']::before {
+      right: calc(var(--arrow-size));
+    }
+  }
+
+  &[data-place^='bottom'] {
+    margin-top: var(--margin);
+
+    &::before {
+      transform: rotate(45deg) skew(15deg, 15deg);
+      clip-path: inset(var(--clip) 0px 0px var(--clip));
+      top: calc(0px - (var(--arrow-size) / 2));
+      border-left: inherit;
+      border-top: inherit;
+    }
+
+    &[data-place='bottom']::before {
+      left: calc(50% - calc(var(--arrow-size) / 2));
+    }
+
+    &[data-place$='-start']::before {
+      left: calc(var(--arrow-size));
+    }
+
+    &[data-place$='-end']::before {
+      right: calc(var(--arrow-size));
+    }
+  }
+}

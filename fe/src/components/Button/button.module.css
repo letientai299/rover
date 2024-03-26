@@ -25,7 +25,6 @@
   --active-bg: var(--colors-neutral-active-bg);
   --outline: var(--colors-outline);
 
-
   /* kinds: change variable  */
 
   &[data-kind='primary'] {
@@ -79,7 +78,6 @@
   }
 }
 
-
 .filled {
   --bg: var(--colors-neutral-accessible);
   --border: var(--colors-neutral-active-bg);
@@ -95,7 +93,6 @@
     --hover-bg: var(--colors-primary-filled-hover-bg);
     --focus-bg: var(--colors-primary-filled-focus-bg);
     --active-bg: var(--colors-primary-filled-active-bg);
-
   }
 
   &[data-kind='danger'] {

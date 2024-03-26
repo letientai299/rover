@@ -1,0 +1,77 @@
+import { useId } from 'react';
+import Box from '../Box/Box';
+import { FiHeart } from 'react-icons/fi';
+import Tooltip from './Tooltip';
+
+export function Anchor({ place }) {
+  const id = useId();
+  return <div style={{
+    display: 'flex',
+    flexDirection: 'column',
+    placeContent: 'center',
+    alignItems: 'center',
+  }}>
+    <code id={id} style={{
+      padding: `var(--sizes-4)`,
+      margin: 'var(--margin-sm)'
+    }}>{place}</code>
+    <Tooltip place={place}
+             anchor={id}
+             style={{
+               display: 'flex',
+               flexDirection: 'column'
+             }}>
+
+      <FiHeart size={60} strokeWidth={1} />
+      I'm a long tooltip at <code>{place}</code>
+    </Tooltip>
+
+  </div>
+}
+
+export function Demo() {
+  return <Box style={{
+    margin: `var(--sizes-7) auto`,
+    maxWidth: `min-content`,
+    flexGrow: 1,
+    display: 'grid',
+    gridTemplateColumns: `repeat(5, 1fr)`,
+  }}>
+
+    <div />
+    <Anchor place='top-start' />
+    <Anchor place='top' />
+    <Anchor place='top-end' />
+    <div />
+
+
+    <Anchor place='left-start' />
+    <div />
+    <div />
+    <div />
+    <Anchor place='right-start' />
+
+    <Anchor place='left' />
+    <div />
+    <div />
+    <div />
+    <Anchor place='right' />
+
+    <Anchor place='left-end' />
+    <div />
+    <div />
+    <div />
+    <Anchor place='right-end' />
+
+    <div />
+    <Anchor place='bottom-start' />
+    <Anchor place='bottom' />
+    <Anchor place='bottom-end' />
+    <div />
+
+  </Box>
+}
+
+# Tooltip
+
+<Demo />

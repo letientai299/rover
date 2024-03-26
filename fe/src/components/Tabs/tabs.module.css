@@ -4,7 +4,6 @@
   flex-grow: 1;
   border: var(--border-sm) solid var(--border);
 
-
   .titles {
     border-bottom: var(--border-sm) solid var(--border);
     display: flex;
@@ -17,7 +16,7 @@
       border-bottom-color: transparent;
       min-width: var(--sizes-7);
 
-      &[data-selected='true']{
+      &[data-selected='true'] {
         border-bottom-color: var(--colors-primary);
         border-bottom-style: inset;
       }
@@ -27,5 +26,4 @@
   .content {
     padding: var(--padding-sm);
   }
-
 }
