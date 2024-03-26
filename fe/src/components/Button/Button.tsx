@@ -11,14 +11,14 @@ import { cx } from '@/utils';
 
 export interface ButtonProps
   extends PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>> {
-  variation?: 'ghost' | 'outline' | 'filled';
+  variant?: 'ghost' | 'outline' | 'filled';
   kind?: 'normal' | 'primary' | 'danger';
   icon?: IconType;
   iconPosition?: 'start' | 'end';
 }
 
 const Button = (props: ButtonProps) => {
-  const { children, className, icon, iconPosition, variation, kind, ...rest } =
+  const { children, className, icon, iconPosition, variant, kind, ...rest } =
     props;
   const pos = iconPosition ?? 'start';
   const Icon = icon;
@@ -40,7 +40,7 @@ const Button = (props: ButtonProps) => {
   };
 
   const dataAttributes = {
-    'data-variation': variation,
+    'data-variant': variant,
     'data-kind': kind,
     ...(pressed && { 'data-active': {} }),
   };
@@ -50,7 +50,7 @@ const Button = (props: ButtonProps) => {
       {...rest}
       className={cx(
         styles.button,
-        variation === 'filled' ? styles.filled : styles.unfilled,
+        variant === 'filled' ? styles.filled : styles.unfilled,
         className,
       )}
       {...dataAttributes}
