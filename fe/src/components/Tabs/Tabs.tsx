@@ -1,21 +1,18 @@
 import { HTMLAttributes, ReactElement, useState } from 'react';
 
-import { Button, IconButton } from '@/components';
-import { IconType } from 'react-icons';
+import { Button } from '@/components';
 
 import styles from './tabs.module.css';
-import { FiMoreVertical } from 'react-icons/fi';
+import { IconSrc } from '@/components/Icon/Icon.tsx';
 
 export type Tab = {
-  icon: IconType;
+  icon: IconSrc;
   title: string;
   content?: ReactElement;
 };
 
 export interface TabsProps extends HTMLAttributes<HTMLDivElement> {
   tabs: Tab[];
-  // TODO: implement menu
-  moreMenu?: string[];
 }
 
 // TODO: store tabs state
@@ -37,19 +34,9 @@ const Tabs = (props: TabsProps) => {
     );
   });
 
-  const moreMenu = props.moreMenu ?? [];
-
   return (
     <div className={styles.tabs}>
-      <div className={styles.titles}>
-        {titles}
-        {moreMenu.length !== 0 && (
-          <>
-            <span style={{ flexGrow: 1 }} />
-            <IconButton icon={FiMoreVertical} />
-          </>
-        )}
-      </div>
+      <div className={styles.titles}>{titles}</div>
       <div className={styles.content}>{props.tabs[index].content}</div>
     </div>
   );

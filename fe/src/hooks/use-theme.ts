@@ -27,7 +27,7 @@ store.sub(darkAtom, () => {
   getRoot().className = store.get(darkAtom) ? 'dark' : 'light';
 });
 
-export function useTheme(): [boolean, () => void] {
+export default function useTheme(): [boolean, () => void] {
   const [dark, setDark] = useAtom(darkAtom);
   return [dark, () => setDark((v) => !v)];
 }

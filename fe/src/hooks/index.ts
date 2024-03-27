@@ -1,3 +1,4 @@
-import { useTheme } from '@/hooks/use-theme.ts';
+import useTheme from '@/hooks/use-theme';
+import useToggle from '@/hooks/use-toggle';
 
-export { useTheme };
+export { useTheme, useToggle };

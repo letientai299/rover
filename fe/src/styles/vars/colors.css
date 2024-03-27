@@ -18,6 +18,7 @@
 
   /* neutral */
   --colors-neutral: var(--gray-12);
+  --colors-neutral-secondary: var(--gray-11);
   --colors-neutral-accessible: var(--gray-4);
   --colors-neutral-hover-bg: var(--gray-5);
   --colors-neutral-focus-bg: var(--gray-6);

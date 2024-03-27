@@ -10,7 +10,7 @@ import rehypeMermaid from 'rehype-mermaid';
 import * as path from 'node:path';
 
 // https://vitejs.dev/config/
-export default defineConfig(({
+export default defineConfig({
   build: {
     rollupOptions: {
       input: {
@@ -29,14 +29,12 @@ export default defineConfig(({
     {
       name: 'docs-index',
       configureServer(server) {
-        server.middlewares.use(
-          (req, _, next) => {
-            if (req.url === '/') {
-              req.url = '/docs.html';
-            }
-            next();
-          },
-        );
+        server.middlewares.use((req, _, next) => {
+          if (req.url === '/') {
+            req.url = '/docs.html';
+          }
+          next();
+        });
       },
     },
 
@@ -45,11 +43,7 @@ export default defineConfig(({
       ...mdx({
         mdxExtensions: ['.mdx', '.md'],
         remarkPlugins: [remarkGfm, remarkMath],
-        rehypePlugins: [
-          rehypeMathJaxSvg,
-          rehypePrism,
-          [rehypeMermaid,],
-        ],
+        rehypePlugins: [rehypeMathJaxSvg, rehypePrism, [rehypeMermaid]],
       }),
       enforce: 'pre',
     } as PluginOption,
@@ -57,7 +51,9 @@ export default defineConfig(({
   ],
 
   css: {
-    transformer: 'lightningcss',
+    modules: {
+      localsConvention: 'camelCaseOnly',
+    },
   },
 
   resolve: {
@@ -65,4 +61,4 @@ export default defineConfig(({
       '@': path.resolve(__dirname, './src/'),
     },
   },
-}));
+});

@@ -6,15 +6,9 @@ import path from 'node:path';
 export default defineConfig({
   plugins: [react()],
 
-  css: {
-    transformer: 'lightningcss'
-  },
-
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src/'),
     },
   },
-
-
 });

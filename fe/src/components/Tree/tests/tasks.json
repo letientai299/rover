@@ -1,0 +1,18 @@
+{
+  "render the basic tree -> done": {
+    "render the indent -> done": {},
+    "render the default prefix icons -> done": {},
+    "render custom icons as prefix -> done": {},
+    "do some CSS magic to visualize indent guide -> nope, too hard for me right now": {}
+  },
+  "support mouse click for open and close -> done": {
+    "with prefix, mouse click can be handled on the icon -> done": {},
+    "how about no prefix -> won't support, don't know how to do this nicely": {}
+  },
+  "support external/remote data": {
+    "check and improve the TreeNode type definition": {
+      "should it be an sync or async function? -> async, let's user handle data loading": {},
+      "handle loading state while waiting for the children loaded? -> done": {}
+    }
+  }
+}

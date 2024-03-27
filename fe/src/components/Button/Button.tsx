@@ -6,14 +6,14 @@ import {
   PropsWithChildren,
   useState,
 } from 'react';
-import { IconType } from 'react-icons';
 import { cx } from '@/utils';
+import { IconSrc } from '@/components/Icon/Icon.tsx';
 
 export interface ButtonProps
   extends PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>> {
   variant?: 'ghost' | 'outline' | 'filled';
   kind?: 'normal' | 'primary' | 'danger';
-  icon?: IconType;
+  icon?: IconSrc;
   iconPosition?: 'start' | 'end';
 }
 

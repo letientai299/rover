@@ -13,7 +13,7 @@
   outline-offset: var(--sizes-0-1);
   outline-width: var(--sizes-0-5);
 
-  svg {
+  & svg {
     font-size: 1.2em;
   }
 }
