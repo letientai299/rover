@@ -5,37 +5,37 @@ import Tooltip from './Tooltip';
 
 export function Anchor({ place }) {
   const id = useId();
-  return <div style={{
+
+return <><code id={id} style={{
     display: 'flex',
-    flexDirection: 'column',
-    placeContent: 'center',
+    height: '100%',
+    width: '100%',
+    textAlign: 'center',
+    justifyContent: 'center',
     alignItems: 'center',
-  }}>
-    <code id={id} style={{
-      padding: `var(--sizes-4)`,
-      margin: 'var(--margin-sm)'
-    }}>{place}</code>
-    <Tooltip place={place}
-             anchor={id}
-             style={{
-               display: 'flex',
-               flexDirection: 'column'
-             }}>
+  }}>{place}</code>
+
+    <Tooltip place={place} anchor={id} style={{
+      display: 'flex',
+      flexDirection: 'column'
+    }}>
 
       <FiHeart size={60} strokeWidth={1} />
       I'm a long tooltip at <code>{place}</code>
     </Tooltip>
 
-  </div>
+  </>
 }
 
 export function Demo() {
   return <Box style={{
     margin: `var(--sizes-7) auto`,
-    maxWidth: `min-content`,
+    maxWidth: `fit-content`,
     flexGrow: 1,
     display: 'grid',
+    gap: 4,
     gridTemplateColumns: `repeat(5, 1fr)`,
+    gridAutoRows: '1fr',
   }}>
 
     <div />
