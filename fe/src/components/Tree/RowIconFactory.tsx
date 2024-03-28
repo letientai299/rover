@@ -1,13 +1,33 @@
-import { NodeIconProps, TreeNode } from '@/components/Tree/types.ts';
+import { RowIcon, RowIconProps, TreeNode } from '@/components/Tree/types.ts';
 import { IconButton } from '@/components';
 import { match } from 'ts-pattern';
 
 import styles from '@/components/Tree/tree.module.scss';
 
-const DefaultNodeIcon = <T extends TreeNode>({
-  reveal,
-  toggleReveal,
-}: NodeIconProps<T>) => {
+export type RowIconKind<T extends TreeNode> = RowIcon<T> | 'none' | 'default';
+
+type RowIconFactoryProps<T extends TreeNode> = RowIconProps<T> & {
+  kind: RowIconKind<T>;
+};
+
+const RowIconFactory = <T extends TreeNode>(props: RowIconFactoryProps<T>) => {
+  const { kind, reveal, toggleReveal, node } = props;
+  switch (kind) {
+    case 'none':
+      return <></>;
+    case 'default':
+      return <Default reveal={reveal} toggleReveal={toggleReveal} />;
+    default: {
+      const Comp = kind;
+      return <Comp node={node} reveal={reveal} toggleReveal={toggleReveal} />;
+    }
+  }
+};
+
+type DefaultPrefixProps<T extends TreeNode> = Omit<RowIconProps<T>, 'node'>;
+
+const Default = <T extends TreeNode>(props: DefaultPrefixProps<T>) => {
+  const { reveal, toggleReveal } = props;
   return (
     <IconButton
       icon={match(reveal)
@@ -88,4 +108,4 @@ const Loader = () => {
   );
 };
 
-export default DefaultNodeIcon;
+export default RowIconFactory;

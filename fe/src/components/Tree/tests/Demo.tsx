@@ -1,11 +1,11 @@
 import { IconButton, Tree } from '@/components';
-import { NodeIconProps } from '@/components/Tree/types.ts';
+import { RowIconProps } from '@/components/Tree/types.ts';
 import { match } from 'ts-pattern';
 import { FiArrowDown, FiArrowRight, FiLoader } from 'react-icons/fi';
 import { PropsWithChildren } from 'react';
 import { JsonTree, taskData } from '@/components/Tree/tests/jsonTree.ts';
-import { LuInfo } from 'react-icons/lu';
 import { strCut } from '@/utils';
+import { BiNote } from 'react-icons/bi';
 
 const Task = ({ node }: { node: JsonTree }) => {
   const { first: task, second: remark, found } = strCut(node.content, '->');
@@ -13,9 +13,7 @@ const Task = ({ node }: { node: JsonTree }) => {
     <div
       style={{
         display: 'flex',
-        verticalAlign: 'bottom',
         alignItems: 'center',
-        alignSelf: 'center',
         gap: 8,
       }}
     >
@@ -24,12 +22,13 @@ const Task = ({ node }: { node: JsonTree }) => {
         <span
           style={{
             color: 'var(--colors-neutral-secondary)',
-            display: 'inline-flex',
+            fontSize: '0.9em',
+            display: 'flow',
             alignItems: 'center',
             gap: 4,
           }}
         >
-          <LuInfo />
+          <BiNote style={{ translate: '0 20%' }} />
           {remark}
         </span>
       )}
@@ -37,7 +36,7 @@ const Task = ({ node }: { node: JsonTree }) => {
   );
 };
 
-const TaskIcon = (props: NodeIconProps<JsonTree>) => {
+const TaskIcon = (props: RowIconProps<JsonTree>) => {
   const { toggleReveal, reveal } = props;
   const loading = reveal === 'loading';
   const icon = match(reveal)
@@ -52,16 +51,25 @@ const TaskIcon = (props: NodeIconProps<JsonTree>) => {
 function Demo() {
   return (
     <section>
-      <Part title={'With default icons'}>
-        <Tree data={taskData} render={Task} />
+      <h2>Examples</h2>
+      <p>
+        All below tree are rendered from the same data with different config
+      </p>
+
+      <Part title={'Without default (i.e none) row icons and no custom icons'}>
+        <Tree data={taskData} render={Task} rowIcon={'none'} />
+      </Part>
+
+      <Part title={'With default row icons'}>
+        <Tree data={taskData} render={Task} rowIcon={'default'} />
       </Part>
 
       <Part title={'With custom icons'}>
-        <Tree data={taskData} render={Task} renderIcon={TaskIcon} />
+        <Tree data={taskData} render={Task} rowIcon={TaskIcon} />
       </Part>
 
       <Part title={'With custom icons and open by default'}>
-        <Tree data={taskData} render={Task} renderIcon={TaskIcon} open />
+        <Tree data={taskData} render={Task} rowIcon={TaskIcon} open />
       </Part>
     </section>
   );
@@ -71,7 +79,7 @@ function Part(props: PartProps) {
   const { title, children } = props;
   return (
     <>
-      <h2>{title}</h2>
+      <h3>{title}</h3>
       {children}
       <br />
     </>

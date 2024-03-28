@@ -1,15 +1,17 @@
 import styles from './tree.module.scss';
 
 import { HTMLAttributes, useEffect, useState } from 'react';
-import { Node, NodeIcon, Reveal, TreeNode } from '@/components/Tree/types.ts';
+import { Reveal, Row, TreeNode } from '@/components/Tree/types.ts';
 import { match } from 'ts-pattern';
-import DefaultNodeIcon from '@/components/Tree/DefaultNodeIcon.tsx';
 import { cx } from '@/utils';
+import RowIconFactory, {
+  RowIconKind,
+} from '@/components/Tree/RowIconFactory.tsx';
 
 type CommonProps<T extends TreeNode> = {
   open?: boolean;
-  render: Node<T>;
-  renderIcon?: NodeIcon<T>;
+  render: Row<T>;
+  rowIcon?: RowIconKind<T>;
 };
 
 export type TreeProps<T extends TreeNode> = {
@@ -18,7 +20,7 @@ export type TreeProps<T extends TreeNode> = {
   CommonProps<T>;
 
 const Tree = <T extends TreeNode>(props: TreeProps<T>) => {
-  const { data, open, render, renderIcon, ...rest } = props;
+  const { data, open, render, rowIcon, ...rest } = props;
   const nodes = Array.isArray(data) ? data : [data];
 
   return (
@@ -31,7 +33,7 @@ const Tree = <T extends TreeNode>(props: TreeProps<T>) => {
           node={node}
           open={open ?? false}
           render={render}
-          renderIcon={renderIcon}
+          rowIcon={rowIcon}
         />
       ))}
     </div>
@@ -45,7 +47,7 @@ type BranchProps<T extends TreeNode> = CommonProps<T> & {
 };
 
 const Branch = <T extends TreeNode>(props: BranchProps<T>) => {
-  const { level, node, open, render, renderIcon } = props;
+  const { level, node, open, render, rowIcon } = props;
   const [kids, setKids] = useState<T[]>([]);
   const [reveal, setReveal] = useState<Reveal>(!open ? 'close' : 'loading');
   const childVisible = reveal === 'open';
@@ -82,13 +84,11 @@ const Branch = <T extends TreeNode>(props: BranchProps<T>) => {
     );
   };
 
-  const Icon = renderIcon ?? DefaultNodeIcon;
-
   const children = kids.map((kid, i) => (
     <Branch
       visible={childVisible}
       render={Node}
-      renderIcon={renderIcon}
+      rowIcon={rowIcon}
       key={i}
       open={open}
       level={level + 1}
@@ -101,8 +101,13 @@ const Branch = <T extends TreeNode>(props: BranchProps<T>) => {
       className={cx(styles.branch, props.visible ? '' : styles.hidden)}
       data-level={level}
     >
-      <Icon node={node} reveal={reveal} toggleReveal={toggle} />
-      <Node node={node} />
+      <RowIconFactory
+        node={node}
+        reveal={reveal}
+        toggleReveal={toggle}
+        kind={rowIcon || 'none'}
+      />
+      <Node node={node} reveal={reveal} toggleReveal={toggle} />
       {children}
     </div>
   );

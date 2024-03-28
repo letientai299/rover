@@ -14,10 +14,7 @@ export type RevealState = {
   toggleReveal: () => void;
 };
 
-export type NodeProps<T extends TreeNode> = { node: T };
-
-export type Node<T extends TreeNode> = ComponentType<NodeProps<T>>;
-
-export type NodeIconProps<T extends TreeNode> = NodeProps<T> & RevealState;
-
-export type NodeIcon<T extends TreeNode> = ComponentType<NodeIconProps<T>>;
+export type RowProps<T extends TreeNode> = { node: T } & RevealState;
+export type RowIconProps<T extends TreeNode> = RowProps<T>;
+export type Row<T extends TreeNode> = ComponentType<RowProps<T>>;
+export type RowIcon<T extends TreeNode> = ComponentType<RowIconProps<T>>;

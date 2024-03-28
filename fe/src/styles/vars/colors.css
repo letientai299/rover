@@ -16,19 +16,26 @@
   --colors-bg-primary: var(--gray-1);
   --colors-bg-secondary: var(--gray-3);
 
+  /* text on background colors */
+  --colors-filled-fg-hover: var(--indigo-2);
+  --colors-filled-fg: var(--indigo-3);
+  --colors-filled-fg-dimmed: var(--indigo-5);
+
   /* neutral */
-  --colors-neutral: var(--gray-12);
+  --colors-neutral: var(--gray-10);
   --colors-neutral-secondary: var(--gray-11);
   --colors-neutral-accessible: var(--gray-4);
   --colors-neutral-hover-bg: var(--gray-5);
   --colors-neutral-focus-bg: var(--gray-6);
   --colors-neutral-active-bg: var(--gray-7);
-  --colors-neutral-filled-hover-bg: var(--gray-9);
-  --colors-neutral-filled-focus-bg: var(--gray-10);
-  --colors-neutral-filled-active-bg: var(--gray-11);
+  --colors-neutral-filled-bg: var(--gray-10);
+  --colors-neutral-filled-hover-bg: var(--gray-11);
+  --colors-neutral-filled-focus-bg: var(--gray-11);
+  --colors-neutral-filled-active-bg: var(--gray-12);
 
   /* primary colors */
   --colors-primary: var(--indigo-10);
+  --colors-primary-dimmed: var(--indigo-8);
   --colors-primary-accessible: var(--indigo-2);
   --colors-primary-hover-bg: var(--indigo-4);
   --colors-primary-focus-bg: var(--indigo-5);
@@ -40,6 +47,7 @@
 
   /* danger colors */
   --colors-danger: var(--tomato-10);
+  --colors-danger-dimmed: var(--tomato-8);
   --colors-danger-accessible: var(--tomato-2);
   --colors-danger-hover-bg: var(--tomato-4);
   --colors-danger-focus-bg: var(--tomato-5);

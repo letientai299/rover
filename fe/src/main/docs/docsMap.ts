@@ -65,7 +65,7 @@ export class DocModel implements TreeNode {
   }
 }
 
-function buildDocs() {
+function buildDocsTree() {
   const root = new DocModel('', 'dir');
   const files = import.meta.glob('../../**/*.md*');
   Object.entries(files).forEach(([k, v]) => {
@@ -76,4 +76,4 @@ function buildDocs() {
   return [...root.kids!.values()];
 }
 
-export const docs = buildDocs();
+export const docsTree = buildDocsTree();
