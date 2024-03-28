@@ -20,3 +20,25 @@ export function formatBytes(bytes: number, decimals?: number): string {
     i = Math.floor(Math.log(bytes) / Math.log(k));
   return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
 }
+
+export function strCut(
+  s: string,
+  sub: string,
+): {
+  first: string;
+  second: string;
+  found: boolean;
+} {
+  const i = s.indexOf(sub);
+  return i === -1
+    ? {
+        first: s,
+        second: '',
+        found: false,
+      }
+    : {
+        first: s.slice(0, i),
+        second: s.slice(i + sub.length),
+        found: true,
+      };
+}

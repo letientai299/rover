@@ -1,4 +1,4 @@
-import { ComponentType, Dispatch, SetStateAction } from 'react';
+import { ComponentType } from 'react';
 
 /**
  * how about this
@@ -11,7 +11,7 @@ export type Reveal = 'open' | 'close' | 'loading';
 
 export type RevealState = {
   reveal: Reveal;
-  setReveal: Dispatch<SetStateAction<Reveal>>;
+  toggleReveal: () => void;
 };
 
 export type NodeProps<T extends TreeNode> = { node: T };

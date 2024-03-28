@@ -6,7 +6,7 @@ import {
 } from 'react';
 import { createPortal } from 'react-dom';
 
-import styles from './float.module.css';
+import styles from './float.module.scss';
 import { cx } from '@/utils';
 
 export type Placement =

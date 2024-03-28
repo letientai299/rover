@@ -1,4 +1,4 @@
-import styles from './tree.module.css';
+import styles from './tree.module.scss';
 
 import { HTMLAttributes, useEffect, useState } from 'react';
 import { Node, NodeIcon, Reveal, TreeNode } from '@/components/Tree/types.ts';
@@ -66,14 +66,23 @@ const Branch = <T extends TreeNode>(props: BranchProps<T>) => {
       })
       .with('open', () => {})
       .with('close', () => {})
-      // .with('close', () => setKids([]))
       .exhaustive();
   }, [kids, node, reveal]);
 
   const Node = render;
-  const Icon =
-    renderIcon ??
-    (() => <DefaultNodeIcon reveal={reveal} setReveal={setReveal} />);
+
+  const toggle = () => {
+    setReveal((v) =>
+      match(v)
+        .returnType<Reveal>()
+        .with('close', () => 'loading')
+        .with('loading', () => 'open')
+        .with('open', () => 'close')
+        .exhaustive(),
+    );
+  };
+
+  const Icon = renderIcon ?? DefaultNodeIcon;
 
   const children = kids.map((kid, i) => (
     <Branch
@@ -90,10 +99,9 @@ const Branch = <T extends TreeNode>(props: BranchProps<T>) => {
   return (
     <div
       className={cx(styles.branch, props.visible ? '' : styles.hidden)}
-      // set the level to make CSS indention work
-      style={{ '--level': level } as never}
+      data-level={level}
     >
-      <Icon node={node} reveal={reveal} setReveal={setReveal} />
+      <Icon node={node} reveal={reveal} toggleReveal={toggle} />
       <Node node={node} />
       {children}
     </div>

@@ -16,7 +16,6 @@ export function FloatDemo({ place }) {
   return <Box style={{
     alignItems: 'center',
     justifyContent: 'center',
-    border: `1px solid var(--colors-border-subtle)`,
     minHeight: `var(--sizes-9)`,
     margin: `var(--margin-sm)`,
   }}>
@@ -28,7 +27,7 @@ export function FloatDemo({ place }) {
              flexDirection: 'column'
            }}>
 
-      <FiStar size={60} />
+      <FiStar size={60} strokeWidth={1} />
       I'm a long string at the <code>{place}</code>
     </Float>
 

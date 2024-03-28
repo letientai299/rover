@@ -1,31 +1,13 @@
-import {
-  NodeIconProps,
-  Reveal,
-  RevealState,
-  TreeNode,
-} from '@/components/Tree/types.ts';
+import { NodeIconProps, TreeNode } from '@/components/Tree/types.ts';
 import { IconButton } from '@/components';
 import { match } from 'ts-pattern';
-import styles from '@/components/Tree/tree.module.css';
 
-type DefaultIconProps<T extends TreeNode> = Partial<NodeIconProps<T>> &
-  RevealState;
+import styles from '@/components/Tree/tree.module.scss';
 
 const DefaultNodeIcon = <T extends TreeNode>({
   reveal,
-  setReveal,
-}: DefaultIconProps<T>) => {
-  const toggle = () => {
-    setReveal((v) =>
-      match(v)
-        .returnType<Reveal>()
-        .with('close', () => 'loading')
-        .with('loading', () => 'open')
-        .with('open', () => 'close')
-        .exhaustive(),
-    );
-  };
-
+  toggleReveal,
+}: NodeIconProps<T>) => {
   return (
     <IconButton
       icon={match(reveal)
@@ -34,7 +16,8 @@ const DefaultNodeIcon = <T extends TreeNode>({
         .with('loading', () => Loader)
         .exhaustive()}
       className={styles.prefix}
-      onClick={toggle}
+      onClick={toggleReveal}
+      disabled={reveal === 'loading'}
     />
   );
 };

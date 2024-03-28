@@ -1,7 +1,7 @@
 import Float, { FloatProps, getAnchorElement } from '../Float/Float';
 import { useCallback, useEffect, useState } from 'react';
 
-import styles from './tooltip.module.css';
+import styles from './tooltip.module.scss';
 
 type TooltipProps = FloatProps & {
   delay?: number;

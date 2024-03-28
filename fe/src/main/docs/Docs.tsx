@@ -1,17 +1,13 @@
 import { Button, MDX } from '@/components';
 import { lazy } from 'react';
-import { Link, Redirect, Route, Router, Switch, useLocation } from 'wouter';
+import { Redirect, Route, Router, Switch } from 'wouter';
 import { useHashLocation } from 'wouter/use-hash-location';
 
 import { FiMoon, FiSun } from 'react-icons/fi';
-import styles from './docs.module.css';
+import styles from './docs.module.scss';
 import { useTheme } from '@/hooks';
-
-const files = import.meta.glob('../../**/*.md*');
-
-const docsMap = new Map(
-  [...Object.entries(files)].map(([k, v]) => [k.replace('../../', ''), v]),
-);
+import Nav from '@/main/docs/Nav.tsx';
+import { docsMap } from '@/main/docs/docsMap.ts';
 
 function ThemeButton() {
   const [isDark, toggle] = useTheme();
@@ -20,26 +16,6 @@ function ThemeButton() {
     <Button icon={isDark ? FiMoon : FiSun} onClick={() => toggle()}>
       {isDark ? 'Light mode' : 'Dark mode'}
     </Button>
-  );
-}
-
-function Nav() {
-  const [loc] = useLocation();
-  const links = Array.from(docsMap.keys()).map((s) => {
-    const isCurrent = s === loc.replace('/', '');
-    return (
-      <li key={s}>
-        <Link to={s} asChild>
-          <Button disabled={isCurrent}>{s}</Button>
-        </Link>
-      </li>
-    );
-  });
-
-  return (
-    <nav>
-      <ul>{links}</ul>
-    </nav>
   );
 }
 

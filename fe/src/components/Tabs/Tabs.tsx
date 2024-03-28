@@ -2,7 +2,7 @@ import { HTMLAttributes, ReactElement, useState } from 'react';
 
 import { Button } from '@/components';
 
-import styles from './tabs.module.css';
+import styles from './tabs.module.scss';
 import { IconSrc } from '@/components/Icon/Icon.tsx';
 
 export type Tab = {

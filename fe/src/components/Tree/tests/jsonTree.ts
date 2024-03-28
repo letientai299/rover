@@ -2,13 +2,10 @@ import { TreeNode } from '@/components/Tree/types.ts';
 import rawTasks from '@/components/Tree/tests/tasks.json';
 
 export class JsonTree implements TreeNode {
-  readonly content: string;
-  readonly data: object;
-
-  constructor(name: string, data: object) {
-    this.content = name;
-    this.data = data;
-  }
+  constructor(
+    readonly content: string,
+    readonly data: object,
+  ) {}
 
   static parse(obj: object) {
     return Object.entries(obj).map(([key, value]) => new JsonTree(key, value));

@@ -1,13 +1,14 @@
 import { IconButton, Tree } from '@/components';
-import { NodeIconProps, Reveal } from '@/components/Tree/types.ts';
+import { NodeIconProps } from '@/components/Tree/types.ts';
 import { match } from 'ts-pattern';
 import { FiArrowDown, FiArrowRight, FiLoader } from 'react-icons/fi';
 import { PropsWithChildren } from 'react';
 import { JsonTree, taskData } from '@/components/Tree/tests/jsonTree.ts';
 import { LuInfo } from 'react-icons/lu';
+import { strCut } from '@/utils';
 
 const Task = ({ node }: { node: JsonTree }) => {
-  const [task, remark] = node.content.split('->', 2);
+  const { first: task, second: remark, found } = strCut(node.content, '->');
   return (
     <div
       style={{
@@ -19,7 +20,7 @@ const Task = ({ node }: { node: JsonTree }) => {
       }}
     >
       <span>{task}</span>
-      {remark && (
+      {found && (
         <span
           style={{
             color: 'var(--colors-neutral-secondary)',
@@ -37,26 +38,15 @@ const Task = ({ node }: { node: JsonTree }) => {
 };
 
 const TaskIcon = (props: NodeIconProps<JsonTree>) => {
-  const { setReveal, reveal } = props;
+  const { toggleReveal, reveal } = props;
   const loading = reveal === 'loading';
-  const toggle = () => {
-    setReveal((v) =>
-      match(v)
-        .returnType<Reveal>()
-        .with('close', () => 'loading')
-        .with('loading', () => 'open')
-        .with('open', () => 'close')
-        .exhaustive(),
-    );
-  };
-
   const icon = match(reveal)
     .with('loading', () => FiLoader)
     .with('open', () => FiArrowDown)
     .with('close', () => FiArrowRight)
     .exhaustive();
 
-  return <IconButton icon={icon} onClick={toggle} disabled={loading} />;
+  return <IconButton icon={icon} onClick={toggleReveal} disabled={loading} />;
 };
 
 function Demo() {

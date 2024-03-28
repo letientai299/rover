@@ -8,6 +8,7 @@ import rehypeMathJaxSvg from 'rehype-mathjax/svg';
 import rehypePrism from 'rehype-prism-plus/all';
 import rehypeMermaid from 'rehype-mermaid';
 import * as path from 'node:path';
+import remarkInlineLinks from 'remark-inline-links';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -42,7 +43,7 @@ export default defineConfig({
     {
       ...mdx({
         mdxExtensions: ['.mdx', '.md'],
-        remarkPlugins: [remarkGfm, remarkMath],
+        remarkPlugins: [remarkGfm, remarkMath, remarkInlineLinks],
         rehypePlugins: [rehypeMathJaxSvg, rehypePrism, [rehypeMermaid]],
       }),
       enforce: 'pre',
