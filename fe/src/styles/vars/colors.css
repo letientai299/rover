@@ -55,6 +55,6 @@
 
   /* shadows */
   --colors-shadow: var(--gray-10);
-  --shadow-sm: var(--colors-shadow) 0 var(--sizes-0-5) var(--sizes-1);
-  --shadow-md: var(--colors-shadow) 0 var(--sizes-1) var(--sizes-1-5);
+  --shadow-sm: var(--colors-shadow) 0 var(--sizes-0-1) var(--sizes-0-5);
+  --shadow-md: var(--colors-shadow) 0 var(--sizes-0-1) var(--sizes-1);
 }

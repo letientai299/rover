@@ -2,7 +2,6 @@
   z-index: var(--z-float);
   background: var(--colors-bg-primary);
   position: absolute;
-  padding: var(--padding-lg);
   display: flex;
   border: var(--border-sm) solid var(--colors-border-clear);
   box-shadow: var(--shadow-sm);
@@ -11,4 +10,20 @@
   align-items: center;
   min-width: var(--sizes-8);
   min-height: var(--sizes-5);
+
+  &[data-place^='left'] {
+    margin-right: var(--margin-sm);
+  }
+
+  &[data-place^='right'] {
+    margin-left: var(--margin-sm);
+  }
+
+  &[data-place^='top'] {
+    margin-bottom: var(--margin-sm);
+  }
+
+  &[data-place^='bottom'] {
+    margin-top: var(--margin-sm);
+  }
 }
