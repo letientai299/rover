@@ -1,11 +1,7 @@
 import type { TreeNode } from '@/components';
 import * as Strings from '@/utils/strings';
 
-const files = import.meta.glob('../../**/*.md*');
-
-export const docsMap = new Map(
-  [...Object.entries(files)].map(([k, v]) => [k.replace('../../', ''), v]),
-);
+const files = import.meta.glob('../../../{src,docs}/**/*.md*');
 
 export class DocModel implements TreeNode {
   kids: Map<string, DocModel> | undefined = undefined;
@@ -65,15 +61,34 @@ export class DocModel implements TreeNode {
   }
 }
 
+function resolvePath(k: string): string {
+  const topDocsPrefix = '../'.repeat(3);
+  const srcPrefix = '../'.repeat(2);
+  return k.includes(topDocsPrefix)
+    ? k.replace(topDocsPrefix, '')
+    : k.replace(srcPrefix, '');
+}
+
 function buildDocsTree() {
   const root = new DocModel('', 'dir');
-  const files = import.meta.glob('../../**/*.md*');
   Object.entries(files).forEach(([k, v]) => {
-    const path = k.replace('../../', '');
+    const path = resolvePath(k);
     root.add(path, v);
   });
 
   return [...root.kids!.values()];
 }
 
+/**
+ * docsTree contains {@link TreeNode} implementation of all the Markdown and
+ * MDX, to be rendered as a folder structure nicely on the navigation sidebar.
+ */
 export const docsTree = buildDocsTree();
+
+/**
+ * docsMap contains relative path to this folder, so that we can lazy
+ * load those content while routing.
+ */
+export const docsMap = new Map(
+  [...Object.entries(files)].map(([k, v]) => [resolvePath(k), v]),
+);

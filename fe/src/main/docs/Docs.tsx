@@ -1,13 +1,13 @@
 import { Button, MDX } from '@/components';
+import { useTheme } from '@/hooks';
+import { docsMap } from '@/main/docs/docsMap.ts';
+import Nav from '@/main/docs/Nav.tsx';
 import { lazy } from 'react';
-import { Redirect, Route, Router, Switch } from 'wouter';
-import { useHashLocation } from 'wouter/use-hash-location';
 
 import { FiMoon, FiSun } from 'react-icons/fi';
+import { Redirect, Route, Router, Switch } from 'wouter';
+import { useHashLocation } from 'wouter/use-hash-location';
 import styles from './docs.module.scss';
-import { useTheme } from '@/hooks';
-import Nav from '@/main/docs/Nav.tsx';
-import { docsMap } from '@/main/docs/docsMap.ts';
 
 function ThemeButton() {
   const [isDark, toggle] = useTheme();

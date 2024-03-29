@@ -1,9 +1,15 @@
 import { Button, Tree } from '@/components';
-import { DocModel, docsTree } from '@/main/docs/docsMap.ts';
 import { Reveal, RowProps } from '@/components/Tree/types.ts';
-import { match } from 'ts-pattern';
+import { DocModel, docsTree } from '@/main/docs/docsMap.ts';
+import { IconType } from 'react-icons';
+import {
+  FaFile,
+  FaFileCode,
+  FaRegFolder,
+  FaRegFolderOpen,
+} from 'react-icons/fa6';
 import { FiLoader } from 'react-icons/fi';
-import { FaFilePen, FaFolderClosed, FaFolderOpen } from 'react-icons/fa6';
+import { match } from 'ts-pattern';
 import { Link, useLocation } from 'wouter';
 
 function DocView({ node, reveal, toggleReveal }: RowProps<DocModel>) {
@@ -31,11 +37,19 @@ function DocView({ node, reveal, toggleReveal }: RowProps<DocModel>) {
   );
 }
 
+function fileIcon(name: string): IconType {
+  return name.endsWith('.mdx') ? FaFileCode : FaFile;
+}
+
 function pickIcon(reveal: Reveal, node: DocModel) {
   return match(reveal)
     .with('loading', () => FiLoader)
-    .with('open', () => (node.kind === 'dir' ? FaFolderOpen : FaFilePen))
-    .with('close', () => (node.kind === 'dir' ? FaFolderClosed : FaFilePen))
+    .with('open', () =>
+      node.kind === 'dir' ? FaRegFolderOpen : fileIcon(node.name),
+    )
+    .with('close', () =>
+      node.kind === 'dir' ? FaRegFolder : fileIcon(node.name),
+    )
     .exhaustive();
 }
 

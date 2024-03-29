@@ -69,7 +69,7 @@ const Branch = <T extends TreeNode>(props: BranchProps<T>) => {
       .with('open', () => {})
       .with('close', () => {})
       .exhaustive();
-  }, [kids, node, reveal]);
+  }, [kids.length, node, reveal]);
 
   const toggle = () => {
     setReveal((v) =>
@@ -119,7 +119,7 @@ const RowContainer = <T extends TreeNode>(props: RowContainerProps<T>) => {
   const { reveal, toggleReveal, node, rowIcon, render } = props;
   const Node = render;
   return (
-    <div className={styles.rowContainer} onClick={toggleReveal}>
+    <div className={styles.rowContainer} >
       <RowIconFactory
         node={node}
         reveal={reveal}

@@ -1,8 +1,5 @@
 import { ComponentType } from 'react';
 
-/**
- * how about this
- */
 export interface TreeNode {
   childNodes(): Promise<ThisType<this>[]>;
 }
