@@ -1,0 +1,26 @@
+@mixin outline {
+  $outline: var(--colors-outline);
+  outline-style: solid;
+  outline-color: $outline;
+}
+
+@mixin interactive {
+  $bg-hover: var(--colors-neutral-focus-bg);
+  $bg-focus: var(--colors-neutral-focus-bg);
+  $bg-active: var(--colors-neutral-focus-bg);
+
+  &:not(:disabled) {
+    &:is(:hover, [data-hover]) {
+      background: $bg-hover;
+    }
+
+    &:is(:focus, [data-focus]) {
+      @include outline;
+    }
+
+    &:is(:active, [data-active]) {
+      background: $bg-active;
+      @include outline;
+    }
+  }
+}

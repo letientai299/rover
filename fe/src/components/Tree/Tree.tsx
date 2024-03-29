@@ -1,7 +1,7 @@
 import styles from './tree.module.scss';
 
 import { HTMLAttributes, useEffect, useState } from 'react';
-import { Reveal, Row, TreeNode } from '@/components/Tree/types.ts';
+import { Reveal, Row, RowProps, TreeNode } from '@/components/Tree/types.ts';
 import { match } from 'ts-pattern';
 import { cx } from '@/utils';
 import RowIconFactory, {
@@ -71,8 +71,6 @@ const Branch = <T extends TreeNode>(props: BranchProps<T>) => {
       .exhaustive();
   }, [kids, node, reveal]);
 
-  const Node = render;
-
   const toggle = () => {
     setReveal((v) =>
       match(v)
@@ -86,13 +84,13 @@ const Branch = <T extends TreeNode>(props: BranchProps<T>) => {
 
   const children = kids.map((kid, i) => (
     <Branch
-      visible={childVisible}
-      render={Node}
-      rowIcon={rowIcon}
       key={i}
-      open={open}
-      level={level + 1}
+      visible={childVisible}
       node={kid as T}
+      level={level + 1}
+      render={render}
+      rowIcon={rowIcon}
+      open={open}
     />
   ));
 
@@ -100,15 +98,35 @@ const Branch = <T extends TreeNode>(props: BranchProps<T>) => {
     <div
       className={cx(styles.branch, props.visible ? '' : styles.hidden)}
       data-level={level}
+      style={{ '--level': level } as never}
     >
+      <RowContainer
+        reveal={reveal}
+        toggleReveal={toggle}
+        render={render}
+        rowIcon={rowIcon}
+        node={node}
+      />
+      {children}
+    </div>
+  );
+};
+
+type RowContainerProps<T extends TreeNode> = RowProps<T> &
+  Omit<CommonProps<T>, 'open'>;
+
+const RowContainer = <T extends TreeNode>(props: RowContainerProps<T>) => {
+  const { reveal, toggleReveal, node, rowIcon, render } = props;
+  const Node = render;
+  return (
+    <div className={styles.rowContainer} onClick={toggleReveal}>
       <RowIconFactory
         node={node}
         reveal={reveal}
-        toggleReveal={toggle}
+        toggleReveal={toggleReveal}
         kind={rowIcon || 'none'}
       />
-      <Node node={node} reveal={reveal} toggleReveal={toggle} />
-      {children}
+      <Node node={node} reveal={reveal} toggleReveal={toggleReveal} />
     </div>
   );
 };

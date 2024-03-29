@@ -1,7 +1,7 @@
 import { IconButton, Tree } from '@/components';
 import { RowIconProps } from '@/components/Tree/types.ts';
 import { match } from 'ts-pattern';
-import { FiArrowDown, FiArrowRight, FiLoader } from 'react-icons/fi';
+import { FiChevronDown, FiChevronRight, FiLoader } from 'react-icons/fi';
 import { PropsWithChildren } from 'react';
 import { JsonTree, taskData } from '@/components/Tree/tests/jsonTree.ts';
 import { strCut } from '@/utils';
@@ -41,8 +41,8 @@ const TaskIcon = (props: RowIconProps<JsonTree>) => {
   const loading = reveal === 'loading';
   const icon = match(reveal)
     .with('loading', () => FiLoader)
-    .with('open', () => FiArrowDown)
-    .with('close', () => FiArrowRight)
+    .with('open', () => FiChevronDown)
+    .with('close', () => FiChevronRight)
     .exhaustive();
 
   return <IconButton icon={icon} onClick={toggleReveal} disabled={loading} />;

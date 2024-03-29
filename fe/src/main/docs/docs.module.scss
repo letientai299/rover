@@ -7,10 +7,10 @@
   height: 100svh;
 
   & aside {
-    padding: var(--padding-lg);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    min-width: fit-content;
 
     background-color: var(--colors-bg-secondary);
     border-right: var(--sizes-0-1) solid var(--colors-border-subtle);
@@ -19,10 +19,9 @@
 
     & nav {
       flex-grow: 1;
-      overflow-y: auto;
-      overflow-x: hidden;
+      overflow: auto;
       scrollbar-gutter: stable;
-      padding-right: var(--padding-sm);
+      padding: var(--padding-sm);
 
       & button {
         border-radius: 0;
