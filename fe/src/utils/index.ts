@@ -1,5 +1,17 @@
-export function cx(...cls: (string | undefined)[]) {
-  return cls.filter((c) => c !== undefined && c !== '').join(' ');
+/**
+ * cx filter list of strings or undefined, keeps only non-empty strings and
+ * merge them into a single space-separated string that is usable as class
+ * name in JSX/TSX.
+ *
+ * @example
+ *  const active = false
+ *  const hover = false
+ *  cx('button', active ? 'primary' : 'normal', hover ? 'hovered' : '')
+ *  // -> 'button primary'
+ *  // Empty string cause from `hover` checking is removed
+ */
+export function cx(...cls: (string | undefined | null)[]) {
+  return cls.filter((c) => c && c !== '').join(' ');
 }
 
 export function randInt({ min, max }: { min?: number; max?: number }): number {
@@ -19,26 +31,4 @@ export function formatBytes(bytes: number, decimals?: number): string {
     sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
     i = Math.floor(Math.log(bytes) / Math.log(k));
   return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
-}
-
-export function strCut(
-  s: string,
-  sub: string,
-): {
-  first: string;
-  second: string;
-  found: boolean;
-} {
-  const i = s.indexOf(sub);
-  return i === -1
-    ? {
-        first: s,
-        second: '',
-        found: false,
-      }
-    : {
-        first: s.slice(0, i),
-        second: s.slice(i + sub.length),
-        found: true,
-      };
 }

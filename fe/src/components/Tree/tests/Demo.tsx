@@ -1,14 +1,18 @@
 import { IconButton, Tree } from '@/components';
-import { RowIconProps } from '@/components/Tree/types.ts';
-import { match } from 'ts-pattern';
-import { FiChevronDown, FiChevronRight, FiLoader } from 'react-icons/fi';
-import { PropsWithChildren } from 'react';
 import { JsonTree, taskData } from '@/components/Tree/tests/jsonTree.ts';
-import { strCut } from '@/utils';
+import { RowIconProps } from '@/components/Tree/types.ts';
+import * as Strings from '@/utils/strings';
+import { PropsWithChildren } from 'react';
 import { BiNote } from 'react-icons/bi';
+import { FiChevronDown, FiChevronRight, FiLoader } from 'react-icons/fi';
+import { match } from 'ts-pattern';
 
 const Task = ({ node }: { node: JsonTree }) => {
-  const { first: task, second: remark, found } = strCut(node.content, '->');
+  const {
+    first: task,
+    second: remark,
+    found,
+  } = Strings.cut(node.content, '->');
   return (
     <div
       style={{

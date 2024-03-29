@@ -1,5 +1,5 @@
 import type { TreeNode } from '@/components';
-import { strCut } from '@/utils';
+import * as Strings from '@/utils/strings';
 
 const files = import.meta.glob('../../**/*.md*');
 
@@ -38,7 +38,7 @@ export class DocModel implements TreeNode {
       this.kids = new Map();
     }
 
-    const { first: dir, second: rest, found } = strCut(name, '/');
+    const { first: dir, second: rest, found } = Strings.cut(name, '/');
 
     if (!found) {
       // path is a file, just add to the kids list
