@@ -1,12 +1,13 @@
 import { HtmlHTMLAttributes, PropsWithChildren } from 'react';
 
-type BoxProps = PropsWithChildren<HtmlHTMLAttributes<HTMLDivElement>>;
+type DemoBoxProps = PropsWithChildren<HtmlHTMLAttributes<HTMLDivElement>>;
 
-function Box(props: BoxProps) {
+function DemoBox(props: DemoBoxProps) {
   const { style, children, ...rest } = props;
   return (
     <div
       style={{
+        width: '100%',
         display: 'flex',
         minHeight: `var(--sizes-8)`,
         ...style,
@@ -18,4 +19,4 @@ function Box(props: BoxProps) {
   );
 }
 
-export default Box;
+export default DemoBox;

@@ -1,3 +1,12 @@
+@mixin debug() {
+  border: 1px solid red;
+}
+
+@mixin square($size) {
+  width: $size;
+  aspect-ratio: 1/1;
+}
+
 @mixin outline {
   $outline: var(--colors-outline);
   outline-style: solid;
@@ -23,4 +32,28 @@
       @include outline;
     }
   }
+}
+
+@mixin loop-animation($name, $dur) {
+  animation: $name;
+  animation-duration: $dur;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+}
+
+@mixin flash($bgFrom, $bgTo, $dur) {
+  $name: unique-id();
+  @debug $name;
+
+  @keyframes #{$name} {
+    from {
+      background: $bgFrom;
+    }
+    to {
+      background: $bgTo;
+    }
+  }
+
+  @include loop-animation($name, $dur);
 }

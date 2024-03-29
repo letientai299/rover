@@ -1,6 +1,6 @@
 import { Button, Tree } from '@/components';
 import { Reveal, RowProps } from '@/components/Tree/types.ts';
-import { DocModel, docsTree } from '@/main/docs/docsMap.ts';
+import { Model, Notes } from '@/main/docs/notes.ts';
 import { IconType } from 'react-icons';
 import {
   FaFile,
@@ -12,7 +12,7 @@ import { FiLoader } from 'react-icons/fi';
 import { match } from 'ts-pattern';
 import { Link, useLocation } from 'wouter';
 
-function DocView({ node, reveal, toggleReveal }: RowProps<DocModel>) {
+function DocView({ node, reveal, toggleReveal }: RowProps<Model>) {
   const [loc] = useLocation();
   const icon = pickIcon(reveal, node);
   if (node.kind === 'dir') {
@@ -41,7 +41,7 @@ function fileIcon(name: string): IconType {
   return name.endsWith('.mdx') ? FaFileCode : FaFile;
 }
 
-function pickIcon(reveal: Reveal, node: DocModel) {
+function pickIcon(reveal: Reveal, node: Model) {
   return match(reveal)
     .with('loading', () => FiLoader)
     .with('open', () =>
@@ -56,7 +56,7 @@ function pickIcon(reveal: Reveal, node: DocModel) {
 const Nav = () => {
   return (
     <nav>
-      <Tree data={docsTree} render={DocView} open />
+      <Tree data={Notes.tree} render={DocView} open />
     </nav>
   );
 };

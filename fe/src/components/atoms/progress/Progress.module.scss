@@ -1,0 +1,77 @@
+@import '@/styles/utils/mix';
+
+.progress {
+  --height: var(--sizes-1-5);
+
+  .value {
+    width: 100%;
+    text-align: center;
+    color: var(--colors-primary-accessible);
+    z-index: 1;
+  }
+
+  &:has(.value) {
+    --height: 1.2em;
+  }
+
+  height: var(--height);
+  position: relative;
+
+  width: 100%;
+  margin: auto var(--margin-sm);
+  background: var(--colors-neutral-filled-bg);
+  border-radius: var(--rounded-half);
+  display: flex;
+  align-items: center;
+
+  .filler {
+    position: absolute;
+    top: -1px;
+    $gap: 2px;
+    border-radius: inherit;
+    margin-left: 0;
+
+    background: var(--colors-primary);
+    height: calc(100% + $gap);
+    transform-origin: 0 50%;
+  }
+
+  .determinate {
+    width: calc(var(--percent) * 100%);
+    transition: width 300ms ease-in 100ms;
+  }
+
+  .indeterminate {
+    width: 100%;
+
+    @keyframes bounce {
+      0% {
+        width: var(--height);
+        left: 0;
+      }
+
+      25% {
+        width: 33%;
+        left: 0;
+      }
+
+      50% {
+        width: 66%;
+        left: 33%;
+      }
+
+      75% {
+        width: 33%;
+        left: 66%;
+      }
+
+      100% {
+        width: var(--height);
+        left: calc(100% - var(--height));
+      }
+    }
+
+    animation: bounce 2s infinite;
+    animation-timing-function: linear;
+  }
+}

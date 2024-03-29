@@ -1,6 +1,6 @@
 import Float from './Float';
 import { useId } from 'react';
-import Box from '../Box/Box';
+import DemoBox from '../DemoBox/DemoBox.js';
 import { FiStar } from 'react-icons/fi';
 
 # Float
@@ -13,7 +13,7 @@ and darken the page behind it.
 
 export function FloatDemo({ place }) {
   const id = useId();
-  return <Box style={{
+  return <DemoBox style={{
     alignItems: 'center',
     justifyContent: 'center',
     minHeight: `var(--sizes-9)`,
@@ -32,7 +32,7 @@ export function FloatDemo({ place }) {
       I'm a long string at the <code>{place}</code>
     </Float>
 
-  </Box>
+  </DemoBox>
 }
 
 <FloatDemo place={'left-start'} />

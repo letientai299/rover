@@ -1,7 +1,7 @@
 import { Button, MDX } from '@/components';
 import { useTheme } from '@/hooks';
-import { docsMap } from '@/main/docs/docsMap.ts';
-import Nav from '@/main/docs/Nav.tsx';
+import Nav from '@/main/docs/Nav';
+import { Notes } from '@/main/docs/notes';
 import { lazy } from 'react';
 
 import { FiMoon, FiSun } from 'react-icons/fi';
@@ -20,7 +20,7 @@ function ThemeButton() {
 }
 
 export const Docs = () => {
-  const defaultPage = [...docsMap.keys()].filter((k) =>
+  const defaultPage = [...Notes.map.keys()].filter((k) =>
     k.includes('Button'),
   )[0];
 
@@ -33,7 +33,7 @@ export const Docs = () => {
         </aside>
         <article className={styles.content}>
           <Switch>
-            {[...docsMap.entries()].map(([k, v]) => {
+            {[...Notes.map.entries()].map(([k, v]) => {
               const Elem = lazy(v as never);
               const path = k.replace('#', '');
               return (

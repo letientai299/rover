@@ -25,7 +25,7 @@ VBar, HBar:
 Tree:
 
 - Should we stop at the hierarchy looks and leave the interaction for higher
-  level. There are many things to customize:
+  level? There are many things to customize:
   - Hover: part of row or full row?
   - Click outside of row content: select that row, or parent row?
   - Toggle open with single or double click?

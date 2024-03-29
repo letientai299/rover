@@ -6,6 +6,6 @@ import { ComponentType, HTMLAttributes, SVGAttributes } from 'react';
  * usage of `<img>` besides `<svg>`, so that we can use PNG, GIF or JPEG
  * as icon as well.
  */
-export type IconSrc =
+export type Icon =
   | ComponentType<SVGAttributes<SVGElement>>
   | ComponentType<HTMLAttributes<HTMLImageElement>>;

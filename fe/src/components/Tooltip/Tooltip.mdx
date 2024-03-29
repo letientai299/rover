@@ -1,5 +1,5 @@
 import { useId } from 'react';
-import Box from '../Box/Box';
+import DemoBox from '../DemoBox/DemoBox.js';
 import { FiHeart } from 'react-icons/fi';
 import Tooltip from './Tooltip';
 
@@ -28,7 +28,7 @@ return <><code id={id} style={{
 }
 
 export function Demo() {
-  return <Box style={{
+  return <DemoBox style={{
     margin: `var(--sizes-7) auto`,
     maxWidth: `fit-content`,
     flexGrow: 1,
@@ -69,7 +69,7 @@ export function Demo() {
     <Anchor place='bottom-end' />
     <div />
 
-  </Box>
+  </DemoBox>
 }
 
 # Tooltip

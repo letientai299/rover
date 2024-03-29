@@ -1,12 +1,11 @@
+import { Button } from '@/components';
+import { Icon } from '@/components/atoms/Icon.tsx';
 import { HTMLAttributes, ReactElement, useState } from 'react';
 
-import { Button } from '@/components';
-
 import styles from './tabs.module.scss';
-import { IconSrc } from '@/components/Icon/Icon.tsx';
 
 export type Tab = {
-  icon: IconSrc;
+  icon: Icon;
   title: string;
   content?: ReactElement;
 };

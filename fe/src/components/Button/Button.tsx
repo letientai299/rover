@@ -1,4 +1,5 @@
-import styles from './button.module.scss';
+import { Icon } from '@/components/atoms/Icon.tsx';
+import { cx } from '@/utils';
 
 import {
   ButtonHTMLAttributes,
@@ -6,14 +7,13 @@ import {
   PropsWithChildren,
   useState,
 } from 'react';
-import { cx } from '@/utils';
-import { IconSrc } from '@/components/Icon/Icon.tsx';
+import styles from './button.module.scss';
 
 export interface ButtonProps
   extends PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>> {
   variant?: 'ghost' | 'outline' | 'filled';
   kind?: 'normal' | 'primary' | 'danger';
-  icon?: IconSrc;
+  icon?: Icon;
   iconPosition?: 'start' | 'end';
 }
 

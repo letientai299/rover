@@ -3,8 +3,8 @@ import * as Strings from '@/utils/strings';
 
 const files = import.meta.glob('../../../{src,docs}/**/*.md*');
 
-export class DocModel implements TreeNode {
-  kids: Map<string, DocModel> | undefined = undefined;
+export class Model implements TreeNode {
+  kids: Map<string, Model> | undefined = undefined;
   readonly name: string;
 
   constructor(
@@ -39,14 +39,14 @@ export class DocModel implements TreeNode {
     if (!found) {
       // path is a file, just add to the kids list
       const fullPath = [parent, name].join('/');
-      this.kids.set(name, new DocModel(fullPath, 'file', content));
+      this.kids.set(name, new Model(fullPath, 'file', content));
       return;
     }
 
     const fullPath = [parent, dir].join('/');
     const kid = this.kids.has(fullPath)
       ? this.kids.get(fullPath)!
-      : new DocModel(fullPath, 'dir');
+      : new Model(fullPath, 'dir');
 
     kid.add(rest, content);
     this.kids.set(fullPath, kid);
@@ -70,7 +70,7 @@ function resolvePath(k: string): string {
 }
 
 function buildDocsTree() {
-  const root = new DocModel('', 'dir');
+  const root = new Model('', 'dir');
   Object.entries(files).forEach(([k, v]) => {
     const path = resolvePath(k);
     root.add(path, v);
@@ -79,16 +79,16 @@ function buildDocsTree() {
   return [...root.kids!.values()];
 }
 
-/**
- * docsTree contains {@link TreeNode} implementation of all the Markdown and
- * MDX, to be rendered as a folder structure nicely on the navigation sidebar.
- */
-export const docsTree = buildDocsTree();
+export const Notes = {
+  /**
+   * docsTree contains {@link TreeNode} implementation of all the Markdown and
+   * MDX, to be rendered as a folder structure nicely on the navigation sidebar.
+   */
+  tree: buildDocsTree(),
 
-/**
- * docsMap contains relative path to this folder, so that we can lazy
- * load those content while routing.
- */
-export const docsMap = new Map(
-  [...Object.entries(files)].map(([k, v]) => [resolvePath(k), v]),
-);
+  /**
+   * docsMap contains relative path to this folder, so that we can lazy
+   * load those content while routing.
+   */
+  map: new Map([...Object.entries(files)].map(([k, v]) => [resolvePath(k), v])),
+};
