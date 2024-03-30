@@ -1,33 +1,34 @@
+import { rotate } from '@/utils';
 import { getDefaultStore, useAtom } from 'jotai';
 import { atomWithStorage } from 'jotai/utils';
 
-const darkModeKey = 'dark-mode';
+const themeModeKey = 'theme-mode';
+const allThemes = ['dark', 'light'] as const;
+type Theme = (typeof allThemes)[number];
 
 function getRoot() {
   return document.getElementsByTagName('html')[0]!;
 }
 
 function initTheme() {
-  const dark =
-    localStorage.getItem(darkModeKey) === 'true' ??
-    matchMedia('(prefers-color-scheme: dark)').matches;
+  const theme: Theme =
+    localStorage.getItem(themeModeKey) ??
+    matchMedia('(prefers-color-scheme: dark)').matches
+      ? 'dark'
+      : 'light';
   const root = getRoot();
-  if (dark) {
-    root.className = 'dark';
-  } else {
-    root.className = 'light';
-  }
-  return dark;
+  root.className = theme;
+  return theme;
 }
 
-const darkAtom = atomWithStorage(darkModeKey, initTheme());
+const darkAtom = atomWithStorage(themeModeKey, initTheme());
 const store = getDefaultStore();
 
 store.sub(darkAtom, () => {
-  getRoot().className = store.get(darkAtom) ? 'dark' : 'light';
+  getRoot().className = store.get(darkAtom);
 });
 
-export default function useTheme(): [boolean, () => void] {
+export default function useTheme(): [Theme, () => void] {
   const [dark, setDark] = useAtom(darkAtom);
-  return [dark, () => setDark((v) => !v)];
+  return [dark, () => setDark((v) => rotate(v, [...allThemes]))];
 }

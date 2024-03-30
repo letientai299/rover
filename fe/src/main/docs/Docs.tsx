@@ -10,7 +10,8 @@ import { useHashLocation } from 'wouter/use-hash-location';
 import styles from './docs.module.scss';
 
 function ThemeButton() {
-  const [isDark, toggle] = useTheme();
+  const [theme, toggle] = useTheme();
+  const isDark = theme === 'dark'
 
   return (
     <Button icon={isDark ? FiMoon : FiSun} onClick={() => toggle()}>

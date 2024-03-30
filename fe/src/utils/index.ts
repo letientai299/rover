@@ -32,3 +32,8 @@ export function formatBytes(bytes: number, decimals?: number): string {
     i = Math.floor(Math.log(bytes) / Math.log(k));
   return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
 }
+
+export function rotate<T>(cur: T, all: T[]): T {
+  const i = all.indexOf(cur);
+  return i < 0 ? all[0] : all[(i + 1) % all.length];
+}

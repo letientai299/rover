@@ -1,7 +1,7 @@
 import './MDX.css';
+import { useTheme } from '@/hooks';
 
 import { ReactElement, Suspense } from 'react';
-import { useTheme } from '@/hooks';
 import { Helmet } from 'react-helmet-async';
 
 interface MDXProps {
@@ -9,11 +9,11 @@ interface MDXProps {
 }
 
 function MDX(props: MDXProps) {
-  const [isDark] = useTheme();
+  const [theme] = useTheme();
   const { children } = props;
   return (
     <article className={'markdown-body'}>
-      {isDark ? (
+      {theme === 'dark' ? (
         <Helmet async={true}>
           <link
             rel={'stylesheet'}
