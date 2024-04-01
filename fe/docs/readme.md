@@ -36,3 +36,21 @@ Tree:
 - Pure looks/ content:
 - Layout
 - Interactive
+
+I need so set a boundary between `layout` and `interactive`.
+
+```
+AppShell {
+  Col {
+    Row(#address){}
+    Row(#toolbar){}
+    Row(#toolbar){}
+    Split {
+      primary_sidebar,
+      content,
+      secondary_sidebar
+    }
+    Row(#status_bar){}
+  }
+}
+```

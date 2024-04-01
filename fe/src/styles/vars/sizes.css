@@ -24,6 +24,8 @@
   --sizes-10: 356px;
   --sizes-10-5: 466px;
   --sizes-11: 576px;
+  --sizes-11-5: 754px;
+  --sizes-12: 932px;
 
   /* Specific sizes based on the standard sizes, use as elements gap */
   --border-sm: var(--sizes-0-1);

@@ -3,8 +3,8 @@ import { JsonTree, taskData } from '@/components/Tree/tests/jsonTree.ts';
 import { RowIconProps } from '@/components/Tree/types.ts';
 import * as Strings from '@/utils/strings';
 import { PropsWithChildren } from 'react';
-import { BiNote } from 'react-icons/bi';
 import { FiChevronDown, FiChevronRight, FiLoader } from 'react-icons/fi';
+import { GrNote } from 'react-icons/gr';
 import { match } from 'ts-pattern';
 
 const Task = ({ node }: { node: JsonTree }) => {
@@ -32,7 +32,7 @@ const Task = ({ node }: { node: JsonTree }) => {
             gap: 4,
           }}
         >
-          <BiNote style={{ translate: '0 20%' }} />
+          <GrNote style={{ translate: '0 20%' }} />
           {remark}
         </span>
       )}

@@ -2,6 +2,7 @@
   background: var(--colors-bg-primary) !important;
   --hl-line-width: 4px;
   box-sizing: border-box;
+  max-width: var(--sizes-11-5);
 
   pre {
     display: flex;
