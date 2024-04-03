@@ -1,6 +1,7 @@
 import { Button, IconButton } from './Button';
 import type { ButtonProps } from './Button/Button';
 import type { IconButtonProps } from './Button/IconButton';
+import Expand from './Expand/Expand';
 
 import Float, { FloatProps } from './Float/Float';
 import { Icon } from './Icon';
@@ -11,7 +12,7 @@ import Tooltip, { TooltipProps } from './Tooltip/Tooltip';
 
 export type { Icon };
 
-export { Progress, Button, IconButton, Float, Tooltip, Tabs };
+export { Progress, Button, IconButton, Float, Tooltip, Tabs, Expand };
 
 export type {
   ProgressProps,

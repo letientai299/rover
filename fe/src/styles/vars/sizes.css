@@ -30,6 +30,7 @@
   /* Specific sizes based on the standard sizes, use as elements gap */
   --border-sm: var(--sizes-0-1);
   --border-md: var(--sizes-0-5);
+  --border-lg: var(--sizes-1);
 
   --gap-sm: var(--sizes-1);
   --gap-md: var(--sizes-2);

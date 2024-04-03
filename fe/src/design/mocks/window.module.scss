@@ -1,0 +1,48 @@
+.window {
+  margin: var(--margin-lg);
+  display: flex;
+  flex-direction: column;
+  border: var(--border-md) solid var(--gray-12);
+  border-radius: var(--rounded-md);
+  min-height: var(--sizes-10-5);
+  background: var(--colors-bg-primary);
+
+  > *:not(.title-bar) {
+    flex-grow: 1;
+  }
+
+  .title-bar {
+    --pd: var(--padding-md);
+    padding: 0 var(--pd);
+    display: flex;
+    align-items: center;
+    gap: var(--sizes-1-5);
+    height: var(--sizes-4);
+    background: var(--gray-12);
+
+    > svg {
+      margin: 0;
+      width: var(--sizes-3);
+      height: var(--sizes-3);
+      padding: 1px;
+      box-sizing: border-box;
+    }
+
+    &:not([data-platform='mac']) {
+      justify-content: end;
+
+      > svg {
+        color: var(--colors-filled-fg);
+        stroke-width: 2;
+
+        &:hover {
+          background-color: var(--gray-11);
+        }
+      }
+
+      .close-button:hover {
+        background-color: var(--colors-danger);
+      }
+    }
+  }
+}

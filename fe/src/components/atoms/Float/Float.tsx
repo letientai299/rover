@@ -1,3 +1,4 @@
+import { cx } from '@/utils';
 import {
   HTMLAttributes,
   PropsWithChildren,
@@ -7,7 +8,6 @@ import {
 import { createPortal } from 'react-dom';
 
 import styles from './float.module.scss';
-import { cx } from '@/utils';
 
 export type Placement =
   | 'left'

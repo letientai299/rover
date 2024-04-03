@@ -1,8 +1,9 @@
 .tabs {
+  --outline-size: var(--sizes-0-5);
   --border: var(--colors-bd-clear);
-
+  display: flex;
+  flex-direction: column;
   flex-grow: 1;
-  border: var(--border-sm) solid var(--border);
 
   .titles {
     border-bottom: var(--border-sm) solid var(--border);
@@ -12,18 +13,18 @@
       border-radius: 0 !important;
       border-right-width: var(--border-sm);
       border-right-color: var(--border);
-      border-bottom-width: var(--border-md);
       border-bottom-color: transparent;
       min-width: var(--sizes-7);
 
       &[data-selected='true'] {
         border-bottom-color: var(--colors-primary);
+        border-bottom-width: var(--border-md);
         border-bottom-style: inset;
       }
     }
   }
 
   .content {
-    padding: var(--padding-sm);
+    flex-grow: 1;
   }
 }

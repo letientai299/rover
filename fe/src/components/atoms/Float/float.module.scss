@@ -8,8 +8,7 @@
   border-radius: var(--rounded-sm);
   justify-content: center;
   align-items: center;
-  min-width: var(--sizes-8);
-  min-height: var(--sizes-5);
+  padding: var(--padding-md);
 
   &[data-place^='left'] {
     margin-right: var(--margin-sm);

@@ -1,0 +1,50 @@
+/* all direct child of the split should start with equal size */
+.split {
+  display: flex;
+  height: 100%;
+  width: 100%;
+
+  /* all direct child of the split should start with equal size */
+
+  > *:not(.divider) {
+    flex-grow: 0.5;
+  }
+
+  .divider {
+    --size: var(--sizes-0-1);
+    --size-hover: var(--sizes-1);
+    --bg: var(--colors-outline);
+    --outline-size: var(--sizes-0-5);
+    background: var(--colors-bd-clear);
+  }
+
+  .divider:hover {
+    background: var(--bg);
+    outline: var(--outline-size) solid var(--bg);
+
+    &[data-direction='vertical'] {
+      width: var(--size-hover);
+    }
+
+    &[data-direction='horizontal'] {
+      height: var(--size-hover);
+    }
+  }
+
+  .divider:focus {
+    background: var(--bg);
+    outline: var(--outline-size) solid var(--bg);
+  }
+
+  .divider[data-direction='vertical'] {
+    width: var(--size);
+    height: 100%;
+    cursor: col-resize;
+  }
+
+  .divider[data-direction='horizontal'] {
+    height: var(--size);
+    width: 100%;
+    cursor: row-resize;
+  }
+}
