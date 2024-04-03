@@ -11,7 +11,7 @@ import styles from './docs.module.scss';
 
 function ThemeButton() {
   const [theme, toggle] = useTheme();
-  const isDark = theme === 'dark'
+  const isDark = theme === 'dark';
 
   return (
     <Button icon={isDark ? FiMoon : FiSun} onClick={() => toggle()}>

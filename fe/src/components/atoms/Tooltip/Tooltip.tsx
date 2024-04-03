@@ -1,9 +1,10 @@
-import Float, { FloatProps, getAnchorElement } from '../Float/Float';
+import { Float, FloatProps } from '@/components/atoms';
+import { getAnchorElement } from '@/components/atoms/Float/Float';
 import { useCallback, useEffect, useState } from 'react';
 
 import styles from './tooltip.module.scss';
 
-type TooltipProps = FloatProps & {
+export type TooltipProps = FloatProps & {
   delay?: number;
 };
 

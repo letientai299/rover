@@ -63,8 +63,8 @@
   --colors-danger-filled-active-bg: var(--tomato-11);
 
   /* interactive colors */
-  --colors-outline: var(--indigo-8);
-  --colors-outline-danger: var(--tomato-8);
+  --colors-outline: var(--indigo-9);
+  --colors-outline-danger: var(--tomato-9);
 
   /* shadows */
   --colors-shadow: var(--gray-10);

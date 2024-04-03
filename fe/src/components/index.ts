@@ -1,10 +1,8 @@
-import Button from '@/components/Button/Button';
-import IconButton from '@/components/Button/IconButton';
-import DemoBox from '@/components/DemoBox/DemoBox.tsx';
+import { Button, Float, IconButton, Tooltip } from '@/components/atoms';
+import Tabs from '@/components/atoms/Tabs/Tabs';
 import MDX from '@/components/MDX/MDX.tsx';
-import Tabs from '@/components/Tabs/Tabs';
-import Tree from '@/components/Tree/Tree';
-import { TreeNode } from '@/components/Tree/types.ts';
+import Tree from '@/components/atoms/Tree/Tree';
+import { TreeNode } from '@/components/atoms/Tree/types.ts';
 
-export { MDX, Button, IconButton, Tabs, DemoBox, Tree };
+export { MDX, Button, IconButton, Tabs, Tree, Float, Tooltip };
 export type { TreeNode };

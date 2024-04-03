@@ -1,8 +1,20 @@
+import { useState } from 'react';
+import { Button } from '../atoms';
+
+export function Counter() {
+  const [cnt, setCnt] = useState(0);
+  return (
+    <div>
+      <Button onClick={() => setCnt((count) => count + 1)} variant="outline">
+        Count is {cnt}
+      </Button>
+    </div>
+  );
+}
+
 # MDX test
 
 ## Simple counter
-
-import Counter from './Counter.tsx';
 
 <Counter />
 
@@ -115,4 +127,4 @@ graph TD;
 
 - Handle relative link between docs. This link [Button docs][button] is broken.
 
-[button]: ../Button/Button.mdx
+[button] ../Button/Button.mdx

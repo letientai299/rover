@@ -1,5 +1,5 @@
 import { Button, Tree } from '@/components';
-import { Reveal, RowProps } from '@/components/Tree/types.ts';
+import { Reveal, RowProps } from '@/components/atoms/Tree/types.ts';
 import { Model, Notes } from '@/main/docs/notes.ts';
 import { IconType } from 'react-icons';
 import {

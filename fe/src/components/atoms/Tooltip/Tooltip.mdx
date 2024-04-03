@@ -1,5 +1,4 @@
 import { useId } from 'react';
-import DemoBox from '../DemoBox/DemoBox';
 import { FiHeart } from 'react-icons/fi';
 import Tooltip from './Tooltip';
 
@@ -17,6 +16,7 @@ return <><code id={id} style={{
 
     <Tooltip place={place} anchor={id} style={{
       display: 'flex',
+      padding: 4,
       flexDirection: 'column'
     }}>
 
@@ -27,8 +27,25 @@ return <><code id={id} style={{
   </>
 }
 
+export function Box(props) {
+  const { style, children, ...rest } = props;
+  return (
+    <div
+      style={{
+        width: '100%',
+        display: 'flex',
+        minHeight: `var(--sizes-8)`,
+        ...style,
+      }}
+      {...rest}
+    >
+      {children}
+    </div>
+  );
+}
+
 export function Demo() {
-  return <DemoBox style={{
+  return <Box style={{
     margin: `var(--sizes-7) auto`,
     maxWidth: `fit-content`,
     flexGrow: 1,
@@ -69,7 +86,7 @@ export function Demo() {
     <Anchor place='bottom-end' />
     <div />
 
-  </DemoBox>
+  </Box>
 }
 
 # Tooltip

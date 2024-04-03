@@ -1,4 +1,4 @@
-import Progress from '@/components/atoms/progress';
+import { Progress } from '@/components/atoms';
 import { PropsWithChildren, useEffect, useState } from 'react';
 
 function useFakeProgress(step: number): number {
@@ -7,8 +7,10 @@ function useFakeProgress(step: number): number {
     const id = setTimeout(() => {
       setVal((v) => {
         return v === 100
-          ? 101  // wait 1 more step before rollback
-          : v > 100 ? 0 : Math.min(100, v + step);
+          ? 101 // wait 1 more step before rollback
+          : v > 100
+            ? 0
+            : Math.min(100, v + step);
       });
     }, 500);
     return () => clearTimeout(id);

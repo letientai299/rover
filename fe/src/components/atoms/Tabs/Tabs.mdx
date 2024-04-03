@@ -1,15 +1,31 @@
 import { AiOutlineLock } from 'react-icons/ai';
 import { FiFolder } from 'react-icons/fi';
-import Tabs from './Tabs.tsx';
+import Tabs from './Tabs';
 import { LuFileJson2 } from 'react-icons/lu';
 import { FaGoogle } from 'react-icons/fa6';
-import DemoBox from '../DemoBox/DemoBox';
+
+export function Box(props) {
+  const { style, children, ...rest } = props;
+  return (
+    <div
+      style={{
+        width: '100%',
+        display: 'flex',
+        minHeight: `var(--sizes-8)`,
+        ...style,
+      }}
+      {...rest}
+    >
+      {children}
+    </div>
+  );
+}
 
 # Tabs
 
 ## Fixed panes
 
-<DemoBox>
+<Box>
   <Tabs
     tabs={[
       { title: 'bin', icon: FiFolder, content: <>Some local folder</> },
@@ -22,4 +38,4 @@ import DemoBox from '../DemoBox/DemoBox';
       },
     ]}
   />
-</DemoBox>
+</Box>

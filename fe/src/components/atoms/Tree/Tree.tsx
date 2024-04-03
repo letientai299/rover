@@ -1,12 +1,10 @@
-import styles from './tree.module.scss';
+import { cx } from '@/utils';
 
 import { HTMLAttributes, useEffect, useState } from 'react';
-import { Reveal, Row, RowProps, TreeNode } from '@/components/Tree/types.ts';
 import { match } from 'ts-pattern';
-import { cx } from '@/utils';
-import RowIconFactory, {
-  RowIconKind,
-} from '@/components/Tree/RowIconFactory.tsx';
+import RowIconFactory, { RowIconKind } from './RowIconFactory';
+import styles from './tree.module.scss';
+import { Reveal, Row, RowProps, TreeNode } from './types.ts';
 
 type CommonProps<T extends TreeNode> = {
   open?: boolean;
@@ -119,7 +117,7 @@ const RowContainer = <T extends TreeNode>(props: RowContainerProps<T>) => {
   const { reveal, toggleReveal, node, rowIcon, render } = props;
   const Node = render;
   return (
-    <div className={styles.rowContainer} >
+    <div className={styles.rowContainer}>
       <RowIconFactory
         node={node}
         reveal={reveal}

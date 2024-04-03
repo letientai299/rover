@@ -1,6 +1,6 @@
 import { IconButton, Tree } from '@/components';
-import { JsonTree, taskData } from '@/components/Tree/tests/jsonTree.ts';
-import { RowIconProps } from '@/components/Tree/types.ts';
+import { JsonTree, taskData } from './jsonTree.ts';
+import { RowIconProps } from '@/components/atoms/Tree/types.ts';
 import * as Strings from '@/utils/strings';
 import { PropsWithChildren } from 'react';
 import { FiChevronDown, FiChevronRight, FiLoader } from 'react-icons/fi';

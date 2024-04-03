@@ -1,5 +1,5 @@
 import { Button } from '@/components';
-import { Icon } from '@/components/atoms/Icon.tsx';
+import { Icon } from '@/components/atoms';
 import { HTMLAttributes, ReactElement, useState } from 'react';
 
 import styles from './tabs.module.scss';
@@ -13,8 +13,6 @@ export type Tab = {
 export interface TabsProps extends HTMLAttributes<HTMLDivElement> {
   tabs: Tab[];
 }
-
-// TODO: store tabs state
 
 const Tabs = (props: TabsProps) => {
   const [index, setIndex] = useState(0);

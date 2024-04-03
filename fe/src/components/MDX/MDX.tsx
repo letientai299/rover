@@ -4,7 +4,7 @@ import { useTheme } from '@/hooks';
 import { ReactElement, Suspense } from 'react';
 import { Helmet } from 'react-helmet-async';
 
-interface MDXProps {
+export interface MDXProps {
   children: ReactElement;
 }
 
