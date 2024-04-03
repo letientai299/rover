@@ -11,7 +11,7 @@
   --clip: calc(0px - var(--sizes-1));
   box-shadow: var(--shadow-sm);
 
-  border: var(--bd) solid var(--colors-border-clear);
+  border: var(--bd) solid var(--colors-bd-clear);
   background-color: var(--bg);
 
   &::before {

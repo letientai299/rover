@@ -9,9 +9,11 @@
     flex-direction: column;
     justify-content: space-between;
     min-width: fit-content;
+    padding-bottom: var(--padding-md);
+    padding-top: var(--padding-md);
 
     background-color: var(--colors-bg-secondary);
-    border-right: var(--sizes-0-1) solid var(--colors-border-subtle);
+    border-right: var(--sizes-0-1) solid var(--colors-bd-subtle);
     height: 100%;
     overflow: hidden;
 
@@ -19,7 +21,6 @@
       flex-grow: 1;
       overflow: auto;
       scrollbar-gutter: stable;
-      padding: var(--padding-sm);
 
       & button {
         border-radius: 0;

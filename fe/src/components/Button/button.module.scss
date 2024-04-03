@@ -23,7 +23,8 @@
 }
 
 .unfilled {
-  --border: var(--colors-border-clear);
+  --fg: var(--colors-fg);
+  --border: var(--colors-bd-clear);
   --focus-bg: var(--colors-neutral-focus-bg);
   --hover-bg: var(--colors-neutral-hover-bg);
   --active-bg: var(--colors-neutral-active-bg);
@@ -35,7 +36,6 @@
     --fg: var(--colors-primary);
     --fg-disabled: var(--colors-primary-dimmed);
     --border: var(--fg);
-    --fg-accessible: var(--colors-primary-accessible);
     --focus-bg: var(--colors-primary-focus-bg);
     --hover-bg: var(--colors-primary-hover-bg);
     --active-bg: var(--colors-primary-active-bg);
@@ -46,7 +46,6 @@
     --fg: var(--colors-danger);
     --fg-disabled: var(--colors-danger-dimmed);
     --border: var(--fg);
-    --fg-accessible: var(--colors-danger-accessible);
     --focus-bg: var(--colors-danger-focus-bg);
     --hover-bg: var(--colors-danger-hover-bg);
     --active-bg: var(--colors-danger-active-bg);
@@ -95,7 +94,6 @@
 .filled {
   --fg: var(--colors-filled-fg);
   --fg-disabled: var(--colors-filled-fg-dimmed);
-  --fg-hover: var(--colors-filled-fg-hover);
   --border: var(--colors-neutral-active-bg);
   --bg: var(--colors-neutral-filled-bg);
   --hover-bg: var(--colors-neutral-filled-hover-bg);
@@ -105,6 +103,8 @@
 
   &[data-kind='primary'] {
     --bg: var(--colors-primary);
+    --fg: var(--colors-primary-filled-fg);
+
     --border: var(--colors-primary);
     --hover-bg: var(--colors-primary-filled-hover-bg);
     --focus-bg: var(--colors-primary-filled-focus-bg);
@@ -113,6 +113,8 @@
 
   &[data-kind='danger'] {
     --bg: var(--colors-danger);
+    --fg: var(--colors-danger-filled-fg);
+
     --border: var(--colors-danger-active-bg);
     --hover-bg: var(--colors-danger-filled-hover-bg);
     --focus-bg: var(--colors-danger-filled-focus-bg);
@@ -142,7 +144,6 @@
 
     &:is(:hover, [data-hover]) {
       background: var(--hover-bg);
-      color: var(--fg-hover);
     }
 
     &:is(:focus, [data-focus]) {
@@ -154,7 +155,6 @@
     &:is(:active, [data-active]) {
       background: var(--active-bg);
       outline-color: var(--outline);
-      color: var(--fg-hover);
     }
 
     &[data-variant='outline'] {

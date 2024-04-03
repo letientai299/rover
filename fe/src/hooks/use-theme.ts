@@ -10,18 +10,22 @@ function getRoot() {
   return document.getElementsByTagName('html')[0]!;
 }
 
-function initTheme() {
-  const theme: Theme =
-    localStorage.getItem(themeModeKey) ??
-    matchMedia('(prefers-color-scheme: dark)').matches
+function initTheme(): Theme {
+  let theme = localStorage.getItem(themeModeKey);
+  if (!theme) {
+    theme = matchMedia('(prefers-color-scheme: dark)').matches
       ? 'dark'
       : 'light';
+  } else {
+    theme = theme.replaceAll('"', '');
+  }
+
   const root = getRoot();
   root.className = theme;
-  return theme;
+  return theme as Theme;
 }
 
-const darkAtom = atomWithStorage(themeModeKey, initTheme());
+const darkAtom = atomWithStorage<Theme>(themeModeKey, initTheme());
 const store = getDefaultStore();
 
 store.sub(darkAtom, () => {

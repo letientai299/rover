@@ -6,7 +6,7 @@
   .value {
     width: 100%;
     text-align: center;
-    color: var(--colors-filled-fg);
+    color: var(--colors-primary-filled-fg);
     z-index: 1;
   }
 
@@ -19,8 +19,8 @@
 
   width: 100%;
   margin: auto var(--margin-sm);
-  background: var(--colors-neutral-filled-bg);
-  border-radius: var(--rounded-half);
+  background: var(--colors-neutral-filled-focus-bg);
+  border-radius: var(--rounded-md);
   display: flex;
   align-items: center;
 
@@ -31,7 +31,6 @@
     border-radius: inherit;
     margin-left: 0;
 
-    /* TODO: the color theme is not good in dark mode, text is barely readable */
     background: var(--colors-primary);
     height: calc(100% + $gap);
     transform-origin: 0 50%;

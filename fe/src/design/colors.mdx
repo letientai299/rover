@@ -1,0 +1,74 @@
+import Mock from './colors/Mock';
+
+<Mock />
+
+---
+
+# Colors
+
+I want my application have only a few base colors. UI element state should be
+distinguishable base on different shades or tints of color. I also want those
+color be automatically detected by the chosen system accent color, to that my
+application can blend well among the system UIs.
+
+## Terms
+
+Let's recap some terminology about colors:
+
+- Hue: pure color, or the family of the color we are looking at.
+- Tint: Hue mixed with white
+- Shade: Hue mixed with black
+- Tone: Hue mixed with gray (which is itself a combination of white and black).
+
+https://www.linearity.io/blog/color-tone-terminology/
+
+There are also some more properties, terminology like warmness, saturation, ...
+But, I don't know much and can't care much about them. If any, I think I will
+look for cold color for my application, because I want it to be a professional
+tools, not a toy with "charming", "warming" emotion.
+
+## What we need?
+
+First, we need colors for these:
+
+- Background: we will need multiple color of similar hue, to highlight multiple
+  parts of the application UI:
+
+  - Primary: BG of the main content page, like VSCode, Webstorm Editor
+    background.
+  - Secondary: BG of the left sidebar, which is used to represent _global data_,
+    whose scope is usually higher than the main content, thinks about File
+    Explorer in VSCode.
+  - Tertiary: BG of the right sidebar, which is typically represent _local
+    data_, such as table of content of a single document.
+
+- Foreground: mainly text, but also SVG icon stroke color, border, shadow, .. We
+  will need many colors for this, to indicate many levels of highlight.
+  - Normal text.
+  - Title, or header. We might not need a different colors, just use bigger font
+    and bolder weight, which should give them a "stronger" appearance.
+  - Clickable text/shape, i.e. links or _ghost buttons_.
+
+UI elements will have different states. Some can be distinguished by shape. But,
+my graphic design skills are limited. Hence, for now, I want most of them to
+have their colors updated.
+
+- Disabled:
+- Normal
+- Focus
+- Active, or clicked/pressed
+- Selected (think about selecting multiple file item before copying or deleting)
+- Dragged
+
+Color is also used to indicates the importance of actions:
+
+- Default or the most common and sensible option in a group of buttons should
+  have a different style. Let's call it the _primary button_.
+
+- Those dangerous actions (deleting something, block someone) should have a
+  different color rather than normal and primary. It's typically some form of
+  red or orange.
+
+Sometimes, the roles of background and foreground could be reversed. For
+example, _filled button_ (has rectangle shape at normal state) or a progress bar
+which displays status and value inside itself.
