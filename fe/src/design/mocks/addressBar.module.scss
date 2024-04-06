@@ -1,0 +1,23 @@
+.addressBar {
+  display: flex;
+  border-bottom: var(--border-sm) solid var(--border);
+  padding: var(--padding-sm) 0;
+  padding-right: var(--padding-sm);
+  background: var(--colors-bg-secondary);
+}
+
+.pathSegments {
+  display: flex;
+  border-radius: var(--rounded-sm);
+  background: var(--colors-bg-primary);
+  flex-grow: 1;
+
+  .segment {
+    padding: 0;
+    margin: 1px;
+  }
+}
+
+.extensionIcon {
+  min-width: fit-content;
+}

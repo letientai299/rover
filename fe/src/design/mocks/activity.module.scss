@@ -1,9 +1,6 @@
-.activityBar {
-  display: flex;
-  flex-direction: row;
-}
-
 .activity {
+  overflow: auto;
+  scrollbar-gutter: stable;
   min-width: var(--sizes-8);
   background: var(--colors-bg-secondary);
   border-right: var(--border-sm) solid var(--colors-bd-clear);

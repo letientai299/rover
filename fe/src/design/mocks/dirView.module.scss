@@ -1,0 +1,23 @@
+.dirView {
+  overflow: auto;
+
+  .dirContent {
+    height: 0;
+    min-width: 0;
+    flex-grow: 1;
+    scrollbar-gutter: stable;
+  }
+
+  .dirInfo {
+    min-width: max-content;
+    position: sticky;
+    top: 0;
+    flex-grow: 0;
+    background: var(--colors-bg-primary);
+
+    .dirToolbar {
+      display: flex;
+      border-bottom: var(--border-sm) solid var(--border);
+    }
+  }
+}

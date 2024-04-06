@@ -4,12 +4,12 @@
   flex-direction: column;
   border: var(--border-md) solid var(--gray-12);
   border-radius: var(--rounded-md);
-  min-height: var(--sizes-10-5);
   background: var(--colors-bg-primary);
 
-  > *:not(.title-bar) {
-    flex-grow: 1;
-  }
+  resize: both;
+  overflow: hidden;
+  min-height: var(--sizes-10);
+  min-width: var(--sizes-10);
 
   .title-bar {
     --pd: var(--padding-md);
@@ -18,6 +18,7 @@
     align-items: center;
     gap: var(--sizes-1-5);
     height: var(--sizes-4);
+    min-height: var(--sizes-4);
     background: var(--gray-12);
 
     > svg {

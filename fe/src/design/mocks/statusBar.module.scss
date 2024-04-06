@@ -1,3 +1,6 @@
 .statusBar {
   border-top: var(--border-sm) solid var(--colors-bd-clear);
+  padding: 0 var(--padding-sm);
+  display: flex;
+  flex-direction: row;
 }
