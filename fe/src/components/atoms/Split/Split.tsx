@@ -35,7 +35,7 @@ type Point = {
 
 const Split = (props: SplitProps) => {
   const { style, className, direction, children, ...rest } = props;
-  const isVerticalDivider = direction === 'horizontal';
+  const isVerticalDivider = direction === 'vertical';
   const ref = useRef<HTMLDivElement>(null);
   const resizing = useRef<{ pair: ResizingPair | null }>({ pair: null });
   const mousePos = useRef<{ pos: Point | null }>({ pos: null });

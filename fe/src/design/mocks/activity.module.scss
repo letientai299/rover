@@ -25,9 +25,12 @@
   width: fit-content;
 
   .icon {
+    --bd: var(--border-lg);
+
     width: 1.6em;
     border-radius: 0;
-    border-left: var(--border-lg) solid transparent;
+    border-left: var(--bd) solid transparent;
+    border-right: var(--bd) solid transparent;
   }
 
   .active {

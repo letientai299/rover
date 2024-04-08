@@ -50,11 +50,11 @@ export function Hor() {
 export function Nested() {
   return (
     <Box>
-      <Split direction={'horizontal'}>
+      <Split direction={'vertical'}>
         <div>Pane 1</div>
-        <Split direction={'vertical'} style={{}}>
+        <Split direction={'horizontal'}>
           <div>Pane 1</div>
-          <Split direction={'horizontal'}>
+          <Split direction={'vertical'}>
             <div>Pane 1</div>
             <div>Pane 2</div>
           </Split>

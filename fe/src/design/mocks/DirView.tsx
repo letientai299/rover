@@ -1,42 +1,20 @@
 import { Button } from '@/components';
 import { Expand } from '@/components/atoms';
 import FlexCol from '@/components/atoms/Flex/FlexCol.tsx';
+import Split from '@/components/atoms/Split/Split.tsx';
 import { AddressBar } from '@/design/mocks/AddressBar.tsx';
+import FileList from '@/design/mocks/FileList.tsx';
 import { IconType } from 'react-icons';
-import { FiColumns, FiGrid, FiMenu, FiSearch } from 'react-icons/fi';
+import { FiColumns, FiGift, FiGrid, FiMenu, FiSearch } from 'react-icons/fi';
 
 import styles from './dirView.module.scss';
 
 function DirContent() {
   return (
-    <div className={styles.dirContent}>
-      <div>files/dir</div>
-      <div>files/dir</div>
-      <div>files/dir</div>
-      <div>files/dir</div>
-      <div>files/dir</div>
-      <div>files/dir</div>
-      <div>files/dir</div>
-      <div>files/dir</div>
-      <div>files/dir</div>
-      <div>files/dir</div>
-      <div>files/dir</div>
-      <div>files/dir</div>
-      <div>files/dir</div>
-      <div>files/dir</div>
-      <div>files/dir</div>
-      <div>files/dir</div>
-      <div>files/dir</div>
-      <div>files/dir</div>
-      <div>files/dir</div>
-      <div>files/dir</div>
-      <div>files/dir</div>
-      <div>files/dir</div>
-      <div>files/dir</div>
-      <div>files/dir</div>
-      <div>files/dir</div>
-      <div>optional: properties pane</div>
-    </div>
+    <Split direction={'vertical'} className={styles.dirContent}>
+      <FileList />
+      <FileList />
+    </Split>
   );
 }
 
@@ -63,7 +41,7 @@ const ToolBar = () => {
     [FiGrid, 'Grid'],
     [FiMenu, 'List'],
     [FiColumns, 'Columns', true], // disabled
-    // [FiGift, 'Other'], // disabled
+    [FiGift, 'Other'], // disabled
   ];
 
   return (

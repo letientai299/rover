@@ -7,7 +7,7 @@ import styles from './activity.module.scss';
 
 export function Activity() {
   const itemStyle = { marginLeft: '0.5em' };
-  const more = new Array(20).fill(0).map((_, i) => (
+  const more = new Array(2).fill(0).map((_, i) => (
     <Button key={i} icon={MdMore} style={itemStyle}>
       More button - {i + 1}
     </Button>

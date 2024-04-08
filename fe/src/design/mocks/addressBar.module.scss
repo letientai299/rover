@@ -1,8 +1,8 @@
 .addressBar {
   display: flex;
   border-bottom: var(--border-sm) solid var(--border);
-  padding: var(--padding-sm) 0;
-  padding-right: var(--padding-sm);
+  padding: var(--padding-sm);
+  gap: var(--gap-sm);
   background: var(--colors-bg-secondary);
 }
 

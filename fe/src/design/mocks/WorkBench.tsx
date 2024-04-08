@@ -4,8 +4,7 @@ import styles from './workbench.module.scss';
 
 export function WorkBench() {
   return (
-    <Split direction={'horizontal'} className={styles.workbench}>
-      <DirView />
+    <Split direction={'vertical'} className={styles.workbench}>
       <DirView />
     </Split>
   );

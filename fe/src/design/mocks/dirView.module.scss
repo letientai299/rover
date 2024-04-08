@@ -6,6 +6,7 @@
     min-width: 0;
     flex-grow: 1;
     scrollbar-gutter: stable;
+    padding: var(--padding-sm);
   }
 
   .dirInfo {
@@ -16,6 +17,8 @@
     background: var(--colors-bg-primary);
 
     .dirToolbar {
+      padding: var(--padding-sm);
+      gap: var(--gap-sm);
       display: flex;
       border-bottom: var(--border-sm) solid var(--border);
     }
