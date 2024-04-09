@@ -9,8 +9,9 @@
   padding: var(--padding-xs);
   white-space: nowrap;
   background: none;
+  line-height: 1.5em;
   border: var(--sizes-0-1) solid transparent;
-  outline-offset: calc(0px - var(--sizes-0-5));
+  outline-offset: var(--sizes-0-1);
   outline-width: var(--sizes-0-5);
 
   & svg {

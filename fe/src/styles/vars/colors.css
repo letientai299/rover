@@ -1,3 +1,5 @@
+@import url('@radix-ui/colors/white-alpha.css');
+
 @import url('@radix-ui/colors/gray.css');
 @import url('@radix-ui/colors/gray-dark.css');
 
@@ -22,8 +24,8 @@
   --colors-bg-tertiary: var(--gray-2);
 
   /* text on background colors */
-  --colors-filled-fg: var(--indigo-1);
-  --colors-filled-fg-dimmed: var(--indigo-3);
+  --colors-filled-fg: var(--white-a12);
+  --colors-filled-fg-dimmed: var(--white-a9);
 
   /* neutral */
   --colors-neutral: var(--gray-10);
@@ -32,8 +34,8 @@
   --colors-neutral-active-bg: var(--gray-7);
 
   --colors-neutral-filled-fg: var(--gray-3);
-  --colors-neutral-filled-bg: var(--gray-8);
-  --colors-neutral-filled-hover-bg: var(--gray-9);
+  --colors-neutral-filled-bg: var(--gray-9);
+  --colors-neutral-filled-hover-bg: var(--gray-10);
   --colors-neutral-filled-focus-bg: var(--gray-10);
   --colors-neutral-filled-active-bg: var(--gray-11);
 
@@ -44,7 +46,7 @@
   --colors-primary-focus-bg: var(--indigo-6);
   --colors-primary-active-bg: var(--indigo-7);
 
-  --colors-primary-filled-fg: white;
+  --colors-primary-filled-fg: var(--colors-filled-fg);
   --colors-primary-filled-bg: var(--indigo-8);
   --colors-primary-filled-hover-bg: var(--indigo-9);
   --colors-primary-filled-focus-bg: var(--indigo-10);
@@ -57,7 +59,7 @@
   --colors-danger-focus-bg: var(--tomato-5);
   --colors-danger-active-bg: var(--tomato-6);
 
-  --colors-danger-filled-fg: white;
+  --colors-danger-filled-fg: var(--colors-filled-fg);
   --colors-danger-filled-bg: var(--tomato-8);
   --colors-danger-filled-hover-bg: var(--tomato-9);
   --colors-danger-filled-focus-bg: var(--tomato-10);

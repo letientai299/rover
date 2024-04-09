@@ -16,7 +16,7 @@ export function Activity() {
   const more = new Array(2)
     .fill(0)
     .map((_, i) => (
-      <Bookmarked title={`More button - ${i}`} icon={FaCommentDots} />
+      <Bookmarked title={`More button - ${i}`} icon={FaCommentDots} key={i} />
     ));
 
   return (

@@ -45,14 +45,21 @@ function rewriteRelativeLink() {
     visit(t.children, match, transform);
   };
 
+  const knownSchemes = ['http://', 'https://', 'mailto:'];
+
   return (tree: Ast, file: any) => {
     visit(tree, 'link', (t) => {
       const v: any = t;
       const url = v.url as string;
+      if (knownSchemes.some((scheme) => url.startsWith(scheme))) {
+        return v;
+      }
+
       let p = path
         .resolve(path.dirname(file.history[0]), url)
         .replace('src/', '');
       p = p.replace(file.cwd, '#');
+      console.log(v.url, p);
       v.url = p;
       return v;
     });

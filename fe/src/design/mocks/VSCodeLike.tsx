@@ -14,17 +14,17 @@ interface MockAppProps {
   platform: Platform;
 }
 
-const MockApp = (props: MockAppProps) => {
+const VSCodeLike = (props: MockAppProps) => {
   return (
     <Window platform={props.platform}>
       <Shell>
-        <VSCodeLike />
+        <Content />
       </Shell>
     </Window>
   );
 };
 
-function VSCodeLike() {
+function Content() {
   return (
     <>
       <ActivityNav />
@@ -72,4 +72,4 @@ function VSCodeLike() {
   );
 }
 
-export default MockApp;
+export default VSCodeLike;

@@ -1,6 +1,7 @@
 .activity {
   overflow: auto;
   min-width: var(--sizes-8);
+  flex-shrink: 1;
   background: var(--colors-bg-secondary);
   border-right: var(--border-sm) solid var(--colors-bd-clear);
 
@@ -8,12 +9,13 @@
     width: 100%;
     text-transform: uppercase;
     border-bottom: var(--border-sm) solid var(--colors-bd-clear);
+    padding: var(--padding-sm);
   }
 
   .activityBody {
     flex-grow: 1;
     scrollbar-gutter: stable;
-    padding: 0 var(--padding-md);
+    padding: var(--padding-md);
     & > * {
       width: 100%;
     }

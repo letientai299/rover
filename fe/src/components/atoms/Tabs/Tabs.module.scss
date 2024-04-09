@@ -10,6 +10,7 @@
     display: flex;
 
     .title {
+      padding: var(--padding-sm);
       border-radius: 0 !important;
       border-right-width: var(--border-sm);
       border-right-color: var(--border);

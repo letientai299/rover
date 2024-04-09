@@ -39,8 +39,8 @@
   /* Margins */
   --margin-xs: var(--sizes-0-5);
   --margin-sm: var(--sizes-1);
-  --margin-md: var(--sizes-2);
-  --margin-lg: var(--sizes-3);
+  --margin-md: var(--sizes-1-5);
+  --margin-lg: var(--sizes-2);
 
   /* Padding */
   --padding-xs: var(--sizes-0-5);
@@ -50,7 +50,7 @@
 
   /* Padding */
   --rounded-sm: var(--sizes-1);
-  --rounded-md: var(--sizes-2);
-  --rounded-lg: var(--sizes-3);
+  --rounded-md: var(--sizes-1-5);
+  --rounded-lg: var(--sizes-2);
   --rounded-half: 9999px;
 }
