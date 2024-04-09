@@ -6,10 +6,17 @@
 
   .activityTitle {
     width: 100%;
-    padding: 0 var(--padding-sm);
-    padding-bottom: var(--padding-xs);
     text-transform: uppercase;
     border-bottom: var(--border-sm) solid var(--colors-bd-clear);
+  }
+
+  .activityBody {
+    flex-grow: 1;
+    scrollbar-gutter: stable;
+    padding: 0 var(--padding-md);
+    & > * {
+      width: 100%;
+    }
   }
 }
 
