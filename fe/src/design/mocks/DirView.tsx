@@ -61,9 +61,7 @@ const ToolBar = () => {
         );
       })}
       <Expand />
-      <Button icon={FiSearch} disabled>
-        Find
-      </Button>
+      <Button icon={FiSearch}>Find</Button>
     </div>
   );
 };

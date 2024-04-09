@@ -10,7 +10,7 @@
   white-space: nowrap;
   background: none;
   border: var(--sizes-0-1) solid transparent;
-  outline-offset: var(--sizes-0-1);
+  outline-offset: calc(0px - var(--sizes-0-5));
   outline-width: var(--sizes-0-5);
 
   & svg {
