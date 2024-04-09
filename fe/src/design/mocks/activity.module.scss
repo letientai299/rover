@@ -1,17 +1,14 @@
 .activity {
   overflow: auto;
-  scrollbar-gutter: stable;
   min-width: var(--sizes-8);
   background: var(--colors-bg-secondary);
   border-right: var(--border-sm) solid var(--colors-bd-clear);
-  padding: var(--padding-sm) 0;
 
   .activityTitle {
+    width: 100%;
     padding: 0 var(--padding-sm);
     padding-bottom: var(--padding-xs);
     text-transform: uppercase;
-    display: block;
-    width: 100%;
     border-bottom: var(--border-sm) solid var(--colors-bd-clear);
   }
 }
