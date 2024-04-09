@@ -1,6 +1,6 @@
-import Split from '@/components/atoms/Split/Split.tsx';
-import { DirView } from '@/design/mocks/DirView.tsx';
-import styles from './workbench.module.scss';
+import Split from 'src/components/atoms/Split/Split.tsx';
+import { DirView } from 'src/design/mocks/DirView.tsx';
+import styles from './Workbench.module.scss';
 
 export function WorkBench() {
   return (

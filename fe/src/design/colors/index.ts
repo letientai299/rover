@@ -1,4 +1,4 @@
-import { shade } from '@/design/colors/manip.ts';
+import { shade } from 'src/design/colors/manip.ts';
 import Color from 'colorjs.io';
 import { Property } from 'csstype';
 

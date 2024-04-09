@@ -1,9 +1,9 @@
-import { Button, IconButton } from '@/components';
+import { Button, IconButton } from 'src/components';
 import { HTMLAttributes, PropsWithChildren } from 'react';
 import { FaComputer } from 'react-icons/fa6';
 import { FiChevronRight } from 'react-icons/fi';
 
-import styles from './addressBar.module.scss';
+import styles from './Applications.module.scss';
 
 interface AddressBarProps extends HTMLAttributes<HTMLDivElement> {
   path: string;

@@ -1,4 +1,4 @@
-import { Progress } from '@/components/atoms';
+import { Progress } from 'src/components/atoms';
 import { PropsWithChildren, useEffect, useState } from 'react';
 
 function useFakeProgress(step: number): number {

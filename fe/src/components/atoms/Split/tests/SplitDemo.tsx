@@ -1,4 +1,4 @@
-import { Button } from '@/components/atoms';
+import { Button } from 'src/components/atoms';
 import { HTMLAttributes, useRef, useState } from 'react';
 import { FiPlusSquare } from 'react-icons/fi';
 import Split from '../Split';

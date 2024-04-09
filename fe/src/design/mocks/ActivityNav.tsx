@@ -1,12 +1,12 @@
-import { Expand, Icon, IconButton, Tooltip } from '@/components/atoms';
+import { Expand, Icon, IconButton, Tooltip } from 'src/components/atoms';
 
-import { cx } from '@/utils';
+import { cx } from 'src/utils';
 import { useId } from 'react';
 import { BiExtension } from 'react-icons/bi';
 import { FiSettings } from 'react-icons/fi';
 import { MdOutlineBookmarks, MdOutlineFavoriteBorder } from 'react-icons/md';
 
-import styles from './activity.module.scss';
+import styles from './Activity.module.scss';
 
 export function ActivityNav() {
   const active = 'Favorites';

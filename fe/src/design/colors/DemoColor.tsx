@@ -1,5 +1,5 @@
-import { newTheme, Theme } from '@/design/colors/index.ts';
-import Palette from '@/design/colors/Palette.tsx';
+import { newTheme, Theme } from 'src/design/colors/index.ts';
+import Palette from 'src/design/colors/Palette.tsx';
 import Color from 'colorjs.io';
 import { Component } from 'react';
 

@@ -1,5 +1,5 @@
-import { Icon } from '@/components/atoms/Icon.tsx';
-import { cx } from '@/utils';
+import { Icon } from 'src/components/atoms/Icon.tsx';
+import { cx } from 'src/utils';
 
 import {
   ButtonHTMLAttributes,
@@ -7,7 +7,7 @@ import {
   PropsWithChildren,
   useState,
 } from 'react';
-import styles from './button.module.scss';
+import styles from './Button.module.scss';
 
 export interface ButtonProps
   extends PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>> {

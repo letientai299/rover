@@ -1,6 +1,6 @@
-import { Button, Tree } from '@/components';
-import { Reveal, RowProps } from '@/components/atoms/Tree/types.ts';
-import { Model, Notes } from '@/main/docs/notes.ts';
+import { Button, Tree } from 'src/components';
+import { Reveal, RowProps } from 'src/components/atoms/Tree/types.ts';
+import { Model, Notes } from 'src/main/docs/notes.ts';
 import { IconType } from 'react-icons';
 import {
   FaFile,

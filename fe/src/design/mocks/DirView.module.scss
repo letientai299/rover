@@ -1,5 +1,7 @@
 .dirView {
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 
   .dirContent {
     height: 0;

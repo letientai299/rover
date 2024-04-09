@@ -1,6 +1,6 @@
-import Button, { ButtonProps } from '@/components/atoms/Button/Button.tsx';
-import { cx } from '@/utils';
-import styles from './button.module.scss';
+import Button, { ButtonProps } from 'src/components/atoms/Button/Button.tsx';
+import { cx } from 'src/utils';
+import styles from './Button.module.scss';
 
 export type IconButtonProps = Required<Pick<ButtonProps, 'icon'>> &
   Omit<ButtonProps, 'children' | 'iconPosition' | 'icon'>;

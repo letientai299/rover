@@ -2,7 +2,7 @@ import { PropsWithChildren } from 'react';
 import { BsFillCircleFill } from 'react-icons/bs';
 import { FiMinus, FiSquare, FiX } from 'react-icons/fi';
 import { match } from 'ts-pattern';
-import styles from './window.module.scss';
+import styles from './Window.module.scss';
 
 export type Platform = 'win' | 'mac' | 'linux';
 

@@ -1,6 +1,6 @@
-import { IconButton } from '@/components';
-import { cx } from '@/utils';
-import { DivAttributes } from '@/utils/types.ts';
+import { IconButton } from 'src/components';
+import { cx } from 'src/utils';
+import { DivAttributes } from 'src/utils/types.ts';
 import { createContext, ReactElement, useContext, useState } from 'react';
 import { FiChevronDown, FiChevronRight } from 'react-icons/fi';
 import styles from './Accordion.module.scss';

@@ -1,5 +1,5 @@
 import './MDX.css';
-import { useTheme } from '@/hooks';
+import { useTheme } from 'src/hooks';
 
 import { ReactElement, Suspense } from 'react';
 import { Helmet } from 'react-helmet-async';

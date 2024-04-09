@@ -1,10 +1,10 @@
-import { Button } from '@/components';
-import Accordion from '@/components/atoms/Accordion/Accordion.tsx';
+import { Button } from 'src/components';
+import Accordion from 'src/components/atoms/Accordion/Accordion.tsx';
 import { FaComputer, FaDownload } from 'react-icons/fa6';
 import { HiDocument } from 'react-icons/hi2';
 import { MdMore, MdWork } from 'react-icons/md';
 
-import styles from './activity.module.scss';
+import styles from './Activity.module.scss';
 
 export function Activity() {
   const itemStyle = { marginLeft: '0.5em' };

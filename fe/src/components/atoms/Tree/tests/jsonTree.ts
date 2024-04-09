@@ -1,5 +1,5 @@
-import { TreeNode } from '@/components/atoms/Tree/types.ts';
-import rawTasks from '@/components/atoms/Tree/tests/tasks.json';
+import { TreeNode } from 'src/components/atoms/Tree/types.ts';
+import rawTasks from 'src/components/atoms/Tree/tests/tasks.json';
 
 export class JsonTree implements TreeNode {
   constructor(

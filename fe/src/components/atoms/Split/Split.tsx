@@ -1,4 +1,4 @@
-import { cx } from '@/utils';
+import { cx } from 'src/utils';
 import React, {
   HTMLAttributes,
   MouseEvent,
@@ -8,7 +8,7 @@ import React, {
   useRef,
 } from 'react';
 
-import styles from './split.module.scss';
+import styles from 'src/components/atoms/Split/Split.module.scss';
 
 // TODO:
 //  - resizable using keyboard shortcuts

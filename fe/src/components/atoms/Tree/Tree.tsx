@@ -1,9 +1,9 @@
-import { cx } from '@/utils';
+import { cx } from 'src/utils';
 
 import { HTMLAttributes, useEffect, useState } from 'react';
 import { match } from 'ts-pattern';
 import RowIconFactory, { RowIconKind } from './RowIconFactory';
-import styles from './tree.module.scss';
+import styles from 'src/components/atoms/Tree/Tree.module.scss';
 import { Reveal, Row, RowProps, TreeNode } from './types.ts';
 
 type CommonProps<T extends TreeNode> = {

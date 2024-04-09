@@ -1,13 +1,13 @@
-import { Button, MDX } from '@/components';
-import { useTheme } from '@/hooks';
-import Nav from '@/main/docs/Nav';
-import { Notes } from '@/main/docs/notes';
 import { lazy } from 'react';
 
 import { FiMoon, FiSun } from 'react-icons/fi';
+import { Button, MDX } from 'src/components';
+import { useTheme } from 'src/hooks';
+import Nav from 'src/main/docs/Nav';
+import { Notes } from 'src/main/docs/notes';
 import { Redirect, Route, Router, Switch } from 'wouter';
 import { useHashLocation } from 'wouter/use-hash-location';
-import styles from './docs.module.scss';
+import styles from './Docs.module.scss';
 
 function ThemeButton() {
   const [theme, toggle] = useTheme();

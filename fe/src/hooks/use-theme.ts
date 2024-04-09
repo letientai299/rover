@@ -1,4 +1,4 @@
-import { rotate } from '@/utils';
+import { rotate } from 'src/utils';
 import { getDefaultStore, useAtom } from 'jotai';
 import { atomWithStorage } from 'jotai/utils';
 

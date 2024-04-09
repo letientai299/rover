@@ -1,6 +1,6 @@
-import { Expand } from '@/components/atoms';
 import { FiBell } from 'react-icons/fi';
-import styles from './statusBar.module.scss';
+import { Expand } from 'src/components/atoms';
+import styles from './StatusBar.module.scss';
 
 export function StatusBar() {
   return (

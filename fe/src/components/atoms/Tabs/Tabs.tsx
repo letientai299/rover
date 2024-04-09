@@ -1,8 +1,8 @@
-import { Button } from '@/components';
-import { Icon } from '@/components/atoms';
+import { Button } from 'src/components';
+import { Icon } from 'src/components/atoms';
 import { HTMLAttributes, ReactElement, useState } from 'react';
 
-import styles from './tabs.module.scss';
+import styles from 'src/components/atoms/Tabs/Tabs.module.scss';
 
 export type Tab = {
   icon: Icon;

@@ -1,7 +1,7 @@
-import { IconButton } from '@/components';
+import { IconButton } from 'src/components';
 import { match } from 'ts-pattern';
 
-import styles from './tree.module.scss';
+import styles from 'src/components/atoms/Tree/Tree.module.scss';
 import { RowIcon, RowIconProps, TreeNode } from './types.ts';
 
 export type RowIconKind<T extends TreeNode> = RowIcon<T> | 'none' | 'default';

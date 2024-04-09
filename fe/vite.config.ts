@@ -1,5 +1,4 @@
 import react from '@vitejs/plugin-react-swc';
-import path from 'node:path';
 import { RollupOptions } from 'rollup';
 
 import {
@@ -9,6 +8,7 @@ import {
   PluginOption,
   UserConfig,
 } from 'vite';
+import tsconfigPaths from 'vite-tsconfig-paths';
 import { UserConfig as UserConfigTest } from 'vitest';
 
 export function deepIndex(entry: string): [RollupOptions, PluginOption] {
@@ -54,7 +54,7 @@ export function baseCfg(entry: string): UserConfig & UserConfigTest {
       rollupOptions: roll,
     },
     customLogger: customLogger(),
-    plugins: [react(), plug],
+    plugins: [tsconfigPaths(), react(), plug],
 
     css: {
       modules: {
@@ -62,11 +62,11 @@ export function baseCfg(entry: string): UserConfig & UserConfigTest {
       },
     },
 
-    resolve: {
-      alias: {
-        '@': path.resolve(__dirname, './src/'),
-      },
-    },
+    // resolve: {
+    //   alias: {
+    //     '@': path.resolve(__dirname, './src/'),
+    //   },
+    // },
 
     test: {
       coverage: {

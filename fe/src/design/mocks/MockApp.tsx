@@ -1,16 +1,14 @@
-import { Tabs } from '@/components';
-import FlexCol from '@/components/atoms/Flex/FlexCol.tsx';
-import FlexRow from '@/components/atoms/Flex/FlexRow.tsx';
-import Activity from '@/design/mocks/Activity.tsx';
-import { ActivityNav } from '@/design/mocks/ActivityNav.tsx';
-import { Shell } from '@/design/mocks/Shell.tsx';
-import { StatusBar } from '@/design/mocks/StatusBar.tsx';
-import Window, { Platform } from '@/design/mocks/Window.tsx';
-import { WorkBench } from '@/design/mocks/WorkBench.tsx';
 import { AiOutlineLock } from 'react-icons/ai';
 import { FaGoogle } from 'react-icons/fa6';
 import { FiFolder } from 'react-icons/fi';
 import { LuFileJson2 } from 'react-icons/lu';
+import { Tabs } from 'src/components';
+import Activity from 'src/design/mocks/Activity.tsx';
+import { ActivityNav } from 'src/design/mocks/ActivityNav.tsx';
+import { Shell } from 'src/design/mocks/Shell.tsx';
+import { StatusBar } from 'src/design/mocks/StatusBar.tsx';
+import Window, { Platform } from 'src/design/mocks/Window.tsx';
+import { WorkBench } from 'src/design/mocks/WorkBench.tsx';
 
 interface MockAppProps {
   platform: Platform;
@@ -30,8 +28,22 @@ function VSCodeLike() {
   return (
     <>
       <ActivityNav />
-      <FlexCol style={{ minWidth: 0 }}>
-        <FlexRow style={{ minHeight: 0 }}>
+      <div
+        style={{
+          minWidth: 0,
+          display: 'flex',
+          flexDirection: 'column',
+          flexGrow: 1,
+        }}
+      >
+        <div
+          style={{
+            minWidth: 0,
+            display: 'flex',
+            flexDirection: 'row',
+            flexGrow: 1,
+          }}
+        >
           <Activity />
           <Tabs
             tabs={[
@@ -53,9 +65,9 @@ function VSCodeLike() {
               },
             ]}
           />
-        </FlexRow>
+        </div>
         <StatusBar />
-      </FlexCol>
+      </div>
     </>
   );
 }

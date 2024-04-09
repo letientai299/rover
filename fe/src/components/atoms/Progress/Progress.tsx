@@ -1,5 +1,5 @@
-import { cx } from '@/utils';
-import { Either } from '@/utils/types.ts';
+import { cx } from 'src/utils';
+import { Either } from 'src/utils/types.ts';
 import { HTMLAttributes } from 'react';
 
 import styles from './Progress.module.scss';

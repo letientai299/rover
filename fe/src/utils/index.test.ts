@@ -1,4 +1,4 @@
-import { cx } from '@/utils/index.ts';
+import { cx } from 'src/utils/index.ts';
 import { describe, expect, test } from 'vitest';
 
 describe.each([

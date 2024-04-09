@@ -1,14 +1,13 @@
-import { Button } from '@/components';
-import { Expand } from '@/components/atoms';
-import FlexCol from '@/components/atoms/Flex/FlexCol.tsx';
-import Split from '@/components/atoms/Split/Split.tsx';
-import { AddressBar } from '@/design/mocks/AddressBar.tsx';
-import FileList from '@/design/mocks/FileList.tsx';
-import { FileProperties } from '@/design/mocks/FileProperties';
 import { IconType } from 'react-icons';
 import { FiColumns, FiGift, FiGrid, FiMenu, FiSearch } from 'react-icons/fi';
+import { Button } from 'src/components';
+import { Expand } from 'src/components/atoms';
+import Split from 'src/components/atoms/Split/Split.tsx';
+import { AddressBar } from 'src/design/mocks/AddressBar.tsx';
 
-import styles from './dirView.module.scss';
+import styles from 'src/design/mocks/DirView.module.scss';
+import FileList from 'src/design/mocks/FileList.tsx';
+import { FileProperties } from 'src/design/mocks/FileProperties';
 
 function DirContent() {
   return (
@@ -30,10 +29,10 @@ function DirInfo() {
 
 export function DirView() {
   return (
-    <FlexCol className={styles.dirView}>
+    <div className={styles.dirView}>
       <DirInfo />
       <DirContent />
-    </FlexCol>
+    </div>
   );
 }
 

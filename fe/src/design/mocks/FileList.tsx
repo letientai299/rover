@@ -1,7 +1,7 @@
-import { Button } from '@/components';
+import { Button } from 'src/components';
 import { FiFile, FiFolder } from 'react-icons/fi';
 
-import styles from './fileList.module.scss';
+import styles from './FileList.module.scss';
 
 const files = new Array(12).fill(0).map((_, i) => `a_${i}.json`);
 const dirs = new Array(12).fill(0).map((_, i) => `some_dir_${i}`);

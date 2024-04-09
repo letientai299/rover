@@ -1,4 +1,4 @@
-import Accordion from '@/components/atoms/Accordion/Accordion.tsx';
+import Accordion from 'src/components/atoms/Accordion/Accordion.tsx';
 import styles from './FileProperties.module.scss';
 
 export function FileProperties() {

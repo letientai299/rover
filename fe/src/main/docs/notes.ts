@@ -1,5 +1,5 @@
-import type { TreeNode } from '@/components';
-import * as Strings from '@/utils/strings';
+import type { TreeNode } from 'src/components';
+import * as Strings from 'src/utils/strings';
 
 const files = import.meta.glob('../../../{src,docs}/**/*.md*');
 

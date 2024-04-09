@@ -1,4 +1,4 @@
-import { cut } from '@/utils/strings/index.ts';
+import { cut } from 'src/utils/strings/index.ts';
 import { describe, expect, test } from 'vitest';
 
 describe.each([
