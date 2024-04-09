@@ -1,0 +1,24 @@
+.accordion {
+  display: flex;
+  gap: var(--gap-sm);
+  flex-direction: column;
+
+  .header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: var(--gap-sm);
+    justify-content: space-between;
+
+    .arrow {
+      flex-shrink: 1;
+    }
+  }
+
+  .body {
+    width: 100%;
+    transition:
+      height 1000ms,
+      width 1000ms;
+  }
+}

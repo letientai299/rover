@@ -4,6 +4,7 @@ import FlexCol from '@/components/atoms/Flex/FlexCol.tsx';
 import Split from '@/components/atoms/Split/Split.tsx';
 import { AddressBar } from '@/design/mocks/AddressBar.tsx';
 import FileList from '@/design/mocks/FileList.tsx';
+import { FileProperties } from '@/design/mocks/FileProperties';
 import { IconType } from 'react-icons';
 import { FiColumns, FiGift, FiGrid, FiMenu, FiSearch } from 'react-icons/fi';
 
@@ -13,7 +14,7 @@ function DirContent() {
   return (
     <Split direction={'vertical'} className={styles.dirContent}>
       <FileList />
-      <FileList />
+      <FileProperties />
     </Split>
   );
 }

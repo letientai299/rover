@@ -1,0 +1,19 @@
+.fileProperties {
+  display: flex;
+  overflow: auto;
+  scrollbar-gutter: stable;
+  gap: var(--gap-sm);
+  flex-direction: column;
+
+  .group:not(:last-child) {
+    border-bottom: var(--border-sm) solid var(--colors-bd-clear);
+  }
+
+  .groupHeader {
+    font-weight: bold;
+    padding: var(--padding-sm);
+  }
+  .groupBody {
+    padding: 0 var(--padding-sm);
+  }
+}
