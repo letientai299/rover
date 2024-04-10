@@ -1,7 +1,7 @@
 import type { TreeNode } from 'src/components';
 import * as Strings from 'src/utils/strings';
 
-const files = import.meta.glob('../../../{src,docs}/**/*.md*');
+const files = import.meta.glob('../../../{src,docs}/**/*.{mdx,md}');
 
 export class Model implements TreeNode {
   kids: Map<string, Model> | undefined = undefined;
