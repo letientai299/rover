@@ -1,0 +1,28 @@
+.sidebar {
+  display: flex;
+  flex-shrink: 1;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-overflow: ellipsis;
+  flex-direction: column;
+  min-width: var(--sizes-8);
+  min-height: 0;
+  background: var(--colors-bg-secondary);
+  border-right: var(--border-sm) solid var(--colors-bd-clear);
+
+  .section {
+    .title {
+      width: 100%;
+      text-transform: uppercase;
+      border-bottom: var(--border-sm) solid var(--colors-bd-clear);
+      padding: var(--padding-sm);
+    }
+
+    .body {
+      padding: var(--padding-md);
+      & > * {
+        width: 100%;
+      }
+    }
+  }
+}

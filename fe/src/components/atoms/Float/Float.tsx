@@ -1,4 +1,3 @@
-import { cx } from 'src/utils';
 import {
   HTMLAttributes,
   PropsWithChildren,
@@ -6,6 +5,7 @@ import {
   useRef,
 } from 'react';
 import { createPortal } from 'react-dom';
+import { cx } from 'src/utils';
 
 import styles from './float.module.scss';
 
@@ -34,7 +34,7 @@ export interface FloatProps
 }
 
 const Float = (props: FloatProps) => {
-  const { style, className, children, ...rest } = props;
+  const { className, children, ...rest } = props;
   const place = props.place ?? 'bottom-start';
   const ref = useRef<HTMLDivElement>(null);
 
@@ -59,7 +59,6 @@ const Float = (props: FloatProps) => {
   return createPortal(
     <div
       ref={ref}
-      style={style}
       className={cx(styles.float, className)}
       data-place={place}
       {...rest}

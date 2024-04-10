@@ -1,6 +1,6 @@
+import { HTMLAttributes } from 'react';
 import { cx } from 'src/utils';
 import { Either } from 'src/utils/types.ts';
-import { HTMLAttributes } from 'react';
 
 import styles from './Progress.module.scss';
 
@@ -25,6 +25,12 @@ export type DeterminateProps = Info & {
   min?: number;
   max?: number;
 };
+
+function isDeterminateProps(
+  p: ProgressProps,
+): p is DeterminateProps & { kind: 'determinate' } {
+  return p.kind === 'determinate';
+}
 
 export type IndeterminateProps = Info;
 
@@ -62,7 +68,7 @@ const Progress = (props: ProgressProps) => {
     );
 
   let label = props.label ?? '';
-  if ('showValueInside' in props) {
+  if (isDeterminateProps(props)) {
     const max = props.max ?? 100;
     label = `${label} ${Math.min(max, props.value)}/${max}`;
   }
@@ -70,11 +76,7 @@ const Progress = (props: ProgressProps) => {
   return (
     <div className={styles.progress}>
       {bar}
-      {label !== '' && (
-        <span className={styles.value} id={'sdfasf'}>
-          {label}
-        </span>
-      )}
+      {label !== '' && <span className={styles.value}>{label}</span>}
     </div>
   );
 };

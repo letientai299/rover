@@ -7,7 +7,6 @@ describe.each([
     input: ['a', 'b', null, undefined, ''],
     want: 'a b',
   },
-
   {
     name: 'should merge prebuilt class lists as is',
     input: ['button filled', 'hovered'],

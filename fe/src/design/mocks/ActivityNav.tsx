@@ -6,7 +6,7 @@ import { BiExtension } from 'react-icons/bi';
 import { FiSettings } from 'react-icons/fi';
 import { MdOutlineBookmarks, MdOutlineFavoriteBorder } from 'react-icons/md';
 
-import styles from './Activity.module.scss';
+import styles from './ActivityNav.module.scss';
 
 export function ActivityNav() {
   const active = 'Favorites';
@@ -32,7 +32,7 @@ export function ActivityNav() {
     ));
 
   return (
-    <div className={styles.nav}>
+    <div className={styles.activityNav}>
       {render(activities)}
       <Expand />
       {render(configs)}

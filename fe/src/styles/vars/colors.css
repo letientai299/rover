@@ -24,8 +24,8 @@
   --colors-bg-tertiary: var(--gray-2);
 
   /* text on background colors */
-  --colors-filled-fg: var(--white-a12);
-  --colors-filled-fg-dimmed: var(--white-a9);
+  --colors-filled-fg: white;
+  --colors-filled-fg-dimmed: white;
 
   /* neutral */
   --colors-neutral: var(--gray-10);

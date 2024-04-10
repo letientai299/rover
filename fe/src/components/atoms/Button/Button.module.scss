@@ -15,7 +15,10 @@
   outline-width: var(--sizes-0-5);
 
   & svg {
-    font-size: 1.2em;
+    --size: 1.2em;
+    font-size: var(--size);
+    min-width: var(--size);
+    min-height: var(--size);
   }
 
   &:not(:disabled) {
@@ -168,8 +171,4 @@
   aspect-ratio: 1/1;
   align-items: center;
   justify-content: center;
-  & svg {
-    width: 100%;
-    height: 100%;
-  }
 }

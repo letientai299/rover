@@ -23,6 +23,14 @@
         border-bottom-style: inset;
       }
     }
+
+    .tools {
+      margin: var(--padding-sm);
+    }
+
+    .spacer {
+      flex-grow: 1;
+    }
   }
 
   .content {

@@ -1,0 +1,7 @@
+.hint {
+  border-bottom: 1px solid var(--colors-primary);
+
+  &:hover {
+    background: var(--colors-bg-secondary);
+  }
+}

@@ -51,7 +51,7 @@ const ToolBar = () => {
         return (
           <Button
             key={mode}
-            kind={mode === 'Grid' ? 'primary' : 'normal'}
+            kind={mode === 'List' ? 'primary' : 'normal'}
             icon={opt[0]}
             disabled={opt[2] ?? false}
           >

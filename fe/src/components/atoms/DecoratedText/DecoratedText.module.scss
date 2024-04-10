@@ -1,0 +1,27 @@
+.decoratedText {
+  & .segment {
+    --thickness: var(--border-md);
+
+    &[data-decoration-kind~='error'] {
+      color: var(--colors-danger);
+      text-decoration: var(--colors-danger) wavy underline var(--thickness);
+      text-underline-offset: 0.2em;
+    }
+
+    &[data-decoration-kind~='mnemonic'] {
+      font-weight: bold;
+      text-decoration: underline var(--thickness);
+      text-underline-position: under;
+    }
+
+    &[data-decoration-kind~='warn'] {
+      text-decoration: #bf960e wavy underline var(--thickness);
+      text-underline-offset: 0.4em;
+    }
+
+    &[data-decoration-kind~='match'] {
+      background-color: var(--colors-primary-filled-bg);
+      color: var(--colors-filled-fg);
+    }
+  }
+}

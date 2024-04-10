@@ -1,0 +1,79 @@
+import { useId } from 'react';
+import { Tooltip } from 'src/components/atoms/index';
+import DecoratedText, { Decorations as D } from './DecoratedText';
+import customStyles from './DecoratedText.mdx.module.scss';
+
+export function Demo() {
+  const text = 'This is a long string to test the decorations';
+  const rangeOf = (sub) => {
+    const i = text.indexOf(sub);
+    return [i, i + sub.length]
+  }
+
+  const hintId = useId();
+
+  return <div style={{
+    display: 'grid',
+    gridTemplateColumns: 'auto 1fr',
+    gap: 8
+  }}>
+    <strong>Normal</strong>
+    <DecoratedText text={text} />
+
+    <strong>Match</strong>
+    <DecoratedText text={text} decorations={D.match(text, "string")} />
+
+    <strong>Mnemonic</strong>
+    <DecoratedText text={text} decorations={D.mnemonic(text, "h")} />
+
+
+    <strong>Error</strong>
+    <DecoratedText text={text} decorations={D.error(text, "string")} />
+
+    <strong>Warn</strong>
+    <DecoratedText text={text} decorations={D.warn(text, "string")} />
+
+    <strong>Multi and overlapping decorations</strong>
+    <DecoratedText text={text} decorations={[
+      D.match(text, 'This'),
+      D.error(text, 'long'),
+      D.warn(text, 'string'),
+      D.warn(text, 'deco'),
+      D.match(text, 'deco'),
+      D.mnemonic(text, 'T'),
+      D.error(text, 'decoration'),
+    ]} />
+
+    <strong>Custom style using class name</strong>
+    <DecoratedText text={text} decorations={
+      {
+        range: rangeOf('a long string'),
+        kind: { name: 'custom', className: customStyles.hint, }
+      }
+    } />
+
+
+    <strong>Custom style using inline style</strong>
+    <DecoratedText text={text} decorations={
+      {
+        range: rangeOf('a long string'),
+        kind: { name: 'custom', style: { border: `1px solid red`, } }
+      }
+    } />
+
+    <strong>Custom interactive (tooltip on hover)</strong>
+    <DecoratedText text={text} decorations={
+      {
+        range: rangeOf('a long string'),
+        kind: { name: 'custom', style: { border: `1px solid green` }, id:
+          hintId }
+      }
+    } />
+
+    <Tooltip place={'bottom'} anchor={hintId}>Hi there</Tooltip>
+  </div>
+}
+
+# Decorated Text
+
+<Demo />

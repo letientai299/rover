@@ -5,7 +5,7 @@
   gap: var(--gap-sm);
   flex-direction: column;
 
-  .group:not(:last-child) {
+  .section:not(:last-child) {
     border-bottom: var(--border-sm) solid var(--colors-bd-clear);
   }
 
