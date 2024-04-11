@@ -1,0 +1,3 @@
+import{j as o}from"./app-wXXRkJhG.js";import{A as r}from"./Accordion-B-ImS10B.js";function c(e){const n={h1:"h1",h2:"h2",...e.components};return r||t("Accordion",!1),r.Body||t("Accordion.Body",!0),r.Header||t("Accordion.Header",!0),r.Root||t("Accordion.Root",!0),o.jsxs(o.Fragment,{children:[o.jsx(n.h1,{children:"Accordion"}),`
+`,o.jsx(n.h2,{children:"Basic"}),`
+`,o.jsxs(r.Root,{children:[o.jsx(r.Header,{children:"Header"}),o.jsx(r.Body,{children:"Body"})]})]})}function s(e={}){const{wrapper:n}=e.components||{};return n?o.jsx(n,{...e,children:o.jsx(c,{...e})}):c(e)}function t(e,n){throw new Error("Expected "+(n?"component":"object")+" `"+e+"` to be defined: you likely forgot to import, pass, or provide it.")}export{s as default};
