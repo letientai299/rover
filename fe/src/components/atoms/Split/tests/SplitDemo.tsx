@@ -103,7 +103,7 @@ export function AddRemove() {
           Add new pane
         </Button>
       </div>
-      <Split direction={'horizontal'} style={{ flexGrow: 1 }}>
+      <Split direction={'vertical'} style={{ flexGrow: 1 }}>
         {children}
       </Split>
     </Box>
