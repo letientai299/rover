@@ -29,9 +29,9 @@
 
   /* neutral */
   --colors-neutral: var(--gray-10);
-  --colors-neutral-hover-bg: var(--gray-5);
-  --colors-neutral-focus-bg: var(--gray-6);
-  --colors-neutral-active-bg: var(--gray-7);
+  --colors-neutral-hover-bg: var(--gray-6);
+  --colors-neutral-focus-bg: var(--gray-7);
+  --colors-neutral-active-bg: var(--gray-8);
 
   --colors-neutral-filled-fg: var(--gray-3);
   --colors-neutral-filled-bg: var(--gray-9);

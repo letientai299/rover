@@ -49,7 +49,7 @@ const DecoratedText = (props: DecoratedTextProps) => {
 
 const decorMatch = (s: string, part: string): Decor => {
   const i = s.indexOf(part);
-  return { kind: 'match', range: [i, i + part.length] };
+  return { kind: 'match', range: i >= 0 ? [i, i + part.length] : [0, 0] };
 };
 
 export const Decorations: Record<string, (s: string, part: string) => Decor> = {
@@ -122,6 +122,10 @@ function createSegments(
 
   for (let decor of decors) {
     const [a, b] = decor.range;
+    if (a >= b) {
+      continue; // skip invalid range
+    }
+
     // find index of the first pair that overlaps with decor range
     const first = binarySearch(segments, (p: Seg) => {
       const [_, y] = p.range;
@@ -160,7 +164,7 @@ function createSegments(
 
 const Segment = (props: SegmentProps) => {
   const { text, kinds = [] } = props;
-  // We're using wrapping spans to apply multiple decorations to a piece of
+  // We're using wrapping elements to apply multiple decorations to a piece of
   // text, because we can't apply multiple text-decoration from different class
   // into one DOM element.
   //
@@ -171,8 +175,8 @@ const Segment = (props: SegmentProps) => {
   // - We can't merge built-in style with external/custom decorations.
   // - JS logic would be affected if we need to add more built-in kinds.
   //
-  // Hence, we use spans wrapping method instead. JS will only need to create a
-  // new span and set data-decoration-kind. CSS will handle the styling. More
+  // Hence, we use wrapping method instead. JS will only need to create a new
+  // element and set data-decoration-kind. CSS will handle the styling. More
   // built-in kind will require mostly CSS work.
   return kinds.reduce(
     (elem, kind) => {

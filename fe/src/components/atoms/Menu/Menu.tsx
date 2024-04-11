@@ -2,7 +2,7 @@ import styles from './Menu.module.scss';
 
 export interface MenuProps {}
 
-const Menu = (props: MenuProps) => {
+const Menu = (_: MenuProps) => {
   return (
     <div className={styles.menu}>
       <ul>

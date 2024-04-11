@@ -16,16 +16,13 @@ export function Demo() {
     display: 'grid',
     gridTemplateColumns: 'auto 1fr',
     gap: 8
-  }}>
-    <strong>Normal</strong>
-    <DecoratedText text={text} />
+  }}><strong>Normal</strong> <DecoratedText text={text} />
 
     <strong>Match</strong>
-    <DecoratedText text={text} decorations={D.match(text, "string")} />
+    <DecoratedText text={text} decorations={D.match(text, "string x")} />
 
     <strong>Mnemonic</strong>
     <DecoratedText text={text} decorations={D.mnemonic(text, "h")} />
-
 
     <strong>Error</strong>
     <DecoratedText text={text} decorations={D.error(text, "string")} />
@@ -65,12 +62,16 @@ export function Demo() {
     <DecoratedText text={text} decorations={
       {
         range: rangeOf('a long string'),
-        kind: { name: 'custom', style: { border: `1px solid green` }, id:
-          hintId }
+        kind: {
+          name: 'custom',
+          style: { border: `1px solid green` },
+          id: hintId
+        }
       }
     } />
 
     <Tooltip place={'bottom'} anchor={hintId}>Hi there</Tooltip>
+
   </div>
 }
 

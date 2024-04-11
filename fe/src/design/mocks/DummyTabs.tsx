@@ -1,7 +1,6 @@
 import { AiOutlineLock } from 'react-icons/ai';
-import { FaGoogle } from 'react-icons/fa6';
-import { FiFolder } from 'react-icons/fi';
-import { LuFileJson2 } from 'react-icons/lu';
+import { FaKeyboard } from 'react-icons/fa6';
+import { FiFolder, FiSettings } from 'react-icons/fi';
 import { Tabs } from 'src/components';
 import Menu from 'src/components/atoms/Menu/Menu.tsx';
 import { WorkBench } from 'src/design/mocks/WorkBench.tsx';
@@ -13,14 +12,14 @@ export function DummyTabs() {
       tabs={[
         { title: 'bin', icon: FiFolder, content: <WorkBench /> },
         {
-          title: 'GDrive',
-          icon: FaGoogle,
-          content: <>Google Drive folder</>,
+          title: 'Settings',
+          icon: FiSettings,
+          content: <>Some settings</>,
         },
         {
-          title: 'config.json',
-          icon: LuFileJson2,
-          content: <>Some file</>,
+          title: 'Keymap',
+          icon: FaKeyboard,
+          content: <>Keymap</>,
         },
         {
           title: 'SSH remote',

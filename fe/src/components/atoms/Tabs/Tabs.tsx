@@ -1,5 +1,5 @@
 import React, { HTMLAttributes, ReactElement, useId, useState } from 'react';
-import { FiMoreVertical } from 'react-icons/fi';
+import { FiMoreVertical, FiPlus, FiX } from 'react-icons/fi';
 import { Button, Float, IconButton } from 'src/components';
 import { Icon } from 'src/components/atoms';
 import { MenuProps } from 'src/components/atoms/Menu/Menu.tsx';
@@ -23,15 +23,21 @@ const Tabs = (props: TabsProps) => {
   const [index, setIndex] = useState(0);
 
   const titles = tabs.map((tab: Tab, i: number) => {
+    const Icon = tab.icon;
+    const pick = () => setIndex(i);
     return (
       <Button
         key={`${i}|${tab.title}`}
-        icon={tab.icon}
         className={styles.title}
         data-selected={index === i}
-        onClick={() => setIndex(i)}
+        onClick={pick}
       >
-        {tab.title}
+        {/* TODO: fix tab title styling (when hover on close button) */}
+        <span>
+          <Icon />
+          {tab.title}
+        </span>
+        <IconButton icon={FiX} className={styles.closeButton} />
       </Button>
     );
   });
@@ -40,12 +46,17 @@ const Tabs = (props: TabsProps) => {
     <div className={cx(styles.tabs, className)} {...rest}>
       <div className={styles.titles}>
         {titles}
+        <AddTabButton />
         {menu && <MenuButton menu={menu} />}
       </div>
       <div className={styles.content}>{tabs[index].content}</div>
     </div>
   );
 };
+
+function AddTabButton() {
+  return <IconButton icon={FiPlus} />;
+}
 
 interface MenuButtonProps {
   menu: React.ReactElement<MenuProps>;

@@ -2,6 +2,7 @@
   display: flex;
   flex-shrink: 1;
   overflow-x: hidden;
+  scrollbar-gutter: stable;
   overflow-y: auto;
   text-overflow: ellipsis;
   flex-direction: column;
@@ -11,15 +12,21 @@
   border-right: var(--border-sm) solid var(--colors-bd-clear);
 
   .section {
+    padding: var(--padding-sm);
+
+    &:not(:last-child) {
+      border-bottom: var(--border-sm) solid var(--colors-bd-clear);
+    }
+
     .title {
       width: 100%;
       text-transform: uppercase;
-      border-bottom: var(--border-sm) solid var(--colors-bd-clear);
-      padding: var(--padding-sm);
+      align-items: center;
     }
 
     .body {
-      padding: var(--padding-md);
+      padding: 0 var(--padding-sm);
+
       & > * {
         width: 100%;
       }
