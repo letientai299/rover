@@ -8,11 +8,12 @@ export class Model implements TreeNode {
   readonly name: string;
 
   constructor(
+    readonly parentPath: string,
     readonly path: string,
     readonly kind: 'dir' | 'file',
     readonly content?: unknown,
   ) {
-    this.name = path.slice(path.lastIndexOf('/') + 1);
+    this.name = path.replace(parentPath + '/', '');
   }
 
   childNodes(): Promise<ThisType<this>[]> {
@@ -39,14 +40,14 @@ export class Model implements TreeNode {
     if (!found) {
       // path is a file, just add to the kids list
       const fullPath = [parent, name].join('/');
-      this.kids.set(name, new Model(fullPath, 'file', content));
+      this.kids.set(name, new Model(parent, fullPath, 'file', content));
       return;
     }
 
     const fullPath = [parent, dir].join('/');
     const kid = this.kids.has(fullPath)
       ? this.kids.get(fullPath)!
-      : new Model(fullPath, 'dir');
+      : new Model(parent, fullPath, 'dir');
 
     kid.add(rest, content);
     this.kids.set(fullPath, kid);
@@ -59,6 +60,27 @@ export class Model implements TreeNode {
       [...this.kids.values()].forEach((k) => k.print(level + 1));
     }
   }
+
+  shorten(): Model {
+    if (this.kind === 'file') {
+      return this;
+    }
+
+    if (this.kids === null) {
+      this.kids = new Map();
+    }
+
+    const newKids = [...this.kids!.entries()] //
+      .map(([k, v]) => [k, v.shorten()] as const);
+
+    if (newKids.length === 1) {
+      const [k, v] = newKids[0];
+      return new Model(this.parentPath, this.path + '/' + k, 'file', v.content);
+    }
+
+    this.kids = new Map(newKids);
+    return this;
+  }
 }
 
 function resolvePath(k: string): string {
@@ -70,13 +92,15 @@ function resolvePath(k: string): string {
 }
 
 function buildDocsTree() {
-  const root = new Model('', 'dir');
+  console.log('build docs', new Date());
+  // some
+  const root = new Model('', '', 'dir');
   Object.entries(files).forEach(([k, v]) => {
     const path = resolvePath(k);
     root.add(path, v);
   });
 
-  return [...root.kids!.values()];
+  return [...root.shorten().kids!.values()];
 }
 
 export const Notes = {

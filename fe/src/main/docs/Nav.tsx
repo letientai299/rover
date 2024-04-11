@@ -1,6 +1,3 @@
-import { Button, Tree } from 'src/components';
-import { Reveal, RowProps } from 'src/components/atoms/Tree/types.ts';
-import { Model, Notes } from 'src/main/docs/notes.ts';
 import { IconType } from 'react-icons';
 import {
   FaFile,
@@ -9,6 +6,9 @@ import {
   FaRegFolderOpen,
 } from 'react-icons/fa6';
 import { FiLoader } from 'react-icons/fi';
+import { Button, Tree } from 'src/components';
+import { Reveal, RowProps } from 'src/components/atoms/Tree/types.ts';
+import { Model } from 'src/main/docs/notes.ts';
 import { match } from 'ts-pattern';
 import { Link, useLocation } from 'wouter';
 
@@ -53,12 +53,14 @@ function pickIcon(reveal: Reveal, node: Model) {
     .exhaustive();
 }
 
-const Nav = () => {
-  return (
-    <nav>
-      <Tree data={Notes.tree} render={DocView} open />
-    </nav>
-  );
-};
+interface NavProps {
+  tree: Model[];
+}
+
+const Nav = ({ tree }: NavProps) => (
+  <nav>
+    <Tree data={tree} render={DocView} open />
+  </nav>
+);
 
 export default Nav;

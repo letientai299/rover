@@ -29,7 +29,7 @@ export const Docs = () => {
     <Router hook={useHashLocation}>
       <main className={styles.main}>
         <aside>
-          <Nav />
+          <Nav tree={Notes.tree} />
           <ThemeButton />
         </aside>
         <article className={styles.content}>
