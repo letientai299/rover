@@ -92,8 +92,6 @@ function resolvePath(k: string): string {
 }
 
 function buildDocsTree() {
-  console.log('build docs', new Date());
-  // some
   const root = new Model('', '', 'dir');
   Object.entries(files).forEach(([k, v]) => {
     const path = resolvePath(k);

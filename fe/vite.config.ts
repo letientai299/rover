@@ -2,13 +2,7 @@ import react from '@vitejs/plugin-react-swc';
 import path from 'node:path';
 import { RollupOptions } from 'rollup';
 
-import {
-  createLogger,
-  defineConfig,
-  Logger,
-  PluginOption,
-  UserConfig,
-} from 'vite';
+import { createLogger, defineConfig, Logger, PluginOption, UserConfig } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import { UserConfig as UserConfigTest } from 'vitest';
 
@@ -54,6 +48,7 @@ export function baseCfg(entry: string): UserConfig & UserConfigTest {
     build: {
       rollupOptions: roll,
     },
+
     customLogger: customLogger(),
     plugins: [tsconfigPaths(), react(), plug],
 

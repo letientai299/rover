@@ -59,7 +59,6 @@ function rewriteRelativeLink() {
         .resolve(path.dirname(file.history[0]), url)
         .replace('src/', '');
       p = p.replace(file.cwd, '#');
-      console.log(v.url, p);
       v.url = p;
       return v;
     });
@@ -89,7 +88,8 @@ export default defineConfig(() => {
   return {
     ...base,
     ...{
-      build: { rollupOptions: roll },
+      base: process.env.NODE_ENV === 'production' ? '/rover' : '',
+      build: { rollupOptions: roll  },
       server: { port: 5050, strictPort: true },
       plugins: [...base.plugins!, deepIndexPlugin, mdxCfg()],
     },

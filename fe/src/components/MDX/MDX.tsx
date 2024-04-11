@@ -4,6 +4,12 @@ import { useTheme } from 'src/hooks';
 import { ReactElement, Suspense } from 'react';
 import { Helmet } from 'react-helmet-async';
 
+import mdDarkURL from 'github-markdown-css/github-markdown-dark.css?url';
+import mdLightURL from 'github-markdown-css/github-markdown-light.css?url';
+import prismDarktURL from 'prism-themes/themes/prism-one-dark.css?url';
+import prismLightURL from 'prism-themes/themes/prism-one-light.css?url';
+
+
 export interface MDXProps {
   children: ReactElement;
 }
@@ -18,12 +24,12 @@ function MDX(props: MDXProps) {
           <link
             rel={'stylesheet'}
             type={'text/css'}
-            href={'node_modules/github-markdown-css/github-markdown-dark.css'}
+            href={mdDarkURL}
           />
           <link
             rel={'stylesheet'}
             type={'text/css'}
-            href={'node_modules/prism-themes/themes/prism-one-dark.css'}
+            href={prismDarktURL}
           />
           <meta name="color-scheme" content="dark" />
         </Helmet>
@@ -32,12 +38,12 @@ function MDX(props: MDXProps) {
           <link
             rel={'stylesheet'}
             type={'text/css'}
-            href={'node_modules/github-markdown-css/github-markdown-light.css'}
+            href={mdLightURL}
           />
           <link
             rel={'stylesheet'}
             type={'text/css'}
-            href={'node_modules/prism-themes/themes/prism-one-light.css'}
+            href={prismLightURL}
           />
           <meta name="color-scheme" content="light" />
         </Helmet>
