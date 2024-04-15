@@ -9,7 +9,6 @@ import mdLightURL from 'github-markdown-css/github-markdown-light.css?url';
 import prismDarktURL from 'prism-themes/themes/prism-one-dark.css?url';
 import prismLightURL from 'prism-themes/themes/prism-one-light.css?url';
 
-
 export interface MDXProps {
   children: ReactElement;
 }
@@ -21,30 +20,14 @@ function MDX(props: MDXProps) {
     <article className={'markdown-body'}>
       {theme === 'dark' ? (
         <Helmet async={true}>
-          <link
-            rel={'stylesheet'}
-            type={'text/css'}
-            href={mdDarkURL}
-          />
-          <link
-            rel={'stylesheet'}
-            type={'text/css'}
-            href={prismDarktURL}
-          />
+          <link rel={'stylesheet'} type={'text/css'} href={mdDarkURL} />
+          <link rel={'stylesheet'} type={'text/css'} href={prismDarktURL} />
           <meta name="color-scheme" content="dark" />
         </Helmet>
       ) : (
         <Helmet>
-          <link
-            rel={'stylesheet'}
-            type={'text/css'}
-            href={mdLightURL}
-          />
-          <link
-            rel={'stylesheet'}
-            type={'text/css'}
-            href={prismLightURL}
-          />
+          <link rel={'stylesheet'} type={'text/css'} href={mdLightURL} />
+          <link rel={'stylesheet'} type={'text/css'} href={prismLightURL} />
           <meta name="color-scheme" content="light" />
         </Helmet>
       )}

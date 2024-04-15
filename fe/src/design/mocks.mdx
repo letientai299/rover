@@ -1,5 +1,6 @@
 import RangerLike from 'src/design/mocks/RangerLike';
 import VSCodeLike from './mocks/VSCodeLike';
+import Accordion from '../components/atoms/Accordion/Accordion';
 
 [//]: # "import RangerLike from './mocks/RangerLike';"
 
@@ -12,7 +13,19 @@ app, I don't want to use it for something that target normal (i.e.
 non-developer) users. There's not many thing to put on the **Activity** bar.
 Even the sidebar, beside **Favorite**, I don't know what else to put there.
 
-<VSCodeLike platform={'mac'} />
+<Accordion.Root>
+  <Accordion.Header
+    style={{
+      fontWeight: 'bold',
+      textTransform: 'uppercase',
+    }}
+  >
+    VSCode like design
+  </Accordion.Header>
+  <Accordion.Body>
+    <VSCodeLike platform={'mac'} />
+  </Accordion.Body>
+</Accordion.Root>
 
 ## Ranger like
 

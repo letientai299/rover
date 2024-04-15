@@ -47,4 +47,14 @@
       }
     }
   }
+
+  filter: brightness(80%);
+  box-shadow: none;
+
+  &:hover,
+  &:focus,
+  &:focus-within {
+    filter: brightness(100%);
+    box-shadow: var(--shadow-md);
+  }
 }

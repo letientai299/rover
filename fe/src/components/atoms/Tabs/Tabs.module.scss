@@ -11,23 +11,13 @@
 
     .title {
       display: flex;
-      justify-content: space-between;
       padding: var(--padding-sm);
+      white-space: nowrap;
       border-radius: 0 !important;
       border-right-width: var(--border-sm);
       border-right-color: var(--border);
       border-bottom-color: transparent;
       min-width: var(--sizes-8);
-
-      & > span {
-        display: flex;
-        gap: var(--gap-sm);
-        justify-content: center;
-        align-items: center;
-        & > svg {
-          font-size: 1.2em;
-        }
-      }
 
       &[data-selected='true'] {
         border-bottom-color: var(--colors-primary);
@@ -37,10 +27,6 @@
 
       &:not([data-selected='true']) {
         background: var(--colors-bg-secondary);
-      }
-
-      .closeButton {
-        font-size: 0.8em;
       }
     }
 

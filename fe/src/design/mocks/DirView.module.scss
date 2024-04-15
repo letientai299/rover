@@ -16,12 +16,5 @@
     top: 0;
     flex-grow: 0;
     background: var(--colors-bg-secondary);
-
-    .dirToolbar {
-      padding: var(--padding-sm);
-      gap: var(--gap-sm);
-      display: flex;
-      border-bottom: var(--border-sm) solid var(--border);
-    }
   }
 }

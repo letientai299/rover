@@ -1,11 +1,13 @@
 import React, { HTMLAttributes, ReactElement, useId, useState } from 'react';
-import { FiMoreVertical, FiPlus, FiX } from 'react-icons/fi';
-import { Button, Float, IconButton } from 'src/components';
+import { FiMoreVertical, FiPlus } from 'react-icons/fi';
+import { Float, IconButton } from 'src/components';
 import { Icon } from 'src/components/atoms';
 import { MenuProps } from 'src/components/atoms/Menu/Menu.tsx';
 
 import styles from 'src/components/atoms/Tabs/Tabs.module.scss';
 import { cx } from 'src/utils';
+import { clampIn } from '../../../utils/numbers';
+import { Button } from 'src/components/atoms/Button';
 
 export type Tab = {
   icon: Icon;
@@ -14,30 +16,28 @@ export type Tab = {
 };
 
 export interface TabsProps extends HTMLAttributes<HTMLDivElement> {
+  selectedIndex?: number;
   tabs: Tab[];
   menu?: ReactElement<MenuProps>;
 }
 
 const Tabs = (props: TabsProps) => {
-  const { menu, tabs, className, ...rest } = props;
-  const [index, setIndex] = useState(0);
+  const { menu, tabs, selectedIndex = 0, className, ...rest } = props;
+  const selected = clampIn(tabs, selectedIndex);
+  const [index, setIndex] = useState(selected);
 
   const titles = tabs.map((tab: Tab, i: number) => {
-    const Icon = tab.icon;
     const pick = () => setIndex(i);
     return (
       <Button
         key={`${i}|${tab.title}`}
         className={styles.title}
         data-selected={index === i}
+        kind={i === index ? 'primary' : 'normal'}
         onClick={pick}
+        icon={tab.icon}
       >
-        {/* TODO: fix tab title styling (when hover on close button) */}
-        <span>
-          <Icon />
-          {tab.title}
-        </span>
-        <IconButton icon={FiX} className={styles.closeButton} />
+        {tab.title}
       </Button>
     );
   });

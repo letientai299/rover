@@ -22,7 +22,7 @@ function ThemeButton() {
 
 export const Docs = () => {
   const defaultPage = [...Notes.map.keys()].filter((k) =>
-    k.includes('Button'),
+    k.includes('mocks'),
   )[0];
 
   return (

@@ -120,7 +120,7 @@ function createSegments(
     },
   ];
 
-  for (let decor of decors) {
+  for (const decor of decors) {
     const [a, b] = decor.range;
     if (a >= b) {
       continue; // skip invalid range
