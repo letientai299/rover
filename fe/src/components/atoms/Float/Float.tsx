@@ -10,6 +10,7 @@ import { cx } from 'src/utils';
 import styles from './float.module.scss';
 
 export type Placement =
+  | 'over'
   | 'left'
   | 'right'
   | 'top'
@@ -94,14 +95,21 @@ function computePosition(
   const ww = window.innerWidth;
   const wh = window.innerHeight;
 
-  const translateY = (percent: number) => `0 calc(${percent}%)`;
-  const translateX = (percent: number) => `calc(${percent}%) 0`;
+  const translateY = (percent: number) => `0 ${percent}%`;
+  const translateX = (percent: number) => `${percent}% 0`;
 
   const { top, left, bottom, right } = locate(anchor);
   const w = right - left;
   const h = bottom - top;
 
   switch (place) {
+    case 'over':
+      return {
+        left: left + w / 2,
+        top: top + h / 2,
+        translate: `-50% -50%`,
+      };
+
     case 'left':
       return {
         right: ww - left,

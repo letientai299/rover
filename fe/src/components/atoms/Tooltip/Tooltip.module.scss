@@ -14,15 +14,18 @@
   border: var(--bd) solid var(--colors-bd-clear);
   background-color: var(--bg);
 
-  &::before {
-    z-index: var(--z-float);
-    position: absolute;
-    display: block;
-    content: '';
-    box-shadow: inherit;
-    height: var(--arrow-size);
-    width: var(--arrow-size);
-    background: inherit;
+  // don't add arrow if the placement is 'over'.
+  &:not([data-place='over']) {
+    &::before {
+      z-index: var(--z-float);
+      position: absolute;
+      display: block;
+      content: '';
+      box-shadow: inherit;
+      height: var(--arrow-size);
+      width: var(--arrow-size);
+      background: inherit;
+    }
   }
 
   &[data-place^='right'] {
