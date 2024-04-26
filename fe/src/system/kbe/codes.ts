@@ -6,6 +6,7 @@
  * that isn't altered by keyboard layout or the state of the modifier keys.
  *
  * @see https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/UI_Events/Keyboard_event_code_values
  */
 export const enum Code {
   AltLeft,

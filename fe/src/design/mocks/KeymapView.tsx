@@ -25,16 +25,16 @@ function Keymaps({ keymaps }: { keymaps: Chords[] }) {
     return <div>no mapping</div>;
   }
 
-  const rows = keymaps.map((chords) => (
+  const rows = keymaps.map((chords, i) => (
     <div
-      key={chords.map((c) => c.hashCode()).join('+')}
+      key={`${i}:` + chords.map((c) => c.hashCode()).join('+')}
       style={{
         display: 'flex',
         gap: 4,
       }}
     >
-      {chords.map((c) => (
-        <Fragment key={c.hashCode()}>
+      {chords.map((c, i) => (
+        <Fragment key={`${i}:` + c.hashCode()}>
           {c.metaKey && <kbd>Meta</kbd>}
           {c.ctrlKey && <kbd>Ctrl</kbd>}
           {c.altKey && <kbd>Alt</kbd>}

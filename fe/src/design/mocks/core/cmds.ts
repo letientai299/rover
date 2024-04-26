@@ -4,7 +4,7 @@ import { Code } from '../../../system/kbe/codes.ts';
 import { KeyEventTarget } from '../../../system/commands/events.ts';
 import { RefObject, useEffect } from 'react';
 
-type CmdInfo = {
+export type CmdInfo = {
   title?: string;
 };
 
@@ -31,6 +31,7 @@ const movement = {
     id: 'core.movement.left',
     keymaps: [[Chord.new(Code.ArrowLeft)], [Chord.new(Code.KeyH)]],
   },
+
   right: {
     id: 'core.movement.right',
     keymaps: [[Chord.new(Code.ArrowRight)], [Chord.new(Code.KeyL)]],

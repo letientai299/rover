@@ -3,12 +3,19 @@ import { FiFile, FiFolder } from 'react-icons/fi';
 
 import styles from './FileList.module.scss';
 import { useLayoutEffect, useRef, useState } from 'react';
-import { Core, useCommandHandlers } from './core/cmds.ts';
+import { CmdRegistry, Core, useCommandHandlers } from './core/cmds.ts';
 import { clampIn } from '../../utils/numbers';
+import { Chord } from '../../system/kbe/chord.ts';
+import { Code } from '../../system/kbe/codes.ts';
 
 const files = new Array(12).fill(0).map((_, i) => `a_${i}.json`);
 const dirs = new Array(12).fill(0).map((_, i) => `some_dir_${i}`);
 const content = [...files, ...dirs];
+
+CmdRegistry.declare({
+  id: 'dummy',
+  keymaps: [[Chord.new(Code.ShiftLeft), Chord.new(Code.ShiftLeft)]],
+});
 
 function FileList() {
   const [index, setIndex] = useState(-1);
@@ -16,6 +23,7 @@ function FileList() {
 
   useCommandHandlers(
     ref,
+    ['dummy', () => alert('double-shift works')],
     [Core.movement.up.id, () => setIndex((v) => clampIn(content, v - 1))],
     [Core.movement.down.id, () => setIndex((v) => clampIn(content, v + 1))],
   );
@@ -66,11 +74,14 @@ function FileItem(props: {
   useLayoutEffect(() => {
     if (!ref.current) return;
 
-    if (selected) {
-      ref.current.scrollIntoView();
-      ref.current.focus();
-    } else {
+    if (!selected) {
       ref.current.blur();
+      return;
+    }
+
+    ref.current.focus();
+    if (!ref.current.checkVisibility()) {
+      ref.current.scrollIntoView({ behavior: 'smooth' });
     }
   }, [ref, selected]);
   return (

@@ -18,10 +18,22 @@ export class Chord {
   static new(code: Code, mods?: ModKey[]): Chord {
     mods = mods ?? [];
     return new Chord(
-      mods.includes(ModKey.Meta),
-      mods.includes(ModKey.Ctrl),
-      mods.includes(ModKey.AltOpt),
-      mods.includes(ModKey.Shift),
+      mods.includes(ModKey.Meta) ||
+        code === Code.MetaRight ||
+        code === Code.MetaLeft,
+
+      mods.includes(ModKey.Ctrl) ||
+        code === Code.ControlRight ||
+        code === Code.ControlLeft,
+
+      mods.includes(ModKey.AltOpt) ||
+        code === Code.AltRight ||
+        code === Code.AltLeft,
+
+      mods.includes(ModKey.Shift) ||
+        code === Code.ShiftRight ||
+        code === Code.ShiftLeft,
+
       code,
     );
   }

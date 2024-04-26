@@ -1,34 +1,33 @@
-import { CommandId } from './intent.ts';
 import { Chord, Chords } from '../kbe/chord.ts';
 
 export interface Match {
-  ids: CommandId[];
+  ids: string[];
   sub?: ChordMap;
 }
 
 /**
- * ChordMap is a helper data structure that map a {@link Chord} to either a
- * {@link CommandId} or another map, in case that Chord is a common prefix of
- * multiple {@link Chords} belong to multiple {@link Command}.
+ * ChordMap is a helper data structure that map a {@link Chord} to either an
+ * intent ID or another map, in case that Chord is a common prefix of multiple
+ * {@link Chords} belong to multiple {@link Intent}.
  */
 export class ChordMap {
   // tree is the mapping of a chord with a list of matching command IDs and
   // possibly a subtree of more mapping, in case the chord is a common prefix of
   // many chord sequences.
   private tree = new Map<string, Match>();
-  private ids = new Set<CommandId>();
+  private ids = new Set<string>();
 
-  update(id: CommandId, newKeymaps: Chords[], oldKeymaps: Chords[]): void {
+  update(id: string, newKeymaps: Chords[], oldKeymaps: Chords[]): void {
     this.remove(id, oldKeymaps);
     this.add(id, newKeymaps);
   }
 
-  add(id: CommandId, cur: Chords[]) {
+  add(id: string, cur: Chords[]) {
     cur.forEach((seq) => this.addToTree(seq, id));
     this.ids.add(id);
   }
 
-  remove(id: CommandId, old: Chords[]) {
+  remove(id: string, old: Chords[]) {
     old.forEach((seq) => this.removeFromTree(seq, id));
     this.ids.delete(id);
   }
@@ -37,11 +36,11 @@ export class ChordMap {
     return this.tree.get(chord.hashCode());
   }
 
-  commandIds(): CommandId[] {
+  commandIds(): string[] {
     return [...this.ids.values()];
   }
 
-  private addToTree(seq: Chords, id: CommandId): void {
+  private addToTree(seq: Chords, id: string): void {
     const [prefix, ...rest] = seq;
     const hash = prefix.hashCode();
 
@@ -67,7 +66,7 @@ export class ChordMap {
     this.tree.set(hash, v);
   }
 
-  private removeFromTree(seq: Chords, id: CommandId) {
+  private removeFromTree(seq: Chords, id: string) {
     const [prefix, ...rest] = seq;
     const hash = prefix.hashCode();
     if (!this.tree.has(hash)) {

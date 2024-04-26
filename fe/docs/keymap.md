@@ -115,7 +115,7 @@ So, there are
 Keymapping, in my messy mind right now, includes these parts:
 
 - Core lib: support for the command and keymaping system. Its core should
-  contrains:
+  contain:
 
   - Constants for key, code values.
   - Class, functions to work with the command system.

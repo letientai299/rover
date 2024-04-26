@@ -98,6 +98,7 @@ export class Registry<T> implements IRegistry<T> {
       this.addAction(el, intent, act);
     }
 
+    // TODO (tai): make dispatcher subscribe to registry for keymap rebinding.
     const dispatcher = new Dispatcher(el, this.cfg, handlers, keymaps);
     return () => {
       dispatcher.unbind();

@@ -12,6 +12,7 @@ export class Dispatcher {
   private pendingTimeoutId?: number;
   private pendingTree?: ChordMap;
   private pendingPrefix: Chords = [];
+  private waitKeyUp = false;
 
   constructor(
     private readonly element: KeyEventTarget,
@@ -20,8 +21,10 @@ export class Dispatcher {
     keymaps: Map<string, Chords[]>,
   ) {
     this.onKeyDown = this.onKeyDown.bind(this);
+    this.onKeyUp = this.onKeyUp.bind(this);
 
     this.element.addEventListener('keydown', this.onKeyDown);
+    this.element.addEventListener('keyup', this.onKeyUp);
     keymaps.forEach((km, id) => {
       this.rootTree.add(id, km);
     });
@@ -29,11 +32,20 @@ export class Dispatcher {
 
   unbind() {
     this.element.removeEventListener('keydown', this.onKeyDown);
+    this.element.removeEventListener('keyup', this.onKeyUp);
+  }
+
+  private onKeyUp() {
+    this.waitKeyUp = false;
   }
 
   private onKeyDown(e: KeyboardEvent) {
+    if (this.waitKeyUp) {
+      return;
+    }
+
     const chord = Chord.from(e);
-    if (!chord || chord.isModifierOnly()) {
+    if (!chord) {
       return;
     }
 
@@ -51,6 +63,13 @@ export class Dispatcher {
     // continue listening, or got a conflicting set of commands. In any case,
     // we need to swallow the event, prevent it from causing further actions.
     this.swallow(e);
+
+    // if the mapped chord is just modifier keys, we need to wait until
+    // keyup fired to process more chords, as those modifiers tent to get
+    // pressed for a long time.
+    if (chord.isModifierOnly()) {
+      this.waitKeyUp = true;
+    }
 
     this.pendingPrefix.push(chord);
 
@@ -76,7 +95,7 @@ export class Dispatcher {
     this.clearPendingTimeout();
   }
 
-  private exec = (id: string) => {
+  private exec(id: string) {
     const f = this.handlers.get(id);
     if (f) {
       f();
@@ -84,36 +103,40 @@ export class Dispatcher {
 
     this.restart();
     this.clearPendingTimeout();
-  };
+  }
 
-  private shouldRestart = (match: Match) => {
+  private shouldRestart(match: Match) {
     // if for some reason, the matched data doesn't have any command IDs
     // nor a subtree to continue listening.
     return match.ids.length === 0 && match.sub === undefined;
-  };
+  }
 
-  private restart = () => {
+  private restart() {
     // clear the pendingTree since the chord match nothing,
     // so that on next key press, we can start searching from root.
     this.pendingTree = undefined;
     this.pendingPrefix = [];
-  };
+    this.waitKeyUp = false;
+  }
 
   /** swallow the event to disallow it to propagate up or causing other actions */
-  private swallow = (e: KeyboardEvent) => {
+  private swallow(e: KeyboardEvent) {
     e.preventDefault();
     e.stopPropagation();
     return undefined;
-  };
+  }
 
-  private clearPendingTimeout = () => {
+  private clearPendingTimeout() {
     if (this.pendingTimeoutId !== undefined) {
       window.clearTimeout(this.pendingTimeoutId);
     }
-  };
+  }
 
-  private startPendingTimeout = () => {
+  private startPendingTimeout() {
     this.clearPendingTimeout();
-    this.pendingTimeoutId = window.setTimeout(this.restart, this.cfg.timeoutMs);
-  };
+    this.pendingTimeoutId = window.setTimeout(
+      this.restart.bind(this),
+      this.cfg.timeoutMs,
+    );
+  }
 }
